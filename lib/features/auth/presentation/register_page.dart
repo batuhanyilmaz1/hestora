@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
+import '../../../app/providers/invalidate_user_scoped_caches.dart';
 import '../../../core/config/supabase_bootstrap.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import 'widgets/auth_caps_field.dart';
@@ -88,6 +89,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
         password: _password.text,
         data: {'full_name': _name.text.trim()},
       );
+      invalidateUserScopedCaches(ref);
       if (!mounted) {
         return;
       }

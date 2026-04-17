@@ -6,6 +6,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
 import '../../../app/providers/auth_session_provider.dart';
+import '../../../app/providers/invalidate_user_scoped_caches.dart';
 import '../../../core/config/supabase_bootstrap.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_radii.dart';
@@ -168,7 +169,7 @@ class ProfilePage extends ConsumerWidget {
             iconColor: AppColors.error,
             title: l10n.signOut,
             isDestructive: true,
-            onTap: () => _confirmSignOut(context, l10n, clientReady),
+            onTap: () => _confirmSignOut(context, ref, l10n, clientReady),
           ),
           const SizedBox(height: AppSpacing.xl),
           Center(
@@ -215,6 +216,7 @@ class ProfilePage extends ConsumerWidget {
 
   static Future<void> _confirmSignOut(
     BuildContext context,
+    WidgetRef ref,
     AppLocalizations l10n,
     bool clientReady,
   ) async {
@@ -248,6 +250,7 @@ class ProfilePage extends ConsumerWidget {
         }
       }
     }
+    invalidateUserScopedCaches(ref);
     if (context.mounted) {
       context.go('/login');
     }

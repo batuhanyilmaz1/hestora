@@ -15,7 +15,6 @@ Future<void> main() async {
     await loadAppDotEnv();
   } catch (e, st) {
     appLog('dotenv load failed (.env asset missing or invalid)', e, st);
-    rethrow;
   }
 
   final env = AppEnvironment.fromEnv();

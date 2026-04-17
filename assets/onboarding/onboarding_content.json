@@ -1,0 +1,59 @@
+{
+  "en": {
+    "next": "Next",
+    "skip": "Skip",
+    "start": "Get started",
+    "slides": [
+      {
+        "title": "Manage customers in one place",
+        "body": "Track leads, notes, budgets and preferences without losing context."
+      },
+      {
+        "title": "Listings that stay organized",
+        "body": "Keep sale and rent portfolios structured with search and filters."
+      },
+      {
+        "title": "Tasks and reminders",
+        "body": "Never miss a follow-up. Link work to people and properties."
+      }
+    ]
+  },
+  "tr": {
+    "next": "İleri",
+    "skip": "Atla",
+    "start": "Başla",
+    "slides": [
+      {
+        "title": "Müşterileri tek yerden yönet",
+        "body": "Adayları, notları, bütçeyi ve tercihleri bağlamı kaybetmeden takip et."
+      },
+      {
+        "title": "Düzenli ilan portföyü",
+        "body": "Satılık ve kiralık portföyünü arama ve filtrelerle yapılandır."
+      },
+      {
+        "title": "Görev ve hatırlatıcılar",
+        "body": "Takipte kal. İşleri kişi ve ilanlarla ilişkilendir."
+      }
+    ]
+  },
+  "ar": {
+    "next": "التالي",
+    "skip": "تخطي",
+    "start": "ابدأ",
+    "slides": [
+      {
+        "title": "إدارة العملاء من مكان واحد",
+        "body": "تتبع العملاء والملاحظات والميزانيات دون فقدان السياق."
+      },
+      {
+        "title": "قوائم منظمة",
+        "body": "نظم عروض البيع والإيجار مع البحث والمرشحات."
+      },
+      {
+        "title": "مهام وتذكيرات",
+        "body": "تابع المهام واربطها بالأشخاص والعقارات."
+      }
+    ]
+  }
+}

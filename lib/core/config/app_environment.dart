@@ -8,6 +8,12 @@ enum AppFlavor {
 }
 
 class AppEnvironment {
+  /// Used when `.env` / merge did not supply credentials (common release pitfall:
+  /// empty `Platform.environment` entries shadowing `.env` — see [env_merge_io]).
+  static const String fallbackSupabaseUrl = 'https://czrqokugjafpchiwqlys.supabase.co';
+  static const String fallbackSupabaseAnonKey =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6cnFva3VnamFmcGNoaXdxbHlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyNjU3MTgsImV4cCI6MjA5MTg0MTcxOH0.qZ5Xe1gbKXeAgvSgKJMKE8ra9RDbKlSzRBlFcAtqbKU';
+
   AppEnvironment({
     required this.flavor,
     required this.supabaseUrl,
@@ -56,11 +62,28 @@ class AppEnvironment {
     final flavor = flavorRaw == 'production'
         ? AppFlavor.production
         : AppFlavor.development;
+    var supabaseUrl = _read('SUPABASE_URL');
+    var supabaseAnonKey = _read('SUPABASE_ANON_KEY');
+    final urlOk = _isPlausibleSupabaseUrl(supabaseUrl);
+    if (supabaseUrl.trim().isEmpty || !urlOk) {
+      supabaseUrl = fallbackSupabaseUrl;
+    }
+    if (supabaseAnonKey.trim().isEmpty) {
+      supabaseAnonKey = fallbackSupabaseAnonKey;
+    }
     return AppEnvironment(
       flavor: flavor,
-      supabaseUrl: _read('SUPABASE_URL'),
-      supabaseAnonKey: _read('SUPABASE_ANON_KEY'),
+      supabaseUrl: supabaseUrl,
+      supabaseAnonKey: supabaseAnonKey,
       openAiApiKey: _read('OPENAI_API_KEY'),
     );
+  }
+
+  static bool _isPlausibleSupabaseUrl(String raw) {
+    final u = Uri.tryParse(raw.trim());
+    if (u == null || !u.hasScheme || u.host.isEmpty) {
+      return false;
+    }
+    return u.host.contains('.') && (u.isScheme('https') || u.isScheme('http'));
   }
 }
