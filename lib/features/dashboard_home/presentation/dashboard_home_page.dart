@@ -66,8 +66,6 @@ class DashboardHomePage extends ConsumerWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _HomeTopLogo(height: 44),
-                const SizedBox(height: AppSpacing.md),
                 Text(
                   l10n.welcomeShort,
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -126,42 +124,6 @@ class DashboardHomePage extends ConsumerWidget {
                   ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-/// Ana sayfa üstü: `assets/logo/LOGO-1.png`.
-class _HomeTopLogo extends StatelessWidget {
-  const _HomeTopLogo({required this.height});
-
-  final double height;
-
-  @override
-  Widget build(BuildContext context) {
-    final dpr = MediaQuery.devicePixelRatioOf(context);
-    final cacheH = (height * dpr).round().clamp(48, 256);
-    final cacheW = (height * 4 * dpr).round().clamp(120, 800);
-
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: SizedBox(
-        height: height,
-        width: height * 4,
-        child: Image.asset(
-          'assets/logo/LOGO-1.png',
-          fit: BoxFit.contain,
-          alignment: Alignment.centerLeft,
-          filterQuality: FilterQuality.high,
-          cacheHeight: cacheH,
-          cacheWidth: cacheW,
-          gaplessPlayback: true,
-          errorBuilder: (_, _, _) => Icon(
-            Icons.business_rounded,
-            size: height * 0.85,
-            color: HomeShellTheme.textLightBlue.withValues(alpha: 0.9),
-          ),
         ),
       ),
     );

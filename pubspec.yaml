@@ -47,7 +47,6 @@ flutter:
     - .env
     - assets/branding/
     - assets/logo/
-    - assets/splash/
     - assets/onboarding/
     - assets/themes/
     - assets/themes/json/
