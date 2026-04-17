@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hestora — Davet</title>
+</head>
+<body style="margin:0;padding:0;background-color:#0f1419;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#0f1419;padding:32px 16px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" style="max-width:520px;background-color:#1a2332;border-radius:16px;overflow:hidden;border:1px solid #2d3a4d;">
+          <tr>
+            <td style="padding:28px 28px 8px 28px;">
+              <p style="margin:0;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#7dd3c0;font-weight:600;">Hestora</p>
+              <h1 style="margin:12px 0 0 0;font-size:22px;line-height:1.3;color:#f0f4f8;font-weight:600;">Davet edildin</h1>
+              <p style="margin:16px 0 0 0;font-size:15px;line-height:1.6;color:#a8b4c4;">
+                Hestora CRM’e katılmak için davet edildin. Hesabını oluşturmak veya giriş yapmak için aşağıdaki butona tıkla.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 28px 28px 28px;">
+              <a href="{{ .ConfirmationURL }}" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#2dd4bf,#0d9488);color:#0f1419;text-decoration:none;font-weight:600;font-size:15px;border-radius:12px;">
+                Daveti kabul et
+              </a>
+              <p style="margin:20px 0 0 0;font-size:12px;line-height:1.5;color:#6b7c90;word-break:break-all;">
+                Buton çalışmazsa bu bağlantıyı tarayıcıya yapıştır:<br />
+                <span style="color:#94a3b8;">{{ .ConfirmationURL }}</span>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <p style="margin:24px 0 0 0;font-size:11px;color:#475569;">© Hestora</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

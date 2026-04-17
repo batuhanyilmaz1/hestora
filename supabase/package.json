@@ -1,0 +1,13 @@
+{
+  "name": "hestora-supabase",
+  "private": true,
+  "scripts": {
+    "login": "supabase login",
+    "link": "supabase link",
+    "deploy:redirect": "supabase functions deploy redirect",
+    "serve:redirect": "supabase functions serve redirect --no-verify-jwt"
+  },
+  "devDependencies": {
+    "supabase": "^2.22.6"
+  }
+}

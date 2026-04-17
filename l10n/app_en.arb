@@ -1,0 +1,533 @@
+{
+  "@@locale": "en",
+  "appTitle": "Hestora CRM",
+  "homeTitle": "Home",
+  "homeSubtitle": "Real estate CRM base app is ready.",
+  "buildEnvironmentTitle": "Environment",
+  "flavorDevelopment": "Development",
+  "flavorProduction": "Production",
+  "supabaseSectionTitle": "Supabase",
+  "supabaseStatusConnected": "Supabase: connected",
+  "supabaseStatusNotConfigured": "Supabase: not configured (set values in .env)",
+  "languageEnglish": "English",
+  "languageTurkish": "Turkish",
+  "languageArabic": "Arabic",
+  "languageSystem": "System default",
+  "languageSectionTitle": "Language",
+  "demoSectionTitle": "Demo",
+  "demoSectionSubtitle": "Reusable input",
+  "demoSearchLabel": "Search",
+  "demoSearchHint": "Try Arabic to see RTL…",
+  "navHome": "Home",
+  "navCustomers": "Customers",
+  "navProperties": "Listings",
+  "navProfile": "Profile",
+  "splashLoading": "Loading…",
+  "onboardingNext": "Next",
+  "onboardingSkip": "Skip",
+  "onboardingStart": "Get started",
+  "navTasks": "Tasks",
+  "tasksTitle": "Tasks",
+  "tasksSubtitle": "Follow-ups and internal work",
+  "tasksEmpty": "No tasks yet",
+  "taskNewTitle": "New task",
+  "taskFieldTitle": "Title",
+  "taskFieldDue": "Due date (optional)",
+  "taskLinkedCustomer": "Customer (optional)",
+  "taskLinkedProperty": "Listing (optional)",
+  "taskNoneSelected": "None",
+  "taskMarkDone": "Complete",
+  "taskMarkedDone": "Task completed",
+  "aiExtractWithOpenAi": "Extract with OpenAI",
+  "aiExtractNeedInput": "Select an image or paste text first.",
+  "aiExtractNoApiKey": "OPENAI_API_KEY is missing. Add it to .env.",
+  "aiExtractFailed": "AI extraction failed",
+  "listingImportTitle": "Import from link",
+  "listingUrlLabel": "Listing URL",
+  "listingImportHint": "Paste a public listing URL",
+  "listingImportAction": "Fetch preview",
+  "onboardingSlide1Title": "Manage customers in one place",
+  "onboardingSlide1Body": "Track leads, notes, budgets and preferences without losing context.",
+  "onboardingSlide2Title": "Listings that stay organized",
+  "onboardingSlide2Body": "Keep sale and rent portfolios structured with search and filters.",
+  "onboardingSlide3Title": "Tasks and reminders",
+  "onboardingSlide3Body": "Never miss a follow-up. Link work to people and properties.",
+  "welcomeShort": "Welcome",
+  "dashboardHeadline": "Let's get started with Hestora",
+  "heroCardTitle": "Manage everything from one place",
+  "heroCardBody": "You can start managing your customers, portfolios and daily tasks in a single app.",
+  "ctaAddFirstCustomer": "Add your first customer",
+  "ctaAddListing": "Add listing",
+  "ctaReminder": "Reminder",
+  "fabTip": "You can quickly start actions with the + button in the center.",
+  "customersTitle": "Customers",
+  "customersSubtitle": "{count} customers saved",
+  "@customersSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "propertiesTitle": "Listings",
+  "propertiesSubtitle": "{count} customers saved",
+  "@propertiesSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchCustomersHint": "Search customers (name, phone, notes)",
+  "customersMatchesCount": "{count} matches",
+  "@customersMatchesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chipBuyer": "Buyer",
+  "chipTenant": "Tenant",
+  "chipSeller": "Seller",
+  "chipLandlord": "Landlord",
+  "customersFilterTooltip": "Sort",
+  "customersSortTitle": "Sort",
+  "customersSortNameAsc": "Name (A–Z)",
+  "customersSortNameDesc": "Name (Z–A)",
+  "customersFilteredEmpty": "No results for this filter or search.",
+  "customersFilteredEmptyClear": "Reset",
+  "searchListingsHint": "Search listings (location, price, type)",
+  "chipAll": "All",
+  "chipSale": "For sale",
+  "chipRent": "For rent",
+  "chipActive": "Active",
+  "chipPassive": "Inactive",
+  "ctaAddFirstListing": "Add your first listing",
+  "emptyCustomersTitle": "No customers yet",
+  "emptyCustomersBody": "Add a customer to see them listed here.",
+  "emptyPropertiesTitle": "No listings yet",
+  "emptyPropertiesBody": "Create a listing to build your portfolio.",
+  "profileTitle": "Profile",
+  "profileRoleConsultant": "Real estate consultant",
+  "profileStatsLine": "{listingCount} listings • {customerCount} customers",
+  "@profileStatsLine": {
+    "placeholders": {
+      "listingCount": { "type": "int" },
+      "customerCount": { "type": "int" }
+    }
+  },
+  "profileStatActiveListings": "Active listings",
+  "profileStatTotalCustomers": "Total customers",
+  "profileStatOpenTasks": "Open tasks",
+  "profileMenuAccount": "Account",
+  "accountSettingsTitle": "Account settings",
+  "accountProfileEditorTitle": "Profile & email",
+  "accountHubProfileTitle": "Profile & email",
+  "accountHubProfileSubtitle": "Name, photo and email address",
+  "accountHubChangePasswordTitle": "Change password",
+  "accountHubChangePasswordSubtitle": "Update your sign-in password",
+  "accountHubChangeEmailTitle": "Change email",
+  "accountHubChangeEmailSubtitle": "Update the address you use to sign in",
+  "accountHubIntro": "Manage your profile, password and email.",
+  "profileDisplayNameLabel": "Display name",
+  "profileMenuNotifications": "Notifications",
+  "profileMenuAnalytics": "Analytics & reports",
+  "profileMenuSupport": "Support / help",
+  "profileAppVersion": "Hestora CRM v1.0.0",
+  "profileAccountSheetTitle": "Account",
+  "profileMoreMenu": "More",
+  "signOut": "Sign out",
+  "signOutConfirm": "Are you sure you want to sign out?",
+  "cancel": "Cancel",
+  "loginTitle": "Sign in",
+  "registerTitle": "Create account",
+  "forgotTitle": "Forgot password",
+  "emailLabel": "Email",
+  "passwordLabel": "Password",
+  "confirmPasswordLabel": "Confirm password",
+  "loginSubmit": "Sign in",
+  "registerSubmit": "Create account",
+  "forgotSubmit": "Send reset link",
+  "noAccount": "No account? Register",
+  "haveAccount": "Already have an account? Sign in",
+  "forgotLink": "Forgot password?",
+  "authErrorGeneric": "Something went wrong. Check your details and try again.",
+  "validationRequired": "This field is required",
+  "validationEmail": "Enter a valid email",
+  "validationPasswordLength": "Use at least 6 characters",
+  "validationPasswordMatch": "Passwords do not match",
+  "quickActionsTitle": "Quick actions",
+  "quickAddCustomer": "Add customer",
+  "quickAddProperty": "Add listing",
+  "quickAddReminder": "Reminder (soon)",
+  "quickAiImportCustomer": "Customer from screenshot",
+  "customerCreateMethodTitle": "How do you want to add the customer?",
+  "customerCreateOptionManual": "Manual",
+  "customerCreateOptionManualBody": "Open the classic form and enter the customer details yourself.",
+  "customerCreateOptionAi": "With AI support",
+  "customerCreateOptionAiBody": "Pick a screenshot and quickly create the customer from detected name and phone.",
+  "demoModeBanner": "Demo mode: configure Supabase in .env to enable cloud sync and sign-in.",
+  "back": "Back",
+  "save": "Save",
+  "customerDetailTitle": "Customer",
+  "propertyDetailTitle": "Listing",
+  "fieldName": "Name",
+  "fieldPhone": "Phone",
+  "fieldNotes": "Notes",
+  "createCustomerTitle": "New customer",
+  "createPropertyTitle": "New listing",
+  "listingTitleLabel": "Title",
+  "listingTypeLabel": "Listing type",
+  "listingPriceLabel": "Price",
+  "listingLocationLabel": "Location",
+  "listingDescriptionLabel": "Description",
+  "comingSoon": "Coming soon",
+  "registerSuccess": "Account created. Check your inbox if email confirmation is enabled.",
+  "resetEmailSent": "If this email exists, a reset link was sent.",
+  "fieldRoomCountShort": "Rooms",
+  "fieldBathroomCountShort": "Baths",
+  "fieldAreaSqmShort": "Area (m²)",
+  "ogFetchError": "Could not load page metadata. Try another URL or fill manually.",
+  "ogPartialData": "Some fields may be empty — you can edit before saving.",
+  "matchesForCustomer": "Matching listings",
+  "matchesForProperty": "Matching customers",
+  "matchScoreLabel": "{score}% match",
+  "@matchScoreLabel": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "matchStrong": "Strong match",
+  "syncMatchesToCloud": "Save matches to cloud",
+  "shareClicksTotal": "Share link clicks (total)",
+  "redirectLinkTitle": "Tracking link",
+  "createTrackingLink": "Create tracking link",
+  "copyTrackingLink": "Copy link",
+  "trackingLinkHelp": "Opens the original listing URL and increments the total click counter (no personal data stored). Deploy the Edge Function in Supabase.",
+  "shareCardTitle": "Share card",
+  "templateStory": "Story 9:16",
+  "templateSquare": "Square 1:1",
+  "exportPng": "Export PNG",
+  "shareCardPickTheme": "Card theme",
+  "shareCardAllThemesSample": "All themes (sample preview)",
+  "shareCardMockOverlay": "Use sample data in main preview",
+  "shareCardBathroomsShort": "{count} bath",
+  "@shareCardBathroomsShort": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shareCardAreaSqmShort": "{sqm} m²",
+  "@shareCardAreaSqmShort": {
+    "placeholders": {
+      "sqm": {
+        "type": "String"
+      }
+    }
+  },
+  "shareCardTuneListingPhoto": "Adjust photo framing",
+  "shareCardAdjustPhotoTitle": "Listing photo framing",
+  "shareCardAdjustPhotoHint": "Sliders change which part of the photo stays visible with cover fit. Quick tiles jump to common crops.",
+  "shareCardAdjustPhotoHorizontal": "Horizontal",
+  "shareCardAdjustPhotoVertical": "Vertical",
+  "shareCardAdjustPhotoPresets": "Quick positions",
+  "shareCardAdjustPhotoReset": "Reset",
+  "shareCardAdjustPhotoDone": "Done",
+  "shareCard": "Share",
+  "aiImportTitle": "From screenshot",
+  "aiImportSubtitle": "Pick a WhatsApp or chat screenshot with the contact info. We detect the phone and name, then create the customer with those fields only.",
+  "aiPickGallery": "Choose image",
+  "aiSuggestedPhone": "Detected phone",
+  "aiOpenForm": "Continue to customer form",
+  "aiDetectedNameHint": "If no name is detected, the customer will be created as Unknown customer.",
+  "aiCreateCustomer": "Create customer",
+  "aiCreateNeedsPhone": "No phone number could be detected. Try another screenshot or edit the phone field.",
+  "aiCustomerCreated": "Customer created.",
+  "listingUrlOpen": "Open original listing",
+  "fieldListingIntent": "Intent",
+  "fieldPreferredLocation": "Preferred location",
+  "fieldBudgetMin": "Budget min",
+  "fieldBudgetMax": "Budget max",
+  "fieldRoomCount": "Room count",
+  "fieldAreaMin": "Min area (m²)",
+  "fieldAreaMax": "Max area (m²)",
+  "intentNotSet": "Not set",
+  "loginFooterQuestion": "Don't have an account?",
+  "registerFooterQuestion": "Already have an account?",
+  "loginWelcomeTitle": "Welcome back",
+  "loginWelcomeSubtitle": "Log in to your account",
+  "registerHeadline": "Create account",
+  "registerSubtitle": "Join the premium CRM",
+  "fieldFullName": "Full name",
+  "forgotHeaderSubtitle": "Password reset",
+  "forgotHeroTitle": "Reset your password",
+  "forgotHeroBody": "Enter your email address to reset your password.",
+  "forgotEmailLabelCaps": "YOUR EMAIL ADDRESS",
+  "forgotRememberedLogin": "Remembered your password?",
+  "passwordUpdatedTitle": "Password updated",
+  "passwordUpdatedBody": "You can now sign in with your new password.",
+  "passwordUpdatedB1": "Your password was changed successfully.",
+  "passwordUpdatedB2": "Sessions on other devices were closed.",
+  "passwordUpdatedB3": "Your account is more secure.",
+  "goToLogin": "Go to login",
+  "updatePasswordScreenTitle": "Create new password",
+  "updatePasswordScreenSubtitle": "Password renewal",
+  "updatePasswordHero": "Set a new password for your account.",
+  "updatePasswordCta": "Update password",
+  "newPasswordLabel": "New password",
+  "repeatNewPasswordLabel": "Repeat new password",
+  "passwordReqTitle": "Password requirements",
+  "reqMin8": "At least 8 characters",
+  "reqOneNumber": "At least 1 number",
+  "reqOneUpper": "At least 1 uppercase letter",
+  "strengthStrong": "Strong",
+  "strengthMedium": "Medium",
+  "strengthWeak": "Weak",
+  "authKvkk": "I have read and accept the disclosure text.",
+  "authKvkkLink": "KVKK disclosure text",
+  "authKvkkDialogTitle": "Disclosure text",
+  "authKvkkDialogBody": "Your personal data is processed under applicable privacy laws. Replace this text with your legal copy.",
+  "emailLabelCaps": "EMAIL",
+  "passwordLabelCaps": "PASSWORD",
+  "registerPasswordHint": "At least 8 characters",
+  "validationPasswordLength8": "Use at least 8 characters",
+  "profileNotificationsTitle": "Notification settings",
+  "profileNotificationsSubtitle": "Choose what you want to be notified about.",
+  "profileNotifyMatches": "Match suggestions",
+  "profileNotifyMatchesSubtitle": "When a new compatible listing or customer appears.",
+  "profileNotifyTasks": "Tasks and reminders",
+  "profileNotifyTasksSubtitle": "Due dates and new tasks.",
+  "profileNotifyMarketing": "Product updates",
+  "profileNotifyMarketingSubtitle": "New features and tips (rarely).",
+  "profileAnalyticsTitle": "Analytics and reports",
+  "profileAnalyticsSubtitle": "Summary metrics — detailed reports coming soon.",
+  "profileAnalyticsCustomers": "Customers",
+  "profileAnalyticsListings": "Listings",
+  "profileAnalyticsTasksOpen": "Open tasks",
+  "profileAnalyticsShareClicks": "Tracking link clicks",
+  "profileSupportTitle": "Support and help",
+  "profileSupportSubtitle": "Contact and frequently asked questions.",
+  "profileSupportFaqHeading": "FAQ",
+  "profileSupportEmailAddress": "support@hestora.app",
+  "profileSupportEmailCta": "Email us",
+  "profileSupportEmailSubject": "Hestora CRM support",
+  "profileSupportFaq1Title": "How does the tracking link work?",
+  "profileSupportFaq1Body": "Create it from a listing detail and share it. When opened, the original listing loads and the total click counter increases.",
+  "profileSupportFaq2Title": "Where is my data stored?",
+  "profileSupportFaq2Body": "In Supabase under your account; only you can access your rows (enforced by RLS).",
+  "listingPhotosSection": "Listing photos",
+  "listingPhotosHint": "Up to 12 images. JPEG, PNG, or WebP.",
+  "addListingPhotos": "Choose photos",
+  "listingGalleryTitle": "Photos",
+  "profileChangePhoto": "Change profile photo",
+  "profilePhotoUpdated": "Profile photo updated",
+  "propertyEditTitle": "Edit listing",
+  "propertyEditSubtitle": "Update information and save",
+  "propertySectionBasics": "Basic information",
+  "propertySectionFeatures": "Features",
+  "propertySectionMedia": "Media and link",
+  "listingExistingPhotos": "Current photos",
+  "propertyDetailSubtitle": "Property detail",
+  "tabPropertyInfo": "Info",
+  "tabPropertyCustomers": "Customers",
+  "tabPropertyActions": "Actions",
+  "propertyFeaturesTitle": "Property features",
+  "featureRoom": "Room",
+  "featureArea": "Area",
+  "featureFloor": "Floor",
+  "featureAge": "Age",
+  "featureParking": "Parking",
+  "featureHeating": "Heating",
+  "featureUnknown": "—",
+  "markAsSold": "Mark as sold",
+  "customerDetailSubtitle": "Customer detail",
+  "searchCriteriaTitle": "Search criteria",
+  "tabCustomerHistory": "History",
+  "tabCustomerNotes": "Notes",
+  "tabCustomerMatching": "Matching",
+  "activityHistoryTitle": "Activity history",
+  "activityRecordsCount": "{count} records",
+  "@activityRecordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerBadgeBuyer": "Buyer",
+  "customerBadgeSeller": "Seller",
+  "customerCall": "Call",
+  "customerWhatsapp": "WhatsApp",
+  "customerMessage": "Message",
+  "localeRegionTitle": "Language & region",
+  "localeRegionSavedTitle": "Saved",
+  "localeRegionSavedBody": "Your language and region settings were saved. You can change them anytime from your profile.",
+  "localeRegionIntro": "Review app language and region. You can change them later if you want.",
+  "fieldRegionCountry": "Region / country",
+  "fieldCurrency": "Currency",
+  "currencyTry": "TRY — Turkish Lira",
+  "regionTurkey": "Turkey",
+  "regionSettingHint": "Region setting",
+  "currencySettingHint": "Currency",
+  "appLanguageHint": "App language",
+  "editCustomerTitle": "Edit customer",
+  "customerNoLastCallInfo": "No call log yet",
+  "customerLastActivitySummary": "Last contact: {when}",
+  "@customerLastActivitySummary": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "customerLastActivityJustNow": "Just now",
+  "customerLastActivityMinutesAgo": "{count} min ago",
+  "@customerLastActivityMinutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerLastActivityHoursAgo": "{count} h ago",
+  "@customerLastActivityHoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerLastActivityDaysAgo": "{count} days ago",
+  "@customerLastActivityDaysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerUrgentTag": "Urgent",
+  "criteriaLabelLocation": "Location",
+  "criteriaLabelBudget": "Budget",
+  "criteriaLabelRooms": "Rooms",
+  "criteriaLabelArea": "Area",
+  "customerAreaAtLeast": "{sqm} m² and up",
+  "@customerAreaAtLeast": {
+    "placeholders": {
+      "sqm": {
+        "type": "String"
+      }
+    }
+  },
+  "customerQuickAddNote": "Add quick note",
+  "customerViewListingDetail": "View detail",
+  "customerSendToClient": "Send to customer",
+  "customerStrongMatchesTitle": "Matches over {threshold}%",
+  "@customerStrongMatchesTitle": {
+    "placeholders": {
+      "threshold": {
+        "type": "int"
+      }
+    }
+  },
+  "customerListingCountBadge": "{count} listings",
+  "@customerListingCountBadge": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerActivityNoteAdded": "Note added",
+  "customerActivityRegistration": "Registration",
+  "customerActivityRegistrationBody": "Customer card was created.",
+  "customerActivityTimeUnknown": "—",
+  "customerNotesEmpty": "No notes yet.",
+  "customerBadgeTenant": "Tenant",
+  "propertySuitableCustomersTitle": "Suitable customers",
+  "propertySuitableCustomerCountBadge": "{count} customers",
+  "@propertySuitableCustomerCountBadge": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "propertyCustomerSeekingBoth": "Seeking {rooms} in {location}",
+  "@propertyCustomerSeekingBoth": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      },
+      "rooms": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingRoomsOnly": "Seeking {rooms}",
+  "@propertyCustomerSeekingRoomsOnly": {
+    "placeholders": {
+      "rooms": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingLocationOnly": "Looking in {location}",
+  "@propertyCustomerSeekingLocationOnly": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingUnknown": "No preference details",
+  "propertyListingSend": "Send listing",
+  "propertyQuickActionsTitle": "Quick actions",
+  "propertyActionSendCustomersTitle": "Send to customers",
+  "propertyActionSendCustomersSubtitle": "Forward this listing to suitable customers",
+  "propertyActionShareTitle": "Share",
+  "propertyActionShareSubtitle": "Share as link or image",
+  "propertyActionEditTitle": "Edit",
+  "propertyActionEditSubtitle": "Update listing details",
+  "propertyActionNoteTitle": "Add note / reminder",
+  "propertyActionNoteSubtitle": "Create a note or task for this listing",
+  "propertyActionSyncMatchesTitle": "Save matches to cloud",
+  "propertyActionSyncMatchesSubtitle": "Sync customer matches for this listing",
+  "propertyNoteComingSoon": "This feature is coming soon.",
+  "validationUrl": "Enter a valid URL",
+  "taskEditTitle": "Edit task",
+  "taskFieldPriority": "Priority",
+  "taskFieldStatus": "Status",
+  "taskPriorityLow": "Low",
+  "taskPriorityNormal": "Normal",
+  "taskPriorityHigh": "High",
+  "taskPriorityUrgent": "Urgent",
+  "taskStatusOpen": "Open",
+  "taskStatusDone": "Done",
+  "taskStatusClosed": "Closed",
+  "taskClearDueDate": "Clear due date",
+  "taskLoadErrorTitle": "Could not load task",
+  "taskNotFoundTitle": "Task not found",
+  "taskNotFoundBody": "This task does not exist or you no longer have access to it.",
+  "taskRetryLoad": "Retry",
+  "taskNoDueDate": "No due date",
+  "customerActivityTaskLinked": "Task linked",
+  "customerActivityPropertyMatched": "Property matched",
+  "customerActivityPropertyShared": "Property shared",
+  "customerActivityEmpty": "No activity has been recorded yet.",
+  "customerNoteInputHint": "Add a quick follow-up note",
+  "customerSummaryNoteTitle": "Customer summary",
+  "customerUnknownName": "Unknown customer",
+  "customerImportContacts": "Import from contacts",
+  "customerImportPermissionDenied": "Contacts permission was denied.",
+  "customerImportNoContacts": "No contacts were found on this device.",
+  "customerImportUnsupported": "Contacts import is only available on supported mobile devices.",
+  "customerImportPickerTitle": "Choose a contact",
+  "listingImportFallbackTitle": "Continue manually",
+  "listingImportFallbackBody": "Preview data is missing or blocked. You can continue and complete the listing manually.",
+  "listingImportContinueManual": "Continue with manual form"
+}

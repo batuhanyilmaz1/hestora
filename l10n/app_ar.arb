@@ -1,0 +1,533 @@
+{
+  "@@locale": "ar",
+  "appTitle": "هيستورا CRM",
+  "homeTitle": "الرئيسية",
+  "homeSubtitle": "تطبيق أساسي لإدارة علاقات العملاء في العقارات جاهز.",
+  "buildEnvironmentTitle": "البيئة",
+  "flavorDevelopment": "تطوير",
+  "flavorProduction": "إنتاج",
+  "supabaseSectionTitle": "Supabase",
+  "supabaseStatusConnected": "Supabase: متصل",
+  "supabaseStatusNotConfigured": "Supabase: غير مُعد (اضبط القيم في .env)",
+  "languageEnglish": "الإنجليزية",
+  "languageTurkish": "التركية",
+  "languageArabic": "العربية",
+  "languageSystem": "افتراضي النظام",
+  "languageSectionTitle": "اللغة",
+  "demoSectionTitle": "تجربة",
+  "demoSectionSubtitle": "حقل قابل لإعادة الاستخدام",
+  "demoSearchLabel": "بحث",
+  "demoSearchHint": "جرّب العربية لرؤية RTL…",
+  "navHome": "الرئيسية",
+  "navCustomers": "العملاء",
+  "navProperties": "العقارات",
+  "navProfile": "الملف",
+  "splashLoading": "جارٍ التحميل…",
+  "onboardingNext": "التالي",
+  "onboardingSkip": "تخطي",
+  "onboardingStart": "ابدأ",
+  "navTasks": "المهام",
+  "tasksTitle": "المهام",
+  "tasksSubtitle": "المتابعات والعمل الداخلي",
+  "tasksEmpty": "لا توجد مهام بعد",
+  "taskNewTitle": "مهمة جديدة",
+  "taskFieldTitle": "العنوان",
+  "taskFieldDue": "تاريخ الاستحقاق (اختياري)",
+  "taskLinkedCustomer": "عميل (اختياري)",
+  "taskLinkedProperty": "عقار (اختياري)",
+  "taskNoneSelected": "بدون",
+  "taskMarkDone": "إكمال",
+  "taskMarkedDone": "تم إكمال المهمة",
+  "aiExtractWithOpenAi": "استخراج عبر OpenAI",
+  "aiExtractNeedInput": "اختر صورة أو الصق نصًا أولًا.",
+  "aiExtractNoApiKey": "OPENAI_API_KEY غير معرّف. أضفه إلى ملف .env.",
+  "aiExtractFailed": "فشل استخراج الذكاء الاصطناعي",
+  "listingImportTitle": "استيراد من رابط",
+  "listingUrlLabel": "رابط الإعلان",
+  "listingImportHint": "الصق رابط إعلان عام",
+  "listingImportAction": "جلب المعاينة",
+  "onboardingSlide1Title": "إدارة العملاء من مكان واحد",
+  "onboardingSlide1Body": "تتبع العملاء والملاحظات والميزانيات دون فقدان السياق.",
+  "onboardingSlide2Title": "قوائم منظمة",
+  "onboardingSlide2Body": "نظم عروض البيع والإيجار مع البحث والمرشحات.",
+  "onboardingSlide3Title": "مهام وتذكيرات",
+  "onboardingSlide3Body": "تابع المهام واربطها بالأشخاص والعقارات.",
+  "welcomeShort": "مرحبًا",
+  "dashboardHeadline": "لنبدأ مع هيستورا",
+  "heroCardTitle": "إدارة كل شيء من مكان واحد",
+  "heroCardBody": "ابدأ بإدارة العملاء والمحفظة والمهام اليومية في تطبيق واحد.",
+  "ctaAddFirstCustomer": "أضف أول عميل",
+  "ctaAddListing": "أضف إعلانًا",
+  "ctaReminder": "تذكير",
+  "fabTip": "يمكنك بدء الإجراءات بسرعة عبر زر + في المنتصف.",
+  "customersTitle": "العملاء",
+  "customersSubtitle": "{count} عميل مسجل",
+  "@customersSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "propertiesTitle": "العقارات",
+  "propertiesSubtitle": "{count} عميل مسجل",
+  "@propertiesSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchCustomersHint": "ابحث عن العملاء (الاسم، الهاتف، الملاحظات)",
+  "customersMatchesCount": "{count} تطابقًا",
+  "@customersMatchesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chipBuyer": "مشتري",
+  "chipTenant": "مستأجر",
+  "chipSeller": "بائع",
+  "chipLandlord": "مالك",
+  "customersFilterTooltip": "الترتيب",
+  "customersSortTitle": "الترتيب",
+  "customersSortNameAsc": "الاسم (أ–ي)",
+  "customersSortNameDesc": "الاسم (ي–أ)",
+  "customersFilteredEmpty": "لا توجد نتائج لهذا التصفية أو البحث.",
+  "customersFilteredEmptyClear": "إعادة ضبط",
+  "searchListingsHint": "ابحث في الإعلانات (الموقع، السعر، النوع)",
+  "chipAll": "الكل",
+  "chipSale": "للبيع",
+  "chipRent": "للإيجار",
+  "chipActive": "نشط",
+  "chipPassive": "غير نشط",
+  "ctaAddFirstListing": "أضف أول إعلان",
+  "emptyCustomersTitle": "لا يوجد عملاء بعد",
+  "emptyCustomersBody": "أضف عميلًا لعرضه هنا.",
+  "emptyPropertiesTitle": "لا توجد إعلانات بعد",
+  "emptyPropertiesBody": "أنشئ إعلانًا لبناء المحفظة.",
+  "profileTitle": "الملف الشخصي",
+  "profileRoleConsultant": "مستشار عقاري",
+  "profileStatsLine": "{listingCount} إعلان • {customerCount} عميل",
+  "@profileStatsLine": {
+    "placeholders": {
+      "listingCount": { "type": "int" },
+      "customerCount": { "type": "int" }
+    }
+  },
+  "profileStatActiveListings": "إعلانات نشطة",
+  "profileStatTotalCustomers": "إجمالي العملاء",
+  "profileStatOpenTasks": "مهام مفتوحة",
+  "profileMenuAccount": "معلومات الحساب",
+  "accountSettingsTitle": "إعدادات الحساب",
+  "accountProfileEditorTitle": "الملف والبريد",
+  "accountHubProfileTitle": "الملف والبريد",
+  "accountHubProfileSubtitle": "الاسم والصورة وعنوان البريد",
+  "accountHubChangePasswordTitle": "تغيير كلمة المرور",
+  "accountHubChangePasswordSubtitle": "تحديث كلمة مرور تسجيل الدخول",
+  "accountHubChangeEmailTitle": "تغيير البريد",
+  "accountHubChangeEmailSubtitle": "تحديث عنوان البريد المستخدم للدخول",
+  "accountHubIntro": "إدارة ملفك وكلمة المرور والبريد.",
+  "profileDisplayNameLabel": "الاسم المعروض",
+  "profileMenuNotifications": "إعدادات الإشعارات",
+  "profileMenuAnalytics": "التحليلات والتقارير",
+  "profileMenuSupport": "الدعم / المساعدة",
+  "profileAppVersion": "Hestora CRM v1.0.0",
+  "profileAccountSheetTitle": "الحساب",
+  "profileMoreMenu": "المزيد",
+  "signOut": "تسجيل الخروج",
+  "signOutConfirm": "هل تريد تسجيل الخروج؟",
+  "cancel": "إلغاء",
+  "loginTitle": "تسجيل الدخول",
+  "registerTitle": "إنشاء حساب",
+  "forgotTitle": "نسيت كلمة المرور",
+  "emailLabel": "البريد الإلكتروني",
+  "passwordLabel": "كلمة المرور",
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+  "loginSubmit": "تسجيل الدخول",
+  "registerSubmit": "إنشاء الحساب",
+  "forgotSubmit": "إرسال رابط الاستعادة",
+  "noAccount": "لا حساب؟ سجّل",
+  "haveAccount": "لديك حساب؟ سجّل الدخول",
+  "forgotLink": "نسيت كلمة المرور؟",
+  "authErrorGeneric": "حدث خطأ. تحقق من البيانات وحاول مرة أخرى.",
+  "validationRequired": "هذا الحقل مطلوب",
+  "validationEmail": "أدخل بريدًا صالحًا",
+  "validationPasswordLength": "استخدم 6 أحرف على الأقل",
+  "validationPasswordMatch": "كلمتا المرور غير متطابقتين",
+  "quickActionsTitle": "إجراءات سريعة",
+  "quickAddCustomer": "إضافة عميل",
+  "quickAddProperty": "إضافة إعلان",
+  "quickAddReminder": "تذكير (قريبًا)",
+  "quickAiImportCustomer": "عميل من لقطة شاشة",
+  "customerCreateMethodTitle": "كيف تريد إضافة العميل؟",
+  "customerCreateOptionManual": "يدويًا",
+  "customerCreateOptionManualBody": "افتح النموذج الكلاسيكي وأدخل بيانات العميل بنفسك.",
+  "customerCreateOptionAi": "بمساعدة الذكاء الاصطناعي",
+  "customerCreateOptionAiBody": "اختر لقطة شاشة لاستخراج الاسم ورقم الهاتف وإنشاء العميل بسرعة.",
+  "demoModeBanner": "وضع تجريبي: اضبط Supabase في .env للمزامنة وتسجيل الدخول.",
+  "back": "رجوع",
+  "save": "حفظ",
+  "customerDetailTitle": "عميل",
+  "propertyDetailTitle": "إعلان",
+  "fieldName": "الاسم",
+  "fieldPhone": "الهاتف",
+  "fieldNotes": "ملاحظات",
+  "createCustomerTitle": "عميل جديد",
+  "createPropertyTitle": "إعلان جديد",
+  "listingTitleLabel": "العنوان",
+  "listingTypeLabel": "نوع الإعلان",
+  "listingPriceLabel": "السعر",
+  "listingLocationLabel": "الموقع",
+  "listingDescriptionLabel": "الوصف",
+  "comingSoon": "قريبًا",
+  "registerSuccess": "تم إنشاء الحساب. راجع بريدك إذا كان التأكيد مفعّلًا.",
+  "resetEmailSent": "إن وُجد البريد، أُرسل رابط الاستعادة.",
+  "fieldRoomCountShort": "غرف",
+  "fieldBathroomCountShort": "حمامات",
+  "fieldAreaSqmShort": "المساحة (م²)",
+  "ogFetchError": "تعذر جلب بيانات الصفحة. جرّب رابطًا آخر أو املأ يدويًا.",
+  "ogPartialData": "قد تكون بعض الحقول فارغة — يمكنك التعديل قبل الحفظ.",
+  "matchesForCustomer": "إعلانات مطابقة",
+  "matchesForProperty": "عملاء مطابقون",
+  "matchScoreLabel": "تطابق {score}%",
+  "@matchScoreLabel": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "matchStrong": "تطابق قوي",
+  "syncMatchesToCloud": "حفظ التطابقات في السحابة",
+  "shareClicksTotal": "نقرات رابط المشاركة (الإجمالي)",
+  "redirectLinkTitle": "رابط التتبع",
+  "createTrackingLink": "إنشاء رابط تتبع",
+  "copyTrackingLink": "نسخ الرابط",
+  "trackingLinkHelp": "يفتح رابط الإعلان الأصلي ويزيد عداد النقرات الإجمالي. انشر دالة Edge في Supabase.",
+  "shareCardTitle": "بطاقة مشاركة",
+  "templateStory": "قصة 9:16",
+  "templateSquare": "مربع 1:1",
+  "exportPng": "تصدير PNG",
+  "shareCardPickTheme": "مظهر البطاقة",
+  "shareCardAllThemesSample": "كل القوالب (معاينة تجريبية)",
+  "shareCardMockOverlay": "استخدم بيانات تجريبية في المعاينة الرئيسية",
+  "shareCardBathroomsShort": "{count} حمام",
+  "@shareCardBathroomsShort": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shareCardAreaSqmShort": "{sqm} م²",
+  "@shareCardAreaSqmShort": {
+    "placeholders": {
+      "sqm": {
+        "type": "String"
+      }
+    }
+  },
+  "shareCardTuneListingPhoto": "ضبط إطار الصورة",
+  "shareCardAdjustPhotoTitle": "إطار صورة العقار",
+  "shareCardAdjustPhotoHint": "تغيّر المنزلقات الجزء الظاهر من الصورة مع وضع التغطية. البلاط السريع ينتقل إلى مواضع شائعة.",
+  "shareCardAdjustPhotoHorizontal": "أفقي",
+  "shareCardAdjustPhotoVertical": "عمودي",
+  "shareCardAdjustPhotoPresets": "مواضع سريعة",
+  "shareCardAdjustPhotoReset": "إعادة ضبط",
+  "shareCardAdjustPhotoDone": "تم",
+  "shareCard": "مشاركة",
+  "aiImportTitle": "من لقطة شاشة",
+  "aiImportSubtitle": "اختر لقطة شاشة من واتساب أو الدردشة تحتوي على بيانات التواصل. سيتم اكتشاف الاسم والهاتف ثم إنشاء العميل بهذه الحقول فقط.",
+  "aiPickGallery": "اختيار صورة",
+  "aiSuggestedPhone": "هاتف مكتشف",
+  "aiOpenForm": "متابعة إلى نموذج العميل",
+  "aiDetectedNameHint": "إذا لم يُكتشف الاسم فسيُنشأ السجل باسم عميل غير معروف.",
+  "aiCreateCustomer": "إنشاء عميل",
+  "aiCreateNeedsPhone": "لم يتم اكتشاف رقم الهاتف. جرّب لقطة أخرى أو عدّل حقل الهاتف.",
+  "aiCustomerCreated": "تم إنشاء العميل.",
+  "listingUrlOpen": "فتح الإعلان الأصلي",
+  "fieldListingIntent": "النية",
+  "fieldPreferredLocation": "الموقع المفضل",
+  "fieldBudgetMin": "الميزانية الدنيا",
+  "fieldBudgetMax": "الميزانية القصوى",
+  "fieldRoomCount": "عدد الغرف",
+  "fieldAreaMin": "أدنى مساحة (م²)",
+  "fieldAreaMax": "أقصى مساحة (م²)",
+  "intentNotSet": "غير محدد",
+  "loginFooterQuestion": "ليس لديك حساب؟",
+  "registerFooterQuestion": "لديك حساب بالفعل؟",
+  "loginWelcomeTitle": "مرحبًا بعودتك",
+  "loginWelcomeSubtitle": "سجّل الدخول إلى حسابك",
+  "registerHeadline": "إنشاء حساب",
+  "registerSubtitle": "انضم إلى CRM المميز",
+  "fieldFullName": "الاسم الكامل",
+  "forgotHeaderSubtitle": "إعادة تعيين كلمة المرور",
+  "forgotHeroTitle": "أعد تعيين كلمة المرور",
+  "forgotHeroBody": "أدخل بريدك الإلكتروني لإعادة التعيين.",
+  "forgotEmailLabelCaps": "عنوان بريدك",
+  "forgotRememberedLogin": "تذكرت كلمة المرور؟",
+  "passwordUpdatedTitle": "تم تحديث كلمة المرور",
+  "passwordUpdatedBody": "يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة.",
+  "passwordUpdatedB1": "تم تغيير كلمة المرور بنجاح.",
+  "passwordUpdatedB2": "أُغلقت الجلسات على الأجهزة الأخرى.",
+  "passwordUpdatedB3": "حسابك أصبح أكثر أمانًا.",
+  "goToLogin": "الذهاب لتسجيل الدخول",
+  "updatePasswordScreenTitle": "إنشاء كلمة مرور جديدة",
+  "updatePasswordScreenSubtitle": "تجديد كلمة المرور",
+  "updatePasswordHero": "عيّن كلمة مرور جديدة لحسابك.",
+  "updatePasswordCta": "تحديث كلمة المرور",
+  "newPasswordLabel": "كلمة المرور الجديدة",
+  "repeatNewPasswordLabel": "تأكيد كلمة المرور",
+  "passwordReqTitle": "متطلبات كلمة المرور",
+  "reqMin8": "8 أحرف على الأقل",
+  "reqOneNumber": "رقم واحد على الأقل",
+  "reqOneUpper": "حرف كبير واحد على الأقل",
+  "strengthStrong": "قوية",
+  "strengthMedium": "متوسطة",
+  "strengthWeak": "ضعيفة",
+  "authKvkk": "قرأت وأوافق على نص الإخطار.",
+  "authKvkkLink": "نص الإخطار KVKK",
+  "authKvkkDialogTitle": "نص الإخطار",
+  "authKvkkDialogBody": "تُعالج بياناتك وفق القوانين المعمول بها. استبدل هذا النص بنسختك القانونية.",
+  "emailLabelCaps": "البريد الإلكتروني",
+  "passwordLabelCaps": "كلمة المرور",
+  "registerPasswordHint": "8 أحرف على الأقل",
+  "validationPasswordLength8": "استخدم 8 أحرف على الأقل",
+  "profileNotificationsTitle": "إعدادات الإشعارات",
+  "profileNotificationsSubtitle": "اختر ما تريد أن يتم إشعارك به.",
+  "profileNotifyMatches": "اقتراحات التطابق",
+  "profileNotifyMatchesSubtitle": "عند ظهور إعلان أو عميل متوافق جديد.",
+  "profileNotifyTasks": "المهام والتذكيرات",
+  "profileNotifyTasksSubtitle": "المواعيد النهائية والمهام الجديدة.",
+  "profileNotifyMarketing": "تحديثات المنتج",
+  "profileNotifyMarketingSubtitle": "ميزات جديدة ونصائح (نادرًا).",
+  "profileAnalyticsTitle": "التحليلات والتقارير",
+  "profileAnalyticsSubtitle": "مقاييس ملخصة — تقارير مفصلة قريبًا.",
+  "profileAnalyticsCustomers": "العملاء",
+  "profileAnalyticsListings": "الإعلانات",
+  "profileAnalyticsTasksOpen": "مهام مفتوحة",
+  "profileAnalyticsShareClicks": "نقرات رابط التتبع",
+  "profileSupportTitle": "الدعم والمساعدة",
+  "profileSupportSubtitle": "التواصل والأسئلة الشائعة.",
+  "profileSupportFaqHeading": "الأسئلة الشائعة",
+  "profileSupportEmailAddress": "support@hestora.app",
+  "profileSupportEmailCta": "راسلنا بالبريد",
+  "profileSupportEmailSubject": "دعم Hestora CRM",
+  "profileSupportFaq1Title": "كيف يعمل رابط التتبع؟",
+  "profileSupportFaq1Body": "أنشئه من تفاصيل الإعلان وشاركه. عند الفتح يُحمَّل الإعلان الأصلي ويزداد عداد النقرات.",
+  "profileSupportFaq2Title": "أين تُخزَّن بياناتي؟",
+  "profileSupportFaq2Body": "في Supabase ضمن حسابك؛ يمكنك أنت فقط الوصول إلى صفوفك (عبر RLS).",
+  "listingPhotosSection": "صور الإعلان",
+  "listingPhotosHint": "حتى 12 صورة. JPEG أو PNG أو WebP.",
+  "addListingPhotos": "اختيار صور",
+  "listingGalleryTitle": "الصور",
+  "profileChangePhoto": "تغيير صورة الملف الشخصي",
+  "profilePhotoUpdated": "تم تحديث صورة الملف الشخصي",
+  "propertyEditTitle": "تعديل الإعلان",
+  "propertyEditSubtitle": "حدّث المعلومات واحفظ",
+  "propertySectionBasics": "المعلومات الأساسية",
+  "propertySectionFeatures": "الميزات",
+  "propertySectionMedia": "الوسائط والرابط",
+  "listingExistingPhotos": "الصور الحالية",
+  "propertyDetailSubtitle": "تفاصيل العقار",
+  "tabPropertyInfo": "معلومات",
+  "tabPropertyCustomers": "العملاء",
+  "tabPropertyActions": "إجراءات",
+  "propertyFeaturesTitle": "ميزات العقار",
+  "featureRoom": "غرف",
+  "featureArea": "مساحة",
+  "featureFloor": "طابق",
+  "featureAge": "عمر",
+  "featureParking": "موقف",
+  "featureHeating": "تدفئة",
+  "featureUnknown": "—",
+  "markAsSold": "تعيين كمباع",
+  "customerDetailSubtitle": "تفاصيل العميل",
+  "searchCriteriaTitle": "معايير البحث",
+  "tabCustomerHistory": "السجل",
+  "tabCustomerNotes": "ملاحظات",
+  "tabCustomerMatching": "تطابق",
+  "activityHistoryTitle": "سجل النشاط",
+  "activityRecordsCount": "{count} سجل",
+  "@activityRecordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerBadgeBuyer": "مشتري",
+  "customerBadgeSeller": "بائع",
+  "customerCall": "اتصال",
+  "customerWhatsapp": "واتساب",
+  "customerMessage": "رسالة",
+  "localeRegionTitle": "اللغة والمنطقة",
+  "localeRegionSavedTitle": "تم الحفظ",
+  "localeRegionSavedBody": "تم حفظ إعدادات اللغة والمنطقة. يمكنك تغييرها لاحقًا من الملف الشخصي.",
+  "localeRegionIntro": "راجع لغة التطبيق والمنطقة. يمكنك تغييرها لاحقًا.",
+  "fieldRegionCountry": "المنطقة / الدولة",
+  "fieldCurrency": "العملة",
+  "currencyTry": "TRY — ليرة تركية",
+  "regionTurkey": "تركيا",
+  "regionSettingHint": "إعداد المنطقة",
+  "currencySettingHint": "العملة",
+  "appLanguageHint": "لغة التطبيق",
+  "editCustomerTitle": "تعديل العميل",
+  "customerNoLastCallInfo": "لا يوجد سجل مكالمات بعد",
+  "customerLastActivitySummary": "آخر تواصل: {when}",
+  "@customerLastActivitySummary": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "customerLastActivityJustNow": "الآن",
+  "customerLastActivityMinutesAgo": "منذ {count} د",
+  "@customerLastActivityMinutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerLastActivityHoursAgo": "منذ {count} س",
+  "@customerLastActivityHoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerLastActivityDaysAgo": "منذ {count} يوم",
+  "@customerLastActivityDaysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerUrgentTag": "عاجل",
+  "criteriaLabelLocation": "الموقع",
+  "criteriaLabelBudget": "الميزانية",
+  "criteriaLabelRooms": "الغرف",
+  "criteriaLabelArea": "المساحة",
+  "customerAreaAtLeast": "{sqm} م² فأكثر",
+  "@customerAreaAtLeast": {
+    "placeholders": {
+      "sqm": {
+        "type": "String"
+      }
+    }
+  },
+  "customerQuickAddNote": "إضافة ملاحظة سريعة",
+  "customerViewListingDetail": "عرض التفاصيل",
+  "customerSendToClient": "إرسال للعميل",
+  "customerStrongMatchesTitle": "تطابقات فوق {threshold}٪",
+  "@customerStrongMatchesTitle": {
+    "placeholders": {
+      "threshold": {
+        "type": "int"
+      }
+    }
+  },
+  "customerListingCountBadge": "{count} قائمة",
+  "@customerListingCountBadge": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerActivityNoteAdded": "تمت إضافة ملاحظة",
+  "customerActivityRegistration": "تسجيل",
+  "customerActivityRegistrationBody": "تم إنشاء بطاقة العميل.",
+  "customerActivityTimeUnknown": "—",
+  "customerNotesEmpty": "لا توجد ملاحظات بعد.",
+  "customerBadgeTenant": "مستأجر",
+  "propertySuitableCustomersTitle": "العملاء المناسبون",
+  "propertySuitableCustomerCountBadge": "{count} عميل",
+  "@propertySuitableCustomerCountBadge": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "propertyCustomerSeekingBoth": "يبحث عن {rooms} في {location}",
+  "@propertyCustomerSeekingBoth": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      },
+      "rooms": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingRoomsOnly": "يبحث عن {rooms}",
+  "@propertyCustomerSeekingRoomsOnly": {
+    "placeholders": {
+      "rooms": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingLocationOnly": "يبحث في {location}",
+  "@propertyCustomerSeekingLocationOnly": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingUnknown": "لا تفاصيل تفضيل",
+  "propertyListingSend": "إرسال الإعلان",
+  "propertyQuickActionsTitle": "إجراءات سريعة",
+  "propertyActionSendCustomersTitle": "إرسال للعملاء",
+  "propertyActionSendCustomersSubtitle": "توجيه الإعلان للعملاء المناسبين",
+  "propertyActionShareTitle": "مشاركة",
+  "propertyActionShareSubtitle": "مشاركة كرابط أو صورة",
+  "propertyActionEditTitle": "تعديل",
+  "propertyActionEditSubtitle": "تحديث بيانات الإعلان",
+  "propertyActionNoteTitle": "إضافة ملاحظة / تذكير",
+  "propertyActionNoteSubtitle": "إنشاء ملاحظة أو مهمة لهذا الإعلان",
+  "propertyActionSyncMatchesTitle": "حفظ التطابقات على السحابة",
+  "propertyActionSyncMatchesSubtitle": "مزامنة تطابقات العملاء لهذا الإعلان",
+  "propertyNoteComingSoon": "هذه الميزة قريبًا.",
+  "validationUrl": "أدخل رابطًا صالحًا",
+  "taskEditTitle": "تعديل المهمة",
+  "taskFieldPriority": "الأولوية",
+  "taskFieldStatus": "الحالة",
+  "taskPriorityLow": "منخفضة",
+  "taskPriorityNormal": "عادية",
+  "taskPriorityHigh": "مرتفعة",
+  "taskPriorityUrgent": "عاجلة",
+  "taskStatusOpen": "مفتوحة",
+  "taskStatusDone": "مكتملة",
+  "taskStatusClosed": "مغلقة",
+  "taskClearDueDate": "مسح تاريخ الاستحقاق",
+  "taskLoadErrorTitle": "تعذر تحميل المهمة",
+  "taskNotFoundTitle": "المهمة غير موجودة",
+  "taskNotFoundBody": "تعذر العثور على هذه المهمة أو لا تملك صلاحية الوصول إليها.",
+  "taskRetryLoad": "إعادة المحاولة",
+  "taskNoDueDate": "لا يوجد تاريخ استحقاق",
+  "customerActivityTaskLinked": "تم ربط مهمة",
+  "customerActivityPropertyMatched": "تمت مطابقة عقار",
+  "customerActivityPropertyShared": "تمت مشاركة العقار",
+  "customerActivityEmpty": "لا يوجد أي نشاط مسجل حتى الآن.",
+  "customerNoteInputHint": "أضف ملاحظة متابعة سريعة",
+  "customerSummaryNoteTitle": "ملخص العميل",
+  "customerUnknownName": "عميل غير معروف",
+  "customerImportContacts": "استيراد من جهات الاتصال",
+  "customerImportPermissionDenied": "تم رفض إذن جهات الاتصال.",
+  "customerImportNoContacts": "لم يتم العثور على جهات اتصال على هذا الجهاز.",
+  "customerImportUnsupported": "استيراد جهات الاتصال متاح فقط على الأجهزة المحمولة المدعومة.",
+  "customerImportPickerTitle": "اختر جهة اتصال",
+  "listingImportFallbackTitle": "المتابعة يدويًا",
+  "listingImportFallbackBody": "بيانات المعاينة فارغة أو محجوبة. يمكنك المتابعة وإكمال الإعلان يدويًا.",
+  "listingImportContinueManual": "متابعة يدوية"
+}

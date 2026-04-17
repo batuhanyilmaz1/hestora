@@ -1,0 +1,90 @@
+{
+  "id": "json_square_sample",
+  "label": "JSON — Kare örnek",
+  "designWidth": 1080,
+  "designHeight": 1080,
+  "backgroundAsset": "assets/themes/theme2.jpg",
+  "safeHorizontalFraction": 0.045,
+  "safeVerticalFraction": 0.04,
+  "backgroundFit": "cover",
+  "backgroundClipRadiusFraction": 0.02,
+  "fields": [
+    {
+      "type": "image",
+      "bind": "mainImage",
+      "x": 0,
+      "y": 0.1,
+      "width": 1,
+      "height": 0.42,
+      "fit": "cover",
+      "alignment": "topCenter",
+      "borderRadius": 18
+    },
+    {
+      "type": "text",
+      "bind": "title",
+      "x": 0,
+      "y": 0.58,
+      "width": 1,
+      "height": 0.14,
+      "fontSize": 20,
+      "fontWeight": "w800",
+      "color": "#FFFFFFFF",
+      "textAlign": "start",
+      "maxLines": 3,
+      "lineHeight": 1.15
+    },
+    {
+      "type": "text",
+      "bind": "price",
+      "x": 0,
+      "y": 0.72,
+      "width": 0.55,
+      "height": 0.07,
+      "fontSize": 22,
+      "fontWeight": "w800",
+      "color": "#38BDF8",
+      "textAlign": "start",
+      "maxLines": 1
+    },
+    {
+      "type": "text",
+      "bind": "area",
+      "x": 0,
+      "y": 0.78,
+      "width": 1,
+      "height": 0.065,
+      "fontSize": 13,
+      "fontWeight": "w600",
+      "color": "#E2E8F0",
+      "textAlign": "start",
+      "maxLines": 2
+    },
+    {
+      "type": "text",
+      "bind": "location",
+      "x": 0,
+      "y": 0.84,
+      "width": 0.68,
+      "height": 0.055,
+      "fontSize": 12,
+      "fontWeight": "w500",
+      "color": "#E2E8F0",
+      "textAlign": "start",
+      "maxLines": 2
+    },
+    {
+      "type": "text",
+      "bind": "phone",
+      "x": 0,
+      "y": 0.935,
+      "width": 0.68,
+      "height": 0.04,
+      "fontSize": 12,
+      "fontWeight": "w600",
+      "color": "#E2E8F0",
+      "textAlign": "start",
+      "maxLines": 1
+    }
+  ]
+}

@@ -1,0 +1,533 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Hestora CRM",
+  "homeTitle": "Ana sayfa",
+  "homeSubtitle": "Emlak CRM temel uygulaması hazır.",
+  "buildEnvironmentTitle": "Ortam",
+  "flavorDevelopment": "Geliştirme",
+  "flavorProduction": "Üretim",
+  "supabaseSectionTitle": "Supabase",
+  "supabaseStatusConnected": "Supabase: bağlı",
+  "supabaseStatusNotConfigured": "Supabase: yapılandırılmadı (.env içindeki değerleri ayarlayın)",
+  "languageEnglish": "İngilizce",
+  "languageTurkish": "Türkçe",
+  "languageArabic": "Arapça",
+  "languageSystem": "Sistem varsayılanı",
+  "languageSectionTitle": "Dil",
+  "demoSectionTitle": "Demo",
+  "demoSectionSubtitle": "Yeniden kullanılabilir alan",
+  "demoSearchLabel": "Ara",
+  "demoSearchHint": "RTL için Arapça seçin…",
+  "navHome": "Ana sayfa",
+  "navCustomers": "Müşteriler",
+  "navProperties": "Emlaklar",
+  "navProfile": "Profil",
+  "splashLoading": "Yükleniyor…",
+  "onboardingNext": "İleri",
+  "onboardingSkip": "Atla",
+  "onboardingStart": "Başla",
+  "navTasks": "Görevler",
+  "tasksTitle": "Görevler",
+  "tasksSubtitle": "Takip ve iç işler",
+  "tasksEmpty": "Henüz görev yok",
+  "taskNewTitle": "Yeni görev",
+  "taskFieldTitle": "Başlık",
+  "taskFieldDue": "Bitiş tarihi (isteğe bağlı)",
+  "taskLinkedCustomer": "Müşteri (isteğe bağlı)",
+  "taskLinkedProperty": "İlan (isteğe bağlı)",
+  "taskNoneSelected": "Yok",
+  "taskMarkDone": "Tamamla",
+  "taskMarkedDone": "Görev tamamlandı",
+  "aiExtractWithOpenAi": "OpenAI ile çıkar",
+  "aiExtractNeedInput": "Önce görsel seçin veya metin yapıştırın.",
+  "aiExtractNoApiKey": "OPENAI_API_KEY tanımlı değil. .env dosyasına ekleyin.",
+  "aiExtractFailed": "AI çıkarma başarısız",
+  "listingImportTitle": "Linkten içe aktar",
+  "listingUrlLabel": "İlan bağlantısı",
+  "listingImportHint": "Herkese açık ilan bağlantısını yapıştır",
+  "listingImportAction": "Önizleme getir",
+  "onboardingSlide1Title": "Müşterileri tek yerden yönet",
+  "onboardingSlide1Body": "Adayları, notları, bütçeyi ve tercihleri bağlamı kaybetmeden takip et.",
+  "onboardingSlide2Title": "Düzenli ilan portföyü",
+  "onboardingSlide2Body": "Satılık ve kiralık portföyünü arama ve filtrelerle yapılandır.",
+  "onboardingSlide3Title": "Görev ve hatırlatıcılar",
+  "onboardingSlide3Body": "Takipte kal. İşleri kişi ve ilanlarla ilişkilendir.",
+  "welcomeShort": "Hoş geldin",
+  "dashboardHeadline": "Hestora'ya başlayalım",
+  "heroCardTitle": "Her şey tek yerden yönetilsin",
+  "heroCardBody": "Müşterilerini, portföylerini ve günlük işlerini tek uygulamada yönetmeye başlayabilirsin.",
+  "ctaAddFirstCustomer": "İlk müşterini ekle",
+  "ctaAddListing": "İlan ekle",
+  "ctaReminder": "Hatırlatıcı",
+  "fabTip": "İşlemleri ortadaki + butonuyla hızlıca başlatabilirsin.",
+  "customersTitle": "Müşteriler",
+  "customersSubtitle": "{count} müşteri kayıtlı",
+  "@customersSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "propertiesTitle": "Emlaklar",
+  "propertiesSubtitle": "{count} müşteri kayıtlı",
+  "@propertiesSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchCustomersHint": "Müşteri ara (isim, telefon, not)",
+  "customersMatchesCount": "{count} eşleşme",
+  "@customersMatchesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chipBuyer": "Alıcı",
+  "chipTenant": "Kiracı",
+  "chipSeller": "Satıcı",
+  "chipLandlord": "Ev sahibi",
+  "customersFilterTooltip": "Sıralama",
+  "customersSortTitle": "Sıralama",
+  "customersSortNameAsc": "İsim (A–Z)",
+  "customersSortNameDesc": "İsim (Z–A)",
+  "customersFilteredEmpty": "Bu filtre veya arama için sonuç yok.",
+  "customersFilteredEmptyClear": "Sıfırla",
+  "searchListingsHint": "İlan ara (lokasyon, fiyat, tip)",
+  "chipAll": "Tümü",
+  "chipSale": "Satılık",
+  "chipRent": "Kiralık",
+  "chipActive": "Aktif",
+  "chipPassive": "Pasif",
+  "ctaAddFirstListing": "İlk ilanını ekle",
+  "emptyCustomersTitle": "Henüz müşteri yok",
+  "emptyCustomersBody": "Müşteri ekleyerek listeyi burada görüntüle.",
+  "emptyPropertiesTitle": "Henüz ilan yok",
+  "emptyPropertiesBody": "Portföyünü oluşturmak için ilan ekle.",
+  "profileTitle": "Profil",
+  "profileRoleConsultant": "Gayrimenkul Danışmanı",
+  "profileStatsLine": "{listingCount} ilan • {customerCount} müşteri",
+  "@profileStatsLine": {
+    "placeholders": {
+      "listingCount": { "type": "int" },
+      "customerCount": { "type": "int" }
+    }
+  },
+  "profileStatActiveListings": "Aktif ilan",
+  "profileStatTotalCustomers": "Toplam müşteri",
+  "profileStatOpenTasks": "Açık görev",
+  "profileMenuAccount": "Hesap bilgileri",
+  "accountSettingsTitle": "Hesap ayarları",
+  "accountProfileEditorTitle": "Profil ve e-posta",
+  "accountHubProfileTitle": "Profil ve e-posta",
+  "accountHubProfileSubtitle": "İsim, fotoğraf ve e-posta adresi",
+  "accountHubChangePasswordTitle": "Şifre değiştir",
+  "accountHubChangePasswordSubtitle": "Giriş şifrenizi güncelleyin",
+  "accountHubChangeEmailTitle": "E-posta değiştir",
+  "accountHubChangeEmailSubtitle": "Girişte kullandığınız adresi güncelleyin",
+  "accountHubIntro": "Profil, şifre ve e-postanızı yönetin.",
+  "profileDisplayNameLabel": "Görünen ad",
+  "profileMenuNotifications": "Bildirim ayarları",
+  "profileMenuAnalytics": "Analiz & raporlar",
+  "profileMenuSupport": "Destek / yardım",
+  "profileAppVersion": "Hestora CRM v1.0.0",
+  "profileAccountSheetTitle": "Hesap",
+  "profileMoreMenu": "Diğer",
+  "signOut": "Çıkış yap",
+  "signOutConfirm": "Çıkış yapmak istediğine emin misin?",
+  "cancel": "Vazgeç",
+  "loginTitle": "Giriş yap",
+  "registerTitle": "Kayıt ol",
+  "forgotTitle": "Şifremi unuttum",
+  "emailLabel": "E-posta",
+  "passwordLabel": "Şifre",
+  "confirmPasswordLabel": "Şifre tekrar",
+  "loginSubmit": "Giriş yap",
+  "registerSubmit": "Kayıt ol",
+  "forgotSubmit": "Sıfırlama bağlantısı gönder",
+  "noAccount": "Hesabın yok mu? Kayıt ol",
+  "haveAccount": "Zaten hesabın var mı? Giriş yap",
+  "forgotLink": "Şifremi unuttum",
+  "authErrorGeneric": "Bir şeyler ters gitti. Bilgilerini kontrol edip tekrar dene.",
+  "validationRequired": "Bu alan gerekli",
+  "validationEmail": "Geçerli bir e-posta gir",
+  "validationPasswordLength": "En az 6 karakter kullan",
+  "validationPasswordMatch": "Şifreler eşleşmiyor",
+  "quickActionsTitle": "Hızlı işlemler",
+  "quickAddCustomer": "Müşteri ekle",
+  "quickAddProperty": "İlan ekle",
+  "quickAddReminder": "Hatırlatıcı (yakında)",
+  "quickAiImportCustomer": "Ekran görüntüsünden müşteri",
+  "customerCreateMethodTitle": "Müşteriyi nasıl eklemek istersin?",
+  "customerCreateOptionManual": "Manuel",
+  "customerCreateOptionManualBody": "Klasik formu aç ve müşteri bilgilerini kendin gir.",
+  "customerCreateOptionAi": "Yapay zeka desteği ile",
+  "customerCreateOptionAiBody": "Ekran görüntüsünden isim ve telefonu çıkarıp müşteriyi hızlıca oluştur.",
+  "demoModeBanner": "Demo: bulut senkronu ve giriş için .env ile Supabase yapılandır.",
+  "back": "Geri",
+  "save": "Kaydet",
+  "customerDetailTitle": "Müşteri",
+  "propertyDetailTitle": "İlan",
+  "fieldName": "Ad",
+  "fieldPhone": "Telefon",
+  "fieldNotes": "Notlar",
+  "createCustomerTitle": "Yeni müşteri",
+  "createPropertyTitle": "Yeni ilan",
+  "listingTitleLabel": "Başlık",
+  "listingTypeLabel": "İlan tipi",
+  "listingPriceLabel": "Fiyat",
+  "listingLocationLabel": "Konum",
+  "listingDescriptionLabel": "Açıklama",
+  "comingSoon": "Çok yakında",
+  "registerSuccess": "Hesap oluşturuldu. E-posta onayı açıksa gelen kutunu kontrol et.",
+  "resetEmailSent": "Bu e-posta kayıtlıysa sıfırlama bağlantısı gönderildi.",
+  "fieldRoomCountShort": "Oda",
+  "fieldBathroomCountShort": "Banyo",
+  "fieldAreaSqmShort": "Alan (m²)",
+  "ogFetchError": "Sayfa meta verisi alınamadı. Başka URL deneyin veya elle doldurun.",
+  "ogPartialData": "Bazı alanlar boş olabilir — kaydetmeden düzenleyebilirsin.",
+  "matchesForCustomer": "Uyumlu ilanlar",
+  "matchesForProperty": "Uyumlu müşteriler",
+  "matchScoreLabel": "{score}% uyum",
+  "@matchScoreLabel": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "matchStrong": "Güçlü eşleşme",
+  "syncMatchesToCloud": "Eşleşmeleri buluta kaydet",
+  "shareClicksTotal": "Paylaşım linki tıklamaları (toplam)",
+  "redirectLinkTitle": "Takip linki",
+  "createTrackingLink": "Takip linki oluştur",
+  "copyTrackingLink": "Linki kopyala",
+  "trackingLinkHelp": "Orijinal ilan URL’sini açar ve toplam tıklamayı artırır. Edge Function’ı Supabase’e deploy edin.",
+  "shareCardTitle": "Paylaşım kartı",
+  "templateStory": "Hikaye 9:16",
+  "templateSquare": "Kare 1:1",
+  "exportPng": "PNG dışa aktar",
+  "shareCardPickTheme": "Kart teması",
+  "shareCardAllThemesSample": "Tüm temalar (örnek önizleme)",
+  "shareCardMockOverlay": "Ana önizlemede örnek veri kullan",
+  "shareCardBathroomsShort": "{count} banyo",
+  "@shareCardBathroomsShort": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shareCardAreaSqmShort": "{sqm} m²",
+  "@shareCardAreaSqmShort": {
+    "placeholders": {
+      "sqm": {
+        "type": "String"
+      }
+    }
+  },
+  "shareCardTuneListingPhoto": "Fotoğraf kırılımını ayarla",
+  "shareCardAdjustPhotoTitle": "İlan fotoğrafı kırılımı",
+  "shareCardAdjustPhotoHint": "Kaydırıcılar, cover sığdırmada görünen bölgeyi değiştirir. Hızlı kutular yaygın kırılımlara gider.",
+  "shareCardAdjustPhotoHorizontal": "Yatay",
+  "shareCardAdjustPhotoVertical": "Dikey",
+  "shareCardAdjustPhotoPresets": "Hızlı konumlar",
+  "shareCardAdjustPhotoReset": "Sıfırla",
+  "shareCardAdjustPhotoDone": "Tamam",
+  "shareCard": "Paylaş",
+  "aiImportTitle": "Ekran görüntüsünden",
+  "aiImportSubtitle": "Numaranın yer aldığı WhatsApp veya sohbet ekran görüntüsünü seç. Sistem isim ve telefonu algılayıp müşteriyi yalnızca bu alanlarla oluşturur.",
+  "aiPickGallery": "Görsel seç",
+  "aiSuggestedPhone": "Algılanan telefon",
+  "aiOpenForm": "Müşteri formuna devam",
+  "aiDetectedNameHint": "İsim bulunamazsa kayıt Bilinmeyen müşteri adıyla açılır.",
+  "aiCreateCustomer": "Müşteriyi oluştur",
+  "aiCreateNeedsPhone": "Telefon numarası algılanamadı. Farklı bir görsel deneyin veya numarayı düzenleyin.",
+  "aiCustomerCreated": "Müşteri oluşturuldu.",
+  "listingUrlOpen": "Orijinal ilanı aç",
+  "fieldListingIntent": "Niyet",
+  "fieldPreferredLocation": "Tercih edilen konum",
+  "fieldBudgetMin": "Bütçe min",
+  "fieldBudgetMax": "Bütçe max",
+  "fieldRoomCount": "Oda sayısı",
+  "fieldAreaMin": "Min alan (m²)",
+  "fieldAreaMax": "Max alan (m²)",
+  "intentNotSet": "Seçilmedi",
+  "loginFooterQuestion": "Hesabın yok mu?",
+  "registerFooterQuestion": "Zaten hesabın var mı?",
+  "loginWelcomeTitle": "Tekrar hoş geldin",
+  "loginWelcomeSubtitle": "Hesabına giriş yap",
+  "registerHeadline": "Hesap oluştur",
+  "registerSubtitle": "Premium CRM'e katıl",
+  "fieldFullName": "Ad Soyad",
+  "forgotHeaderSubtitle": "Şifre sıfırlama",
+  "forgotHeroTitle": "Şifreni sıfırla",
+  "forgotHeroBody": "Şifreni sıfırlamak için e-posta adresini gir.",
+  "forgotEmailLabelCaps": "E-POSTA ADRESİN",
+  "forgotRememberedLogin": "Şifreni hatırladın mı?",
+  "passwordUpdatedTitle": "Şifren güncellendi",
+  "passwordUpdatedBody": "Artık yeni şifrenle giriş yapabilirsin.",
+  "passwordUpdatedB1": "Şifren başarıyla değiştirildi.",
+  "passwordUpdatedB2": "Diğer cihazlardaki oturumların kapatıldı.",
+  "passwordUpdatedB3": "Hesabın artık daha güvende.",
+  "goToLogin": "Girişe git",
+  "updatePasswordScreenTitle": "Yeni şifre oluştur",
+  "updatePasswordScreenSubtitle": "Şifre yenileme",
+  "updatePasswordHero": "Hesabın için yeni şifreni belirle.",
+  "updatePasswordCta": "Şifreyi güncelle",
+  "newPasswordLabel": "Yeni şifre",
+  "repeatNewPasswordLabel": "Yeni şifre tekrar",
+  "passwordReqTitle": "Şifre gereksinimleri",
+  "reqMin8": "En az 8 karakter",
+  "reqOneNumber": "En az 1 rakam",
+  "reqOneUpper": "En az 1 büyük harf",
+  "strengthStrong": "Güçlü",
+  "strengthMedium": "Orta",
+  "strengthWeak": "Zayıf",
+  "authKvkk": "Aydınlatma metnini okudum ve kabul ediyorum.",
+  "authKvkkLink": "KVKK Aydınlatma Metni",
+  "authKvkkDialogTitle": "Aydınlatma metni",
+  "authKvkkDialogBody": "Kişisel verileriniz 6698 sayılı KVKK kapsamında işlenir. Bu metin özet bilgilendirme amaçlıdır; hukuki metni danışmanınızla tamamlayın.",
+  "emailLabelCaps": "E-POSTA",
+  "passwordLabelCaps": "ŞİFRE",
+  "registerPasswordHint": "En az 8 karakter",
+  "validationPasswordLength8": "En az 8 karakter kullan",
+  "profileNotificationsTitle": "Bildirim ayarları",
+  "profileNotificationsSubtitle": "Hangi güncellemeler için uyarı almak istediğini seç.",
+  "profileNotifyMatches": "Eşleşme önerileri",
+  "profileNotifyMatchesSubtitle": "Yeni uyumlu ilan veya müşteri olduğunda.",
+  "profileNotifyTasks": "Görevler ve hatırlatmalar",
+  "profileNotifyTasksSubtitle": "Bitiş tarihi yaklaşan veya yeni görevler.",
+  "profileNotifyMarketing": "Ürün haberleri",
+  "profileNotifyMarketingSubtitle": "Yeni özellikler ve ipuçları (nadiren).",
+  "profileAnalyticsTitle": "Analiz ve raporlar",
+  "profileAnalyticsSubtitle": "Özet metrikler — detaylı raporlar yakında.",
+  "profileAnalyticsCustomers": "Müşteri",
+  "profileAnalyticsListings": "İlan",
+  "profileAnalyticsTasksOpen": "Açık görev",
+  "profileAnalyticsShareClicks": "Takip linki tıklaması",
+  "profileSupportTitle": "Destek ve yardım",
+  "profileSupportSubtitle": "Soruların için iletişim ve sık sorulanlar.",
+  "profileSupportFaqHeading": "Sık sorulanlar",
+  "profileSupportEmailAddress": "destek@hestora.app",
+  "profileSupportEmailCta": "E-posta ile yaz",
+  "profileSupportEmailSubject": "Hestora CRM destek",
+  "profileSupportFaq1Title": "Takip linki nasıl çalışır?",
+  "profileSupportFaq1Body": "İlan detayından takip linki oluşturur, paylaşırsın. Tıklanınca orijinal ilan açılır ve toplam tıklama sayacı artar.",
+  "profileSupportFaq2Title": "Verilerim nerede saklanıyor?",
+  "profileSupportFaq2Body": "Supabase üzerinde hesabına bağlı kayıtlar; yalnızca sen ve yetkili servisler erişebilir (RLS ile).",
+  "listingPhotosSection": "İlan fotoğrafları",
+  "listingPhotosHint": "En fazla 12 görsel. JPEG, PNG veya WebP.",
+  "addListingPhotos": "Fotoğraf seç",
+  "listingGalleryTitle": "Görseller",
+  "profileChangePhoto": "Profil fotoğrafını değiştir",
+  "profilePhotoUpdated": "Profil fotoğrafı güncellendi",
+  "propertyEditTitle": "İlanı düzenle",
+  "propertyEditSubtitle": "Bilgileri güncelle ve kaydet",
+  "propertySectionBasics": "Temel bilgiler",
+  "propertySectionFeatures": "Özellikler",
+  "propertySectionMedia": "Medya ve bağlantı",
+  "listingExistingPhotos": "Mevcut fotoğraflar",
+  "propertyDetailSubtitle": "Emlak Detayı",
+  "tabPropertyInfo": "Bilgiler",
+  "tabPropertyCustomers": "Müşteriler",
+  "tabPropertyActions": "Aksiyonlar",
+  "propertyFeaturesTitle": "Emlak özellikleri",
+  "featureRoom": "Oda",
+  "featureArea": "Alan",
+  "featureFloor": "Kat",
+  "featureAge": "Yaş",
+  "featureParking": "Otopark",
+  "featureHeating": "Isıtma",
+  "featureUnknown": "—",
+  "markAsSold": "Satıldı olarak işaretle",
+  "customerDetailSubtitle": "Müşteri Detayı",
+  "searchCriteriaTitle": "Arama Kriterleri",
+  "tabCustomerHistory": "Geçmiş",
+  "tabCustomerNotes": "Notlar",
+  "tabCustomerMatching": "Eşleşme",
+  "activityHistoryTitle": "Aktivite Geçmişi",
+  "activityRecordsCount": "{count} kayıt",
+  "@activityRecordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerBadgeBuyer": "Alıcı",
+  "customerBadgeSeller": "Satıcı",
+  "customerCall": "Ara",
+  "customerWhatsapp": "WhatsApp",
+  "customerMessage": "Mesaj",
+  "localeRegionTitle": "Dil ve bölge",
+  "localeRegionSavedTitle": "Kaydedildi",
+  "localeRegionSavedBody": "Dil ve bölge ayarlarınız kaydedildi. İstediğiniz zaman profilden değiştirebilirsiniz.",
+  "localeRegionIntro": "Uygulama dilini ve bölge ayarlarını kontrol edin. İstersen daha sonra değiştirebilirsin.",
+  "fieldRegionCountry": "Bölge / Ülke",
+  "fieldCurrency": "Para birimi",
+  "currencyTry": "TRY — Türk Lirası",
+  "regionTurkey": "Türkiye",
+  "regionSettingHint": "Bölge ayarı",
+  "currencySettingHint": "Para birimi",
+  "appLanguageHint": "Uygulama dili",
+  "editCustomerTitle": "Müşteriyi düzenle",
+  "customerNoLastCallInfo": "Son arama bilgisi yok",
+  "customerLastActivitySummary": "Son iletişim: {when}",
+  "@customerLastActivitySummary": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "customerLastActivityJustNow": "Az önce",
+  "customerLastActivityMinutesAgo": "{count} dk önce",
+  "@customerLastActivityMinutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerLastActivityHoursAgo": "{count} saat önce",
+  "@customerLastActivityHoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerLastActivityDaysAgo": "{count} gün önce",
+  "@customerLastActivityDaysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerUrgentTag": "Acil",
+  "criteriaLabelLocation": "Konum",
+  "criteriaLabelBudget": "Bütçe",
+  "criteriaLabelRooms": "Oda",
+  "criteriaLabelArea": "Alan",
+  "customerAreaAtLeast": "{sqm} m² ve üzeri",
+  "@customerAreaAtLeast": {
+    "placeholders": {
+      "sqm": {
+        "type": "String"
+      }
+    }
+  },
+  "customerQuickAddNote": "Hızlı not ekle",
+  "customerViewListingDetail": "Detay Gör",
+  "customerSendToClient": "Müşteriye gönder",
+  "customerStrongMatchesTitle": "{threshold}% üzeri eşleşmeler",
+  "@customerStrongMatchesTitle": {
+    "placeholders": {
+      "threshold": {
+        "type": "int"
+      }
+    }
+  },
+  "customerListingCountBadge": "{count} ilan",
+  "@customerListingCountBadge": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customerActivityNoteAdded": "Not eklendi",
+  "customerActivityRegistration": "Kayıt",
+  "customerActivityRegistrationBody": "Müşteri kartı oluşturuldu.",
+  "customerActivityTimeUnknown": "—",
+  "customerNotesEmpty": "Henüz not yok.",
+  "customerBadgeTenant": "Kiracı",
+  "propertySuitableCustomersTitle": "Uygun Müşteriler",
+  "propertySuitableCustomerCountBadge": "{count} müşteri",
+  "@propertySuitableCustomerCountBadge": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "propertyCustomerSeekingBoth": "{location} {rooms} arıyor",
+  "@propertyCustomerSeekingBoth": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      },
+      "rooms": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingRoomsOnly": "{rooms} arıyor",
+  "@propertyCustomerSeekingRoomsOnly": {
+    "placeholders": {
+      "rooms": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingLocationOnly": "{location} bölgesinde arıyor",
+  "@propertyCustomerSeekingLocationOnly": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      }
+    }
+  },
+  "propertyCustomerSeekingUnknown": "Tercih bilgisi yok",
+  "propertyListingSend": "İlan Gönder",
+  "propertyQuickActionsTitle": "Hızlı Aksiyonlar",
+  "propertyActionSendCustomersTitle": "Müşteriye Gönder",
+  "propertyActionSendCustomersSubtitle": "Uygun müşterilere ilanı ilet",
+  "propertyActionShareTitle": "Paylaş",
+  "propertyActionShareSubtitle": "Link veya görsel olarak paylaş",
+  "propertyActionEditTitle": "Düzenle",
+  "propertyActionEditSubtitle": "İlan bilgilerini güncelle",
+  "propertyActionNoteTitle": "Not / Hatırlatıcı Ekle",
+  "propertyActionNoteSubtitle": "Bu ilan için not veya görev oluştur",
+  "propertyActionSyncMatchesTitle": "Eşleşmeleri buluta kaydet",
+  "propertyActionSyncMatchesSubtitle": "Müşteri eşleşmelerini senkronize et",
+  "propertyNoteComingSoon": "Bu özellik yakında eklenecek.",
+  "validationUrl": "Geçerli bir bağlantı gir",
+  "taskEditTitle": "Görevi düzenle",
+  "taskFieldPriority": "Öncelik",
+  "taskFieldStatus": "Durum",
+  "taskPriorityLow": "Düşük",
+  "taskPriorityNormal": "Normal",
+  "taskPriorityHigh": "Yüksek",
+  "taskPriorityUrgent": "Acil",
+  "taskStatusOpen": "Açık",
+  "taskStatusDone": "Tamamlandı",
+  "taskStatusClosed": "Kapalı",
+  "taskClearDueDate": "Bitiş tarihini temizle",
+  "taskLoadErrorTitle": "Görev yüklenemedi",
+  "taskNotFoundTitle": "Görev bulunamadı",
+  "taskNotFoundBody": "Bu görev bulunamadı veya erişim izniniz yok.",
+  "taskRetryLoad": "Tekrar dene",
+  "taskNoDueDate": "Bitiş tarihi yok",
+  "customerActivityTaskLinked": "Görev bağlandı",
+  "customerActivityPropertyMatched": "İlan eşleşti",
+  "customerActivityPropertyShared": "İlan paylaşıldı",
+  "customerActivityEmpty": "Henüz aktivite kaydı yok.",
+  "customerNoteInputHint": "Hızlı bir takip notu ekle",
+  "customerSummaryNoteTitle": "Müşteri özeti",
+  "customerUnknownName": "Bilinmeyen müşteri",
+  "customerImportContacts": "Rehberden aktar",
+  "customerImportPermissionDenied": "Rehber izni verilmedi.",
+  "customerImportNoContacts": "Cihazda uygun kişi bulunamadı.",
+  "customerImportUnsupported": "Rehber aktarımı yalnızca desteklenen mobil cihazlarda kullanılabilir.",
+  "customerImportPickerTitle": "Kişi seç",
+  "listingImportFallbackTitle": "Elle devam et",
+  "listingImportFallbackBody": "Önizleme verisi boş veya engelli. Formu açıp ilanı elle tamamlayabilirsin.",
+  "listingImportContinueManual": "Elle devam et"
+}
