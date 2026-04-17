@@ -95,3 +95,7 @@ Ayrıntılı İngilizce özet: [hestora-admin/README.md](../hestora-admin/README
 - Android’de rehberden kişi içe aktarmak için uygulamanın istediği **kişi izinleri** verilmelidir.
 - `.env` asset olarak paketlendiği için anahtarlar uygulama paketinin içinde de bulunur; depoyu herkese açık tutuyorsanız bu riski bilerek yönetin.
 - Ek teknik doküman: [Müşteri notları ve zaman çizelgesi](./docs/customer-notes-and-timeline.md)
+
+## Lisans 
+
+Copyright (c) Hestora 2026 Tüm Hakları Saklıdır.
