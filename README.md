@@ -98,4 +98,4 @@ Ayrıntılı İngilizce özet: [hestora-admin/README.md](../hestora-admin/README
 
 ## Lisans 
 
-Copyright (c) Hestora 2026 Tüm Hakları Saklıdır
+Copyright (c) Hestora 2026 Tüm Hakları Saklıdır.
