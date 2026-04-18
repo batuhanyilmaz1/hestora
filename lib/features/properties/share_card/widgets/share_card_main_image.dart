@@ -27,31 +27,33 @@ class ShareCardMainImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(cornerRadius),
       clipBehavior: Clip.antiAlias,
-      child: Image.network(
-        url,
-        fit: theme.mainImage.fit,
-        alignment: alignment,
-        filterQuality: FilterQuality.medium,
-        errorBuilder: (_, _, _) => ColoredBox(
-          color: Colors.black.withValues(alpha: 0.35),
-          child: Icon(
-            Icons.image_not_supported_outlined,
-            color: theme.subtitleColor,
-            size: 36 * scale,
-          ),
-        ),
-        loadingBuilder: (context, child, progress) {
-          if (progress == null) {
-            return child;
-          }
-          return Center(
-            child: SizedBox(
-              width: 28 * scale,
-              height: 28 * scale,
-              child: CircularProgressIndicator(strokeWidth: 2, color: theme.priceColor),
+      child: SizedBox.expand(
+        child: Image.network(
+          url,
+          fit: BoxFit.cover,
+          alignment: alignment,
+          filterQuality: FilterQuality.medium,
+          errorBuilder: (_, _, _) => ColoredBox(
+            color: Colors.black.withValues(alpha: 0.35),
+            child: Icon(
+              Icons.image_not_supported_outlined,
+              color: theme.subtitleColor,
+              size: 36 * scale,
             ),
-          );
-        },
+          ),
+          loadingBuilder: (context, child, progress) {
+            if (progress == null) {
+              return child;
+            }
+            return Center(
+              child: SizedBox(
+                width: 28 * scale,
+                height: 28 * scale,
+                child: CircularProgressIndicator(strokeWidth: 2, color: theme.priceColor),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

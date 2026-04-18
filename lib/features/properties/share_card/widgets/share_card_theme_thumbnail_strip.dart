@@ -27,7 +27,7 @@ class ShareCardThemeThumbnailStrip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final stripH = shareCardThemes.fold<double>(
+    final stripH = shareCardListingThemes.fold<double>(
       96,
       (m, t) => math.max(m, _thumbW / t.aspectRatio + 12),
     );
@@ -44,10 +44,10 @@ class ShareCardThemeThumbnailStrip extends StatelessWidget {
           height: stripH,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            itemCount: shareCardThemes.length,
+            itemCount: shareCardListingThemes.length,
             separatorBuilder: (_, _) => const SizedBox(width: 10),
             itemBuilder: (context, index) {
-              final t = shareCardThemes[index];
+              final t = shareCardListingThemes[index];
               final th = _thumbW / t.aspectRatio;
               final isSel = t.id == selected.id;
               return Semantics(

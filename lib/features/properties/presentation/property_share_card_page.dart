@@ -12,6 +12,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_radii.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../app/providers/auth_session_provider.dart';
 import '../../../core/widgets/app_async_value.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../../profile/data/profile_repository.dart';
@@ -36,7 +37,7 @@ class PropertyShareCardPage extends ConsumerStatefulWidget {
 
 class _PropertyShareCardPageState extends ConsumerState<PropertyShareCardPage> {
   final GlobalKey _repaintKey = GlobalKey();
-  ShareCardThemeDefinition _theme = shareCardThemes.first;
+  ShareCardThemeDefinition _theme = shareCardListingThemes.first;
   bool _exporting = false;
   bool _useMockPreview = false;
 
@@ -138,18 +139,36 @@ class _PropertyShareCardPageState extends ConsumerState<PropertyShareCardPage> {
     return cur.isEmpty ? '${p.price}' : '${p.price} $cur';
   }
 
+  /// Oda / banyo / m² — ilan formundaki alanlar etiketli tek satır (marka kartlarında ortak kullanım).
   String _featuresLine(AppLocalizations l10n, Property p) {
     final parts = <String>[];
     if (p.roomCount != null) {
-      parts.add('${p.roomCount}+');
+      parts.add('${l10n.fieldRoomCountShort} ${p.roomCount}+');
     }
     if (p.bathroomCount != null) {
-      parts.add(l10n.shareCardBathroomsShort(p.bathroomCount!));
+      parts.add('${l10n.fieldBathroomCountShort} ${p.bathroomCount}');
     }
     if (p.areaSqm != null) {
-      parts.add(l10n.shareCardAreaSqmShort(p.areaSqm!.toString()));
+      parts.add(l10n.shareCardAreaSqmShort(p.areaSqm.toString()));
     }
     return parts.isEmpty ? '—' : parts.join(' · ');
+  }
+
+  String? _footerContactLine(ShareCardLayoutData layout) {
+    final parts = <String>[];
+    final phone = layout.agentPhone?.trim();
+    if (phone != null && phone.isNotEmpty) {
+      parts.add(phone);
+    }
+    final web = layout.websiteFallbackLine?.trim();
+    if (web != null && web.isNotEmpty) {
+      parts.add(web);
+    }
+    final email = ref.read(authSessionProvider).valueOrNull?.email?.trim();
+    if (email != null && email.isNotEmpty) {
+      parts.add(email);
+    }
+    return parts.isEmpty ? null : parts.join(' · ');
   }
 
   @override
@@ -157,6 +176,7 @@ class _PropertyShareCardPageState extends ConsumerState<PropertyShareCardPage> {
     final l10n = AppLocalizations.of(context)!;
     final async = ref.watch(propertyDetailProvider(widget.propertyId));
     final profileAsync = ref.watch(profileRowProvider);
+    ref.watch(authSessionProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -217,22 +237,34 @@ class _PropertyShareCardPageState extends ConsumerState<PropertyShareCardPage> {
             );
           }
 
-          final layout = _useMockPreview
-              ? ShareCardLayoutData.mockSample()
-              : ShareCardLayoutData.fromProperty(
-                  p,
-                  priceLine: _priceLine(p),
-                  featuresLine: _featuresLine(l10n, p),
-                  listingTypeLabel: p.listingType == 'rent' ? l10n.chipRent : l10n.chipSale,
-                  agentName: profileAsync.maybeWhen(
-                    data: (row) => row?.displayName?.trim(),
-                    orElse: () => null,
-                  ),
-                  agentPhone: profileAsync.maybeWhen(
-                    data: (row) => row?.phone?.trim(),
-                    orElse: () => null,
-                  ),
-                );
+          final ShareCardLayoutData layout;
+          if (_useMockPreview) {
+            layout = ShareCardLayoutData.mockSample();
+          } else {
+            final layoutBase = ShareCardLayoutData.fromProperty(
+              p,
+              priceLine: _priceLine(p),
+              featuresLine: _featuresLine(l10n, p),
+              listingTypeLabel: p.listingType == 'rent' ? l10n.chipRent : l10n.chipSale,
+              description: p.description?.trim(),
+              agentName: profileAsync.maybeWhen(
+                data: (row) => row?.displayName?.trim(),
+                orElse: () => null,
+              ),
+              agentPhone: profileAsync.maybeWhen(
+                data: (row) => row?.phone?.trim(),
+                orElse: () => null,
+              ),
+            );
+            layout = layoutBase.copyWith(
+              footerContactLine: _footerContactLine(layoutBase),
+              agentEmail: ref.read(authSessionProvider).valueOrNull?.email?.trim(),
+              agentAvatarUrl: profileAsync.maybeWhen(
+                data: (row) => row?.avatarUrl?.trim(),
+                orElse: () => null,
+              ),
+            );
+          }
 
           final imageUrl = layout.effectiveMainImageUrl;
           WidgetsBinding.instance.addPostFrameCallback((_) {

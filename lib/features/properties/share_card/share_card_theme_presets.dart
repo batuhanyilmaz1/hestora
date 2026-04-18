@@ -237,5 +237,115 @@ const ShareCardMainImageConfig kShareCardMainImageLandscapeRightCollage = ShareC
   borderRadiusFraction: 0.03,
 );
 
+/// [theme3.jpg]: ortada geniş fotoğraf penceresi + altta ikon şeridi ve çerçeveli fiyat alanı.
+final Map<ShareCardThemeSlot, ShareCardRegion> kShareCardRegionsPortraitTaupe = {
+  ShareCardThemeSlot.mainImage: const ShareCardRegion(left: 0.06, top: 0.26, width: 0.88, height: 0.28),
+  ShareCardThemeSlot.listingType: const ShareCardRegion(left: 0.08, top: 0.06, width: 0.34, height: 0.04),
+  ShareCardThemeSlot.title: const ShareCardRegion(left: 0.08, top: 0.56, width: 0.84, height: 0.11),
+  ShareCardThemeSlot.features: const ShareCardRegion(left: 0.08, top: 0.66, width: 0.84, height: 0.055),
+  ShareCardThemeSlot.price: const ShareCardRegion(left: 0.10, top: 0.735, width: 0.80, height: 0.065),
+  ShareCardThemeSlot.location: const ShareCardRegion(left: 0.08, top: 0.805, width: 0.84, height: 0.055),
+  ShareCardThemeSlot.agentName: const ShareCardRegion(left: 0.08, top: 0.86, width: 0.84, height: 0.045),
+  ShareCardThemeSlot.agentPhone: const ShareCardRegion(left: 0.08, top: 0.905, width: 0.84, height: 0.04),
+  ShareCardThemeSlot.websiteOrQr: const ShareCardRegion(left: 0.72, top: 0.86, width: 0.24, height: 0.12),
+};
+
+const ShareCardMainImageConfig kShareCardMainImagePortraitTaupe = ShareCardMainImageConfig(
+  area: ShareCardRegion(left: 0.06, top: 0.26, width: 0.88, height: 0.28),
+  fit: BoxFit.cover,
+  alignment: Alignment.center,
+  borderRadiusFraction: 0.045,
+);
+
+/// [theme12.jpg]: üst hero + 3’lü şerit + sol avatar bloğu + sağ metin + alt iletişim şeridi.
+final Map<ShareCardThemeSlot, ShareCardRegion> kShareCardRegionsStory12EditorialCream = {
+  ShareCardThemeSlot.logo: const ShareCardRegion(left: 0.04, top: 0.505, width: 0.30, height: 0.22),
+  ShareCardThemeSlot.galleryImage1: const ShareCardRegion(left: 0.04, top: 0.365, width: 0.28, height: 0.11),
+  ShareCardThemeSlot.galleryImage2: const ShareCardRegion(left: 0.36, top: 0.365, width: 0.28, height: 0.11),
+  ShareCardThemeSlot.galleryImage3: const ShareCardRegion(left: 0.68, top: 0.365, width: 0.28, height: 0.11),
+  ShareCardThemeSlot.listingType: const ShareCardRegion(left: 0.04, top: 0.018, width: 0.36, height: 0.035),
+  ShareCardThemeSlot.title: const ShareCardRegion(left: 0.38, top: 0.52, width: 0.58, height: 0.10),
+  ShareCardThemeSlot.price: const ShareCardRegion(left: 0.38, top: 0.62, width: 0.58, height: 0.065),
+  ShareCardThemeSlot.features: const ShareCardRegion(left: 0.38, top: 0.685, width: 0.58, height: 0.10),
+  ShareCardThemeSlot.agentName: const ShareCardRegion(left: 0.38, top: 0.785, width: 0.58, height: 0.045),
+  ShareCardThemeSlot.location: const ShareCardRegion(left: 0.04, top: 0.745, width: 0.30, height: 0.08),
+  ShareCardThemeSlot.footerContact: const ShareCardRegion(left: 0.04, top: 0.885, width: 0.66, height: 0.055),
+  ShareCardThemeSlot.websiteOrQr: const ShareCardRegion(left: 0.72, top: 0.805, width: 0.24, height: 0.12),
+};
+
+const ShareCardMainImageConfig kShareCardMainImageStory12Hero = ShareCardMainImageConfig(
+  area: ShareCardRegion(left: 0.0, top: 0.05, width: 1.0, height: 0.30),
+  fit: BoxFit.cover,
+  alignment: Alignment(0, -0.12),
+  borderRadiusFraction: 0.022,
+);
+
+/// [theme13.jpg]: üst yarı hero + zeytin yeşili bant (kurdele + sağ küçük galeri).
+final Map<ShareCardThemeSlot, ShareCardRegion> kShareCardRegionsStory13OliveSplit = {
+  ShareCardThemeSlot.listingType: const ShareCardRegion(left: 0.04, top: 0.54, width: 0.20, height: 0.045),
+  ShareCardThemeSlot.price: const ShareCardRegion(left: 0.05, top: 0.595, width: 0.18, height: 0.055),
+  ShareCardThemeSlot.title: const ShareCardRegion(left: 0.04, top: 0.665, width: 0.48, height: 0.10),
+  ShareCardThemeSlot.features: const ShareCardRegion(left: 0.04, top: 0.765, width: 0.90, height: 0.08),
+  ShareCardThemeSlot.galleryImage1: const ShareCardRegion(left: 0.30, top: 0.52, width: 0.20, height: 0.10),
+  ShareCardThemeSlot.galleryImage2: const ShareCardRegion(left: 0.52, top: 0.52, width: 0.20, height: 0.10),
+  ShareCardThemeSlot.galleryImage3: const ShareCardRegion(left: 0.74, top: 0.52, width: 0.22, height: 0.10),
+  ShareCardThemeSlot.footerContact: const ShareCardRegion(left: 0.08, top: 0.90, width: 0.84, height: 0.045),
+  ShareCardThemeSlot.websiteOrQr: const ShareCardRegion(left: 0.72, top: 0.84, width: 0.24, height: 0.12),
+};
+
+const ShareCardMainImageConfig kShareCardMainImageStory13Hero = ShareCardMainImageConfig(
+  area: ShareCardRegion(left: 0.0, top: 0.0, width: 1.0, height: 0.48),
+  fit: BoxFit.cover,
+  alignment: Alignment(0, -0.15),
+  borderRadiusFraction: 0.018,
+);
+
+/// [theme14.jpg]: üst çerçeveli hero + ortada üç küçük görsel + krem metin alanı.
+final Map<ShareCardThemeSlot, ShareCardRegion> kShareCardRegionsPortrait14GreenCream = {
+  ShareCardThemeSlot.mainImage: const ShareCardRegion(left: 0.04, top: 0.045, width: 0.92, height: 0.34),
+  ShareCardThemeSlot.galleryImage1: const ShareCardRegion(left: 0.06, top: 0.355, width: 0.26, height: 0.14),
+  ShareCardThemeSlot.galleryImage2: const ShareCardRegion(left: 0.37, top: 0.335, width: 0.28, height: 0.16),
+  ShareCardThemeSlot.galleryImage3: const ShareCardRegion(left: 0.68, top: 0.355, width: 0.26, height: 0.14),
+  ShareCardThemeSlot.listingType: const ShareCardRegion(left: 0.06, top: 0.515, width: 0.30, height: 0.04),
+  ShareCardThemeSlot.title: const ShareCardRegion(left: 0.06, top: 0.545, width: 0.88, height: 0.10),
+  ShareCardThemeSlot.price: const ShareCardRegion(left: 0.06, top: 0.645, width: 0.55, height: 0.065),
+  ShareCardThemeSlot.features: const ShareCardRegion(left: 0.06, top: 0.705, width: 0.88, height: 0.075),
+  ShareCardThemeSlot.location: const ShareCardRegion(left: 0.06, top: 0.775, width: 0.70, height: 0.055),
+  ShareCardThemeSlot.agentPhone: const ShareCardRegion(left: 0.06, top: 0.855, width: 0.42, height: 0.04),
+  ShareCardThemeSlot.websiteOrQr: const ShareCardRegion(left: 0.58, top: 0.825, width: 0.36, height: 0.14),
+  ShareCardThemeSlot.logo: const ShareCardRegion(left: 0.78, top: 0.885, width: 0.16, height: 0.08),
+};
+
+const ShareCardMainImageConfig kShareCardMainImagePortrait14Hero = ShareCardMainImageConfig(
+  area: ShareCardRegion(left: 0.04, top: 0.045, width: 0.92, height: 0.34),
+  fit: BoxFit.cover,
+  alignment: Alignment(0, -0.1),
+  borderRadiusFraction: 0.024,
+);
+
+/// [theme15.jpg]: sol üst hero + sağ sütun galeri + altta ikon alanı ve iletişim.
+final Map<ShareCardThemeSlot, ShareCardRegion> kShareCardRegionsPortrait15BeigeMagazine = {
+  ShareCardThemeSlot.mainImage: const ShareCardRegion(left: 0.04, top: 0.095, width: 0.46, height: 0.26),
+  ShareCardThemeSlot.galleryImage1: const ShareCardRegion(left: 0.56, top: 0.075, width: 0.40, height: 0.085),
+  ShareCardThemeSlot.galleryImage2: const ShareCardRegion(left: 0.56, top: 0.175, width: 0.40, height: 0.085),
+  ShareCardThemeSlot.galleryImage3: const ShareCardRegion(left: 0.56, top: 0.275, width: 0.40, height: 0.085),
+  ShareCardThemeSlot.listingType: const ShareCardRegion(left: 0.04, top: 0.065, width: 0.40, height: 0.04),
+  ShareCardThemeSlot.title: const ShareCardRegion(left: 0.04, top: 0.395, width: 0.50, height: 0.10),
+  ShareCardThemeSlot.price: const ShareCardRegion(left: 0.04, top: 0.495, width: 0.48, height: 0.065),
+  ShareCardThemeSlot.features: const ShareCardRegion(left: 0.04, top: 0.565, width: 0.48, height: 0.22),
+  ShareCardThemeSlot.location: const ShareCardRegion(left: 0.04, top: 0.785, width: 0.48, height: 0.05),
+  ShareCardThemeSlot.agentPhone: const ShareCardRegion(left: 0.56, top: 0.72, width: 0.40, height: 0.045),
+  ShareCardThemeSlot.agentName: const ShareCardRegion(left: 0.56, top: 0.765, width: 0.40, height: 0.04),
+  ShareCardThemeSlot.websiteOrQr: const ShareCardRegion(left: 0.56, top: 0.815, width: 0.40, height: 0.065),
+  ShareCardThemeSlot.logo: const ShareCardRegion(left: 0.86, top: 0.72, width: 0.10, height: 0.09),
+};
+
+const ShareCardMainImageConfig kShareCardMainImagePortrait15Hero = ShareCardMainImageConfig(
+  area: ShareCardRegion(left: 0.04, top: 0.095, width: 0.46, height: 0.26),
+  fit: BoxFit.cover,
+  alignment: Alignment.topCenter,
+  borderRadiusFraction: 0.035,
+);
+
 Map<ShareCardThemeSlot, ShareCardRegion> cloneRegions(Map<ShareCardThemeSlot, ShareCardRegion> source) =>
     Map<ShareCardThemeSlot, ShareCardRegion>.from(source);

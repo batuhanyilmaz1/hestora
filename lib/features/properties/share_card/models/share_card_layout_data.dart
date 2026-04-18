@@ -12,8 +12,12 @@ class ShareCardLayoutData {
     this.listingImageUrls = const [],
     this.agentName,
     this.agentPhone,
+    this.agentEmail,
+    this.agentAvatarUrl,
+    this.footerContactLine,
     this.qrPayload,
     this.websiteFallbackLine,
+    this.description,
   });
 
   final String title;
@@ -21,6 +25,9 @@ class ShareCardLayoutData {
   final String featuresLine;
   final String listingTypeLabel;
   final String? locationLine;
+
+  /// İlan oluştururken girilen açıklama (kartlarda birkaç satırla gösterilir).
+  final String? description;
   final String? mainImageUrl;
 
   /// Full gallery from CRM (`property.imageUrls`). Slot 0 drives [mainImageUrl] when set.
@@ -28,6 +35,15 @@ class ShareCardLayoutData {
 
   final String? agentName;
   final String? agentPhone;
+
+  /// Emlakçı e-postası (çoğunlukla oturum e-postasından doldurulur).
+  final String? agentEmail;
+
+  /// Agent / office avatar for themes that expose a circular logo slot.
+  final String? agentAvatarUrl;
+
+  /// Combined contact strip for templates that reserve a single footer line.
+  final String? footerContactLine;
 
   /// When non-empty, [ShareCardThemeSlot.websiteOrQr] shows a QR code.
   final String? qrPayload;
@@ -46,6 +62,42 @@ class ShareCardLayoutData {
   }
 
   /// Non-empty URLs in gallery order (for [ShareCardThemeSlot.galleryImage1]…).
+  ShareCardLayoutData copyWith({
+    String? title,
+    String? priceLine,
+    String? featuresLine,
+    String? listingTypeLabel,
+    String? locationLine,
+    String? mainImageUrl,
+    List<String>? listingImageUrls,
+    String? agentName,
+    String? agentPhone,
+    String? agentEmail,
+    String? agentAvatarUrl,
+    String? footerContactLine,
+    String? qrPayload,
+    String? websiteFallbackLine,
+    String? description,
+  }) {
+    return ShareCardLayoutData(
+      title: title ?? this.title,
+      priceLine: priceLine ?? this.priceLine,
+      featuresLine: featuresLine ?? this.featuresLine,
+      listingTypeLabel: listingTypeLabel ?? this.listingTypeLabel,
+      locationLine: locationLine ?? this.locationLine,
+      mainImageUrl: mainImageUrl ?? this.mainImageUrl,
+      listingImageUrls: listingImageUrls ?? this.listingImageUrls,
+      agentName: agentName ?? this.agentName,
+      agentPhone: agentPhone ?? this.agentPhone,
+      agentEmail: agentEmail ?? this.agentEmail,
+      agentAvatarUrl: agentAvatarUrl ?? this.agentAvatarUrl,
+      footerContactLine: footerContactLine ?? this.footerContactLine,
+      qrPayload: qrPayload ?? this.qrPayload,
+      websiteFallbackLine: websiteFallbackLine ?? this.websiteFallbackLine,
+      description: description ?? this.description,
+    );
+  }
+
   List<String> get normalizedListingImageUrls {
     if (listingImageUrls.isNotEmpty) {
       return listingImageUrls.map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
@@ -64,6 +116,7 @@ class ShareCardLayoutData {
     required String listingTypeLabel,
     String? agentName,
     String? agentPhone,
+    String? description,
   }) {
     final url = property.listingUrl?.trim();
     return ShareCardLayoutData(
@@ -76,8 +129,12 @@ class ShareCardLayoutData {
       listingImageUrls: List<String>.from(property.imageUrls),
       agentName: agentName,
       agentPhone: agentPhone,
+      agentEmail: null,
+      agentAvatarUrl: null,
+      footerContactLine: null,
       qrPayload: (url != null && url.isNotEmpty) ? url : null,
       websiteFallbackLine: url,
+      description: description,
     );
   }
 
@@ -86,7 +143,7 @@ class ShareCardLayoutData {
     return const ShareCardLayoutData(
       title: 'Sea-view duplex with private terrace',
       priceLine: '12.500.000 TRY',
-      featuresLine: '4+1 · 2 bath · 185 m²',
+      featuresLine: 'Rooms 4+ · Baths 2 · 185 m²',
       listingTypeLabel: 'Sale',
       locationLine: 'Kadıköy, Istanbul',
       mainImageUrl: 'https://picsum.photos/seed/hestora-share/800/600',
@@ -98,8 +155,13 @@ class ShareCardLayoutData {
       ],
       agentName: 'Demo Agent',
       agentPhone: '+90 555 000 00 00',
+      agentEmail: 'agent@example.com',
+      agentAvatarUrl: 'https://picsum.photos/seed/hestora-agent/200/200',
+      footerContactLine: '+90 555 000 00 00 · example.com/listings/demo · agent@example.com',
       qrPayload: 'https://example.com/listings/demo',
       websiteFallbackLine: 'example.com/listings/demo',
+      description:
+          'Panoramic sea view, smart home wiring, two parking spaces. Walking distance to metro and marina.',
     );
   }
 }

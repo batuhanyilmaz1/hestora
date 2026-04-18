@@ -27,6 +27,7 @@ class ShareCardThemeDefinition {
     this.watermarkStyle = ShareCardWatermarkStyle.none,
     this.agentTitleColor,
     this.agentPhoneColor,
+    this.useAgentAvatarForLogo = false,
   });
 
   /// Stable key for prefs / analytics.
@@ -74,6 +75,9 @@ class ShareCardThemeDefinition {
 
   /// Overrides [subtitleColor] for [ShareCardThemeSlot.agentPhone] when set.
   final Color? agentPhoneColor;
+
+  /// When true, [ShareCardLayoutData.agentAvatarUrl] fills [ShareCardThemeSlot.logo] (oval) if set.
+  final bool useAgentAvatarForLogo;
 
   double get aspectRatio => designWidth / designHeight;
 

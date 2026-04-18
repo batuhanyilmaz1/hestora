@@ -14,5 +14,7 @@ enum ShareCardThemeSlot {
   agentPhone,
   /// QR when [ShareCardLayoutData.qrPayload] is non-empty; otherwise website text.
   websiteOrQr,
+  /// Optional single-line footer (phone · web · e-posta) for templates with a wide strip.
+  footerContact,
   logo,
 }
