@@ -5,6 +5,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:share_plus/share_plus.dart';
 
@@ -85,11 +86,21 @@ class _PropertyShareCardPageState extends ConsumerState<PropertyShareCardPage> {
   Future<void> _exportPng() async {
     final boundary = _repaintKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
     if (boundary == null) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context)!.shareCardExportNotReady)),
+        );
+      }
       return;
     }
     setState(() => _exporting = true);
     try {
-      final image = await boundary.toImage(pixelRatio: 3);
+      await Future<void>.delayed(const Duration(milliseconds: 32));
+      if (!mounted) {
+        return;
+      }
+      final dpr = MediaQuery.devicePixelRatioOf(context);
+      final image = await boundary.toImage(pixelRatio: dpr.clamp(2.0, 3.5));
       final bd = await image.toByteData(format: ui.ImageByteFormat.png);
       if (bd == null || !mounted) {
         return;
@@ -106,6 +117,12 @@ class _PropertyShareCardPageState extends ConsumerState<PropertyShareCardPage> {
           ],
         ),
       );
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context)!.shareCardExportFailed)),
+        );
+      }
     } finally {
       if (mounted) {
         setState(() => _exporting = false);
@@ -142,12 +159,62 @@ class _PropertyShareCardPageState extends ConsumerState<PropertyShareCardPage> {
     final profileAsync = ref.watch(profileRowProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.shareCardTitle)),
+      appBar: AppBar(
+        title: Text(l10n.shareCardTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            }
+          },
+        ),
+      ),
       body: AppAsyncValueWidget<Property?>(
         value: async,
+        loading: (context) => const Center(child: CircularProgressIndicator.adaptive()),
+        error: (context, e, _) => Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('$e', textAlign: TextAlign.center, style: const TextStyle(color: AppColors.textSecondary)),
+                const SizedBox(height: AppSpacing.md),
+                FilledButton(
+                  onPressed: () {
+                    if (context.canPop()) {
+                      context.pop();
+                    }
+                  },
+                  child: Text(l10n.back),
+                ),
+              ],
+            ),
+          ),
+        ),
         data: (context, p) {
           if (p == null) {
-            return Center(child: Text(l10n.emptyPropertiesTitle));
+            return Padding(
+              padding: const EdgeInsets.all(AppSpacing.lg),
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(l10n.emptyPropertiesTitle, textAlign: TextAlign.center),
+                    const SizedBox(height: AppSpacing.md),
+                    FilledButton(
+                      onPressed: () {
+                        if (context.canPop()) {
+                          context.pop();
+                        }
+                      },
+                      child: Text(l10n.back),
+                    ),
+                  ],
+                ),
+              ),
+            );
           }
 
           final layout = _useMockPreview
@@ -238,7 +305,7 @@ class _PropertyShareCardPageState extends ConsumerState<PropertyShareCardPage> {
                       width: w,
                       height: h,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(AppRadii.lg),
+                        borderRadius: BorderRadius.circular(AppRadii.md),
                         border: Border.all(color: AppColors.border),
                         boxShadow: [
                           BoxShadow(

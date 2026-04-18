@@ -15,3 +15,8 @@ Hangi dosya hangi şablon:
 Subject (konu) satırlarını Dashboard'da ayrıca düzenleyebilirsin (ör. "Hestora — Hesabını doğrula").
 
 Not: Şablonları kaydettikten sonra "Send test" ile test postası atılabilir (planına bağlı).
+
+Mobil doğrulama (boş ekran önleme):
+  Dashboard → Authentication → URL Configuration → Redirect URLs içine
+  com.hestora.hestora://auth-callback
+  eklenmeli. Kayıtta kullanılan emailRedirectTo ile aynı olmalı.

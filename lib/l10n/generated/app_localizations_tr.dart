@@ -9,7 +9,7 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get appTitle => 'Hestora CRM';
+  String get appTitle => 'Hestora';
 
   @override
   String get homeTitle => 'Ana sayfa';
@@ -208,7 +208,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String propertiesSubtitle(int count) {
-    return '$count müşteri kayıtlı';
+    return '$count ilan kayıtlı';
   }
 
   @override
@@ -310,13 +310,21 @@ class AppLocalizationsTr extends AppLocalizations {
   String get accountSettingsTitle => 'Hesap ayarları';
 
   @override
-  String get accountProfileEditorTitle => 'Profil ve e-posta';
+  String get accountProfileEditorTitle => 'Profil, telefon ve e-posta';
 
   @override
   String get accountHubProfileTitle => 'Profil ve e-posta';
 
   @override
-  String get accountHubProfileSubtitle => 'İsim, fotoğraf ve e-posta adresi';
+  String get accountHubProfileSubtitle =>
+      'İsim, fotoğraf, telefon ve e-posta adresi';
+
+  @override
+  String get accountProfilePhoneHint =>
+      'İsteğe bağlı. Marka kartı ve paylaşım kartlarında görünür.';
+
+  @override
+  String get brandCardAddPhoneAction => 'Telefonu profilden ekle';
 
   @override
   String get accountHubChangePasswordTitle => 'Şifre değiştir';
@@ -347,7 +355,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get profileMenuSupport => 'Destek / yardım';
 
   @override
-  String get profileAppVersion => 'Hestora CRM v1.0.0';
+  String get profileAppVersion => 'Hestora v1.0.0';
 
   @override
   String get profileAccountSheetTitle => 'Hesap';
@@ -365,7 +373,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get cancel => 'Vazgeç';
 
   @override
-  String get loginTitle => 'Giriş yap';
+  String get loginTitle => 'Mail ile giriş';
 
   @override
   String get registerTitle => 'Kayıt ol';
@@ -403,6 +411,18 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get authErrorGeneric =>
       'Bir şeyler ters gitti. Bilgilerini kontrol edip tekrar dene.';
+
+  @override
+  String get authEmailNotVerified =>
+      'Giriş yapmadan önce e-postanı doğrula. Gelen kutundaki doğrulama bağlantısına tıkla.';
+
+  @override
+  String get authLinkInvalid =>
+      'Bu giriş bağlantısı geçersiz veya süresi dolmuş. Uygulamadan giriş yapmayı dene.';
+
+  @override
+  String get postVerifySessionMissing =>
+      'Bu bağlantıdan oturum açılamadı. Uygulamayı açıp giriş yap veya gerekirse e-postayı yeniden doğrula.';
 
   @override
   String get validationRequired => 'Bu alan gerekli';
@@ -681,7 +701,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get loginWelcomeTitle => 'Tekrar hoş geldin';
 
   @override
-  String get loginWelcomeSubtitle => 'Hesabına giriş yap';
+  String get loginWelcomeSubtitle => 'E-posta ve şifrenle giriş yap';
 
   @override
   String get registerHeadline => 'Hesap oluştur';
@@ -790,11 +810,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get validationPasswordLength8 => 'En az 8 karakter kullan';
 
   @override
-  String get profileNotificationsTitle => 'Bildirim ayarları';
+  String get profileNotificationsTitle => 'Bildirim Ayarları';
 
   @override
-  String get profileNotificationsSubtitle =>
-      'Hangi güncellemeler için uyarı almak istediğini seç.';
+  String get profileNotificationsSubtitle => 'Bildirimleri özelleştir';
 
   @override
   String get profileNotifyMatches => 'Eşleşme önerileri';
@@ -818,11 +837,56 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yeni özellikler ve ipuçları (nadiren).';
 
   @override
-  String get profileAnalyticsTitle => 'Analiz ve raporlar';
+  String get profileNotifyMasterTitle => 'Bildirimleri Aç / Kapat';
 
   @override
-  String get profileAnalyticsSubtitle =>
-      'Özet metrikler — detaylı raporlar yakında.';
+  String get profileNotifyMasterOn => 'Tüm bildirimler aktif';
+
+  @override
+  String get profileNotifyMasterOff => 'Bildirimler kapalı';
+
+  @override
+  String get profileNotifyTypesSection => 'BİLDİRİM TÜRLERİ';
+
+  @override
+  String get profileNotifyTaskTitle => 'Görev Bildirimleri';
+
+  @override
+  String get profileNotifyTaskSubtitle => 'Yeni görev ve atamalar';
+
+  @override
+  String get profileNotifyReminderTitle => 'Hatırlatıcılar';
+
+  @override
+  String get profileNotifyReminderSubtitle => 'Zamanı gelen hatırlatıcılar';
+
+  @override
+  String get profileNotifyCustomerTitle => 'Müşteri Aktivitesi';
+
+  @override
+  String get profileNotifyCustomerSubtitle => 'Yeni müşteri ve güncellemeler';
+
+  @override
+  String get profileNotifySystemTitle => 'Sistem Bildirimleri';
+
+  @override
+  String get profileNotifySystemSubtitle => 'Uygulama güncellemeleri';
+
+  @override
+  String get profileNotifyCampaignTitle => 'Kampanya & Duyurular';
+
+  @override
+  String get profileNotifyCampaignSubtitle => 'Özel teklifler ve haberler';
+
+  @override
+  String get profileNotifyDeviceNote =>
+      'Bildirim ayarları cihaz izinlerine bağlıdır. Cihaz ayarlarından da kontrol edebilirsiniz.';
+
+  @override
+  String get profileAnalyticsTitle => 'Analiz & Raporlar';
+
+  @override
+  String get profileAnalyticsSubtitle => 'Performans özeti';
 
   @override
   String get profileAnalyticsCustomers => 'Müşteri';
@@ -837,11 +901,130 @@ class AppLocalizationsTr extends AppLocalizations {
   String get profileAnalyticsShareClicks => 'Takip linki tıklaması';
 
   @override
-  String get profileSupportTitle => 'Destek ve yardım';
+  String get profileAnalyticsPeriodWeek => 'Haftalık';
 
   @override
-  String get profileSupportSubtitle =>
-      'Soruların için iletişim ve sık sorulanlar.';
+  String get profileAnalyticsPeriodMonth => 'Aylık';
+
+  @override
+  String get profileAnalyticsPeriodYear => 'Yıllık';
+
+  @override
+  String get profileAnalyticsActiveListings => 'Aktif İlan';
+
+  @override
+  String get profileAnalyticsCompleted => 'Tamamlanan';
+
+  @override
+  String get profileAnalyticsRevenue => 'Gelir';
+
+  @override
+  String get profileAnalyticsActivityChart => 'Aktivite Grafiği';
+
+  @override
+  String get profileAnalyticsPerfSummary => 'Performans Özeti';
+
+  @override
+  String get profileAnalyticsConversion => 'Dönüşüm Oranı';
+
+  @override
+  String get profileAnalyticsAvgClose => 'Ort. Kapama Süresi';
+
+  @override
+  String get profileAnalyticsMostActive => 'En Aktif İşlem';
+
+  @override
+  String get profileAnalyticsMostActiveListingShare => 'İlan paylaşımı';
+
+  @override
+  String get profileAnalyticsMostActiveSalesClose => 'Satış kapama';
+
+  @override
+  String get profileAnalyticsExportReport => 'Raporu Dışa Aktar';
+
+  @override
+  String get profileAnalyticsExportSoon => 'Dışa aktarma yakında eklenecek.';
+
+  @override
+  String profileAnalyticsDays(int count) {
+    return '$count gün';
+  }
+
+  @override
+  String get profileSupportTitle => 'Destek / Yardım';
+
+  @override
+  String get profileSupportSubtitle => 'Nasıl yardımcı olabiliriz?';
+
+  @override
+  String get supportTileKvkkTitle => 'KVKK & Gizlilik';
+
+  @override
+  String get supportTileKvkkSubtitle => 'Veri koruma politikası';
+
+  @override
+  String get supportTileFaqTitle => 'SSS';
+
+  @override
+  String get supportTileFaqSubtitle => 'Sık sorulan sorular';
+
+  @override
+  String get supportTileContactTitle => 'Bize Ulaşın';
+
+  @override
+  String get supportTileContactSubtitle => '7/24 destek hattı';
+
+  @override
+  String get supportRightsFooter => 'Hestora v1.0.0 • Tüm hakları saklıdır';
+
+  @override
+  String get contactUsTitle => 'Bize Ulaşın';
+
+  @override
+  String get contactUsSubtitle => '7/24 destek hattı';
+
+  @override
+  String get contactChannelsTitle => 'İletişim Kanalları';
+
+  @override
+  String get contactEmailSupport => 'Email Destek';
+
+  @override
+  String get contactWhatsapp => 'WhatsApp';
+
+  @override
+  String get contactPhone => 'Telefon';
+
+  @override
+  String get contactSupportEmailValue => 'destek@hestora.com';
+
+  @override
+  String get contactSupportPhoneValue => '+90 850 123 45 67';
+
+  @override
+  String get contactHoursTitle => 'Çalışma Saatleri';
+
+  @override
+  String get contactHoursSubtitle =>
+      'Destek ekibimiz aşağıdaki saatlerde aktiftir';
+
+  @override
+  String get contactHoursWeekday => 'Pazartesi – Cuma';
+
+  @override
+  String get contactHoursWeekdayValue => '09:00 – 18:00';
+
+  @override
+  String get contactHoursSaturday => 'Cumartesi';
+
+  @override
+  String get contactHoursSaturdayValue => '10:00 – 15:00';
+
+  @override
+  String get contactHoursSunday => 'Pazar';
+
+  @override
+  String get contactHoursClosed => 'Kapalı';
 
   @override
   String get profileSupportFaqHeading => 'Sık sorulanlar';
@@ -983,7 +1166,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get customerMessage => 'Mesaj';
 
   @override
-  String get localeRegionTitle => 'Dil ve bölge';
+  String get localeRegionTitle => 'Dil ve Bölge Ayarları';
+
+  @override
+  String get localeRegionScreenSubtitle => 'Tercihlerini belirle';
 
   @override
   String get localeRegionSavedTitle => 'Kaydedildi';
@@ -1006,7 +1192,31 @@ class AppLocalizationsTr extends AppLocalizations {
   String get currencyTry => 'TRY — Türk Lirası';
 
   @override
+  String get currencyOptionUsd => 'USD — Amerikan Doları';
+
+  @override
+  String get currencyOptionAed => 'AED — BAE Dirhemi';
+
+  @override
+  String get currencyOptionEur => 'EUR — Euro';
+
+  @override
+  String get currencyOptionGbp => 'GBP — İngiliz Sterlini';
+
+  @override
   String get regionTurkey => 'Türkiye';
+
+  @override
+  String get regionCountryAE => 'Birleşik Arap Emirlikleri';
+
+  @override
+  String get regionCountryUS => 'Amerika Birleşik Devletleri';
+
+  @override
+  String get regionCountryGB => 'Birleşik Krallık';
+
+  @override
+  String get regionCountryDE => 'Almanya';
 
   @override
   String get regionSettingHint => 'Bölge ayarı';
@@ -1268,4 +1478,501 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get listingImportContinueManual => 'Elle devam et';
+
+  @override
+  String get initialSetupTitle => 'Dil ve bölge seçimi';
+
+  @override
+  String get initialSetupSubtitle =>
+      'Bunları daha sonra profil ayarlarından değiştirebilirsin.';
+
+  @override
+  String get initialSetupContinue => 'Devam et';
+
+  @override
+  String get postVerifyTitle => 'E-posta doğrulandı';
+
+  @override
+  String get postVerifyHeadline => 'Hesabın hazır';
+
+  @override
+  String get postVerifyBody =>
+      'Ödeme adımı etkinleştirildiğinde plan seçimini tamamlayacaksın. Şimdilik uygulamaya devam edebilirsin.';
+
+  @override
+  String get postVerifyContinue => 'Uygulamaya devam et';
+
+  @override
+  String get propertyCreateMethodTitle => 'İlan ekle';
+
+  @override
+  String get propertyCreateOptionManual => 'Manuel';
+
+  @override
+  String get propertyCreateOptionManualBody =>
+      'Form üzerinden ilan bilgilerini gir.';
+
+  @override
+  String get propertyCreateOptionLink => 'Link ile';
+
+  @override
+  String get propertyCreateOptionLinkBody =>
+      'Herkese açık ilan bağlantısından alanları doldur.';
+
+  @override
+  String get dashboardTasksToday => 'Bugün yapılacaklar (açık görevler)';
+
+  @override
+  String get dashboardTasksCompleted => 'Yakın zamanda tamamlananlar';
+
+  @override
+  String get dashboardTasksEmptyOpen =>
+      'Henüz açık görev yok. Görevler veya + menüsünden ekleyebilirsin.';
+
+  @override
+  String get dashboardTasksEmptyDone =>
+      'Tamamlanan görevler burada listelenir.';
+
+  @override
+  String get dashboardViewAllTasks => 'Tüm görevleri gör';
+
+  @override
+  String get authKvkkRequired =>
+      'Devam etmek için aydınlatma metnini onaylamalısın.';
+
+  @override
+  String get shareCardExportNotReady =>
+      'Önizleme henüz hazır değil. Biraz sonra tekrar dene.';
+
+  @override
+  String get shareCardExportFailed =>
+      'Görsel dışa aktarılamadı. Lütfen tekrar dene.';
+
+  @override
+  String get customerRoleBuyer => 'Alıcı';
+
+  @override
+  String get customerRoleTenant => 'Kiracı';
+
+  @override
+  String get customerRoleSeller => 'Satıcı';
+
+  @override
+  String get customerRoleLandlord => 'Ev sahibi';
+
+  @override
+  String get taskSheetPickCustomerTitle => 'Müşteri Seç';
+
+  @override
+  String get taskSheetPickCustomerSubtitle =>
+      'Hatırlatıcıyı bir müşteriye bağla';
+
+  @override
+  String get taskSheetPickPropertyTitle => 'Emlak Seç';
+
+  @override
+  String get taskSheetPickPropertySubtitle => 'Hatırlatıcıyı bir emlağa bağla';
+
+  @override
+  String get taskRemindTitle => 'Hatırlatıcı Ekle';
+
+  @override
+  String get taskRemindSubtitle => 'Yeni bir görev oluştur';
+
+  @override
+  String taskTodayCount(int count) {
+    return 'Bugün $count görev';
+  }
+
+  @override
+  String get taskBadgeRequired => 'Zorunlu';
+
+  @override
+  String get taskBadgeOptional => 'Opsiyonel';
+
+  @override
+  String get taskNotifySectionTitle => 'Bildirim';
+
+  @override
+  String get taskNotifyOnTitle => 'Bildirim açık';
+
+  @override
+  String get taskNotifyOnSubtitle => 'Zamanı geldiğinde hatırlat';
+
+  @override
+  String get taskLinkSectionTitle => 'Bağlantı';
+
+  @override
+  String get taskLinkCustomerRow => 'Müşteriye bağla';
+
+  @override
+  String get taskLinkPropertyRow => 'Emlağa bağla';
+
+  @override
+  String get taskPickCustomerHint => 'Müşteri seç';
+
+  @override
+  String get taskPickPropertyHint => 'Emlak seç';
+
+  @override
+  String get taskDateShort => 'Tarih';
+
+  @override
+  String get taskTimeShort => 'Saat';
+
+  @override
+  String get provincePickTitle => 'İl Seç';
+
+  @override
+  String get listingLayoutPickTitle => 'İlan Tipi Seç';
+
+  @override
+  String get propertyFormQuickPickSection => 'İl ve ilan tipi';
+
+  @override
+  String get propertyFormPickEmpty => 'Seçin';
+
+  @override
+  String get propertyFormLinkSection => 'İlan bağlantısı';
+
+  @override
+  String get propertyFormApplyPreview => 'Forma aktar';
+
+  @override
+  String get propertyFormApplyDone => 'Başlık ve açıklama güncellendi.';
+
+  @override
+  String get accountInfoTitle => 'Hesap Bilgileri';
+
+  @override
+  String get accountInfoSubtitle => 'Profil ve marka kartını yönet';
+
+  @override
+  String get accountTabPersonal => 'Kişisel Bilgiler';
+
+  @override
+  String get accountTabBrand => 'Marka Kartı';
+
+  @override
+  String get brandCardPreview => 'Kart Önizleme';
+
+  @override
+  String get brandPickTemplate => 'Şablon Seç';
+
+  @override
+  String get brandSloganLabel => 'Slogan / Tagline';
+
+  @override
+  String get brandWebsiteLabel => 'Website';
+
+  @override
+  String get signOutSheetTitle => 'Çıkış yapılsın mı?';
+
+  @override
+  String get signOutSheetBody => 'İstediğin zaman tekrar giriş yapabilirsin.';
+
+  @override
+  String get deleteAccountTitle => 'Hesabı Sil';
+
+  @override
+  String get deleteAccountDanger => 'Tehlikeli bölge';
+
+  @override
+  String get deleteAccountQuestion => 'Hesabını silmek istediğine emin misin?';
+
+  @override
+  String get deleteAccountWarning =>
+      'Bu işlem geri alınamaz. Müşteri, ilan ve hatırlatıcı verilerin kalıcı olarak silinecek.';
+
+  @override
+  String get deleteAccountCta => 'Hesabımı Silmek İstiyorum';
+
+  @override
+  String get kvkkTitle => 'KVKK & Gizlilik';
+
+  @override
+  String get kvkkSubtitle => 'Nasıl yardımcı olabiliriz?';
+
+  @override
+  String get kvkkSafeTitle => 'Verileriniz güvende';
+
+  @override
+  String get kvkkSafeBody =>
+      'Hestora olarak kişisel verilerinizin gizliliğini ve güvenliğini en üst düzeyde tutmayı taahhüt ediyoruz.';
+
+  @override
+  String get faqTitle => 'SSS';
+
+  @override
+  String get faqSubtitle => 'Sık sorulan sorular';
+
+  @override
+  String get packagePickTitle => 'Paket Seçimi';
+
+  @override
+  String get packagePickSubtitle => 'Sana uygun planı seç';
+
+  @override
+  String get packageHeadline => 'Premium\'a geç';
+
+  @override
+  String get packageSubline => 'İstediğin zaman iptal edebilirsin';
+
+  @override
+  String get paymentSummaryTitle => 'Ödeme Özeti';
+
+  @override
+  String get paymentSummarySubtitle => 'Güvenli ödeme';
+
+  @override
+  String get profileCreateTitle => 'Profil Oluştur';
+
+  @override
+  String get profileCreateSubtitle => 'Son adım';
+
+  @override
+  String get profileCreateHeadline => 'Profilini tamamla';
+
+  @override
+  String get profileCreateSubline => 'Bilgilerini girerek başla';
+
+  @override
+  String get profileCreateCompleteCta => 'Tamamla ve Başla';
+
+  @override
+  String get profileCreateComingSoon =>
+      'Bu rehberli profil ekranı ileride firma bilgileri ve fotoğrafları toplayacak. Şimdilik uygulamaya devam edebilirsin.';
+
+  @override
+  String get kvkkSection1Title => '1. Veri Sorumlusu';
+
+  @override
+  String get kvkkSection1Body =>
+      'Hestora, yürürlükteki mevzuat kapsamında veri sorumlusu sıfatıyla hizmet sunmak için verilerini işler.';
+
+  @override
+  String get kvkkSection2Title => '2. İşlenen Kişisel Veriler';
+
+  @override
+  String get kvkkSection2Body =>
+      'Kimlik, iletişim, kullanım ve uygulamaya eklediğin içerik verileri.';
+
+  @override
+  String get kvkkSection3Title => '3. Veri İşleme Amaçları';
+
+  @override
+  String get kvkkSection3Body =>
+      'Hesap yönetimi, güvenlik, analitik ve destek.';
+
+  @override
+  String get kvkkSection4Title => '4. Veri Güvenliği';
+
+  @override
+  String get kvkkSection4Body =>
+      'Verilerini korumak için teknik ve idari tedbirler uygulanır.';
+
+  @override
+  String get kvkkSection5Title => '5. Haklarınız';
+
+  @override
+  String get kvkkSection5Body =>
+      'Başvuru hakkı, düzeltme, silme ve taşınabilirlik (kanuna tabi).';
+
+  @override
+  String get kvkkSection6Title => '6. Çerezler ve Takip';
+
+  @override
+  String get kvkkSection6Body =>
+      'Kimlik doğrulama için gerekli çerezler; açıksa analitik.';
+
+  @override
+  String get kvkkFooterContact => 'Sorularınız için: destek@hestora.com';
+
+  @override
+  String get faqQ1 => 'Verilerimi nasıl dışa aktarırım?';
+
+  @override
+  String get faqA1 => 'Profil > Hesap Bilgileri > Veri dışa aktarma (yakında).';
+
+  @override
+  String get faqQ2 => 'Paketimi nasıl değiştiririm?';
+
+  @override
+  String get faqA2 =>
+      'Faturalandırma açıldığında paket seçiminden devam edebilirsin.';
+
+  @override
+  String get faqQ3 => 'Şifremi unuttum, ne yapmalıyım?';
+
+  @override
+  String get faqA3 =>
+      'Giriş ekranındaki \"Şifremi unuttum\" bağlantısını kullan.';
+
+  @override
+  String get faqQ4 => 'Müşteri eşleştirme nasıl çalışır?';
+
+  @override
+  String get faqA4 => 'Müşteri tercihleri ve ilan alanlarıyla eşleşme yapılır.';
+
+  @override
+  String get faqQ5 => 'Hesabımı nasıl silerim?';
+
+  @override
+  String get faqA5 => 'Profil > Hesabı Sil (geri alınamaz).';
+
+  @override
+  String get faqQ6 => 'Bildirimler neden gelmiyor?';
+
+  @override
+  String get faqA6 =>
+      'Cihaz bildirim izinlerini ve uygulama içi ayarları kontrol et.';
+
+  @override
+  String get deleteAccountListTitle => 'Silinecekler:';
+
+  @override
+  String get deleteAccountList1 => 'Tüm müşteri kayıtları';
+
+  @override
+  String get deleteAccountList2 => 'Tüm ilan verileri';
+
+  @override
+  String get deleteAccountList3 => 'Tüm hatırlatıcılar ve görevler';
+
+  @override
+  String get deleteAccountList4 => 'Profil ve marka kartı bilgileri';
+
+  @override
+  String get deleteAccountList5 => 'Abonelik ve ödeme geçmişi';
+
+  @override
+  String get deleteAccountComingSoon => 'Hesap silme API henüz bağlanmadı.';
+
+  @override
+  String get packageTrialBadge => 'Ücretsiz';
+
+  @override
+  String get packageTrialTitle => '1 Hafta Deneme';
+
+  @override
+  String get packageTrialPrice => '₺0 / ay';
+
+  @override
+  String get packageTrialDesc => 'Tüm özellikleri ücretsiz dene';
+
+  @override
+  String get packageMonthlyTitle => 'Aylık Plan';
+
+  @override
+  String get packageMonthlyPrice => '₺299 / ay';
+
+  @override
+  String get packageMonthlyDesc => 'Esnek aylık abonelik';
+
+  @override
+  String get packageYearlyBadge => 'En İyi Değer';
+
+  @override
+  String get packageYearlyTitle => 'Yıllık Plan';
+
+  @override
+  String get packageYearlyPrice => '₺199 / ay';
+
+  @override
+  String get packageYearlyDesc => 'Yıllık ödeme ile %33 tasarruf';
+
+  @override
+  String get packageCta => 'Devam et';
+
+  @override
+  String get paymentPlanName => 'Yıllık Plan';
+
+  @override
+  String get paymentPlanSub => 'Hestora CRM Premium';
+
+  @override
+  String get paymentBestValue => 'En İyi Değer';
+
+  @override
+  String get paymentLineYear => 'Yıllık abonelik';
+
+  @override
+  String get paymentLineYearValue => '₺2.388';
+
+  @override
+  String get paymentLineDiscount => 'İndirim (%33)';
+
+  @override
+  String get paymentLineDiscountValue => '-₺788';
+
+  @override
+  String get paymentTotal => 'Toplam';
+
+  @override
+  String get paymentTotalValue => '₺1.600';
+
+  @override
+  String get paymentVatNote => 'KDV dahil • Yıllık faturalandırma';
+
+  @override
+  String get paymentIncludedTitle => 'Dahil Olanlar';
+
+  @override
+  String get paymentFeat1 => 'Sınırsız müşteri yönetimi';
+
+  @override
+  String get paymentFeat2 => 'Sınırsız emlak portföyü';
+
+  @override
+  String get paymentFeat3 => 'AI destekli veri çıkarma';
+
+  @override
+  String get paymentFeat4 => 'Akıllı hatırlatıcı sistemi';
+
+  @override
+  String get paymentFeat5 => 'Gelişmiş analiz & raporlar';
+
+  @override
+  String get paymentFeat6 => 'Öncelikli müşteri desteği';
+
+  @override
+  String get paymentGuarantee =>
+      '30 gün para iade garantisi (faturalandırma açıldığında).';
+
+  @override
+  String get paymentProcessingCta => 'Uygulamaya devam et';
+
+  @override
+  String get brandTemplateDarkBlue => 'Koyu Mavi';
+
+  @override
+  String get brandTemplateNight => 'Gece';
+
+  @override
+  String get brandTemplateEmerald => 'Zümrüt';
+
+  @override
+  String get brandTemplateGold => 'Altın';
+
+  @override
+  String get brandPreviewName => 'Ahmet Yılmaz';
+
+  @override
+  String get brandPreviewRole => 'Gayrimenkul Danışmanı';
+
+  @override
+  String get brandPreviewSloganPlaceholder =>
+      'Güvenilir gayrimenkul danışmanınız';
+
+  @override
+  String get brandShare => 'Paylaş';
+
+  @override
+  String get brandShareSoon => 'Marka kartı paylaşımı yakında.';
+
+  @override
+  String get brandCardWatermark => 'HESTORA CRM';
+
+  @override
+  String get brandCardQr => 'QR Kod';
 }

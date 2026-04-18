@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
+import '../../../app/providers/auth_session_provider.dart';
 import '../../../core/config/supabase_bootstrap.dart';
 import '../domain/customer_activity.dart';
 
@@ -146,6 +147,7 @@ final customerActivityRepositoryProvider = Provider<CustomerActivityRepository>(
 
 final customerActivitiesProvider =
     FutureProvider.family<List<CustomerActivity>, String>((ref, customerId) async {
+  ref.watch(currentAuthUserIdProvider);
   final repo = ref.watch(customerActivityRepositoryProvider);
   return repo.listForCustomer(customerId);
 });

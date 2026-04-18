@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/theme/app_colors.dart';
 import 'auth_caps_field.dart';
 
 class AuthPasswordField extends StatefulWidget {
@@ -38,7 +39,7 @@ class _AuthPasswordFieldState extends State<AuthPasswordField> {
         onPressed: () => setState(() => _obscure = !_obscure),
         icon: Icon(
           _obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-          color: Colors.white54,
+          color: AppColors.textSecondary,
         ),
       ),
     );

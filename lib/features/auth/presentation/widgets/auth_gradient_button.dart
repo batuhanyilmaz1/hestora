@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_radii.dart';
 import 'auth_ui_constants.dart';
 
 class AuthGradientButton extends StatelessWidget {
@@ -18,14 +20,15 @@ class AuthGradientButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
+        color: onPressed == null ? AppColors.surfaceMuted : null,
         gradient: onPressed == null ? null : AuthUi.primaryButtonGradient,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppRadii.xl),
         boxShadow: onPressed == null
             ? null
             : [
                 BoxShadow(
-                  color: const Color(0xFF2563EB).withValues(alpha: 0.35),
-                  blurRadius: 20,
+                  color: AppColors.brandGlow.withValues(alpha: 0.85),
+                  blurRadius: 22,
                   offset: const Offset(0, 8),
                 ),
               ],
@@ -34,7 +37,7 @@ class AuthGradientButton extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onPressed,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(AppRadii.xl),
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 16),
@@ -48,10 +51,10 @@ class AuthGradientButton extends StatelessWidget {
                 ],
                 Text(
                   label,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: onPressed == null ? AppColors.textDisabled : Colors.white,
                     fontWeight: FontWeight.w700,
-                    fontSize: 16,
+                    fontSize: 15,
                   ),
                 ),
               ],

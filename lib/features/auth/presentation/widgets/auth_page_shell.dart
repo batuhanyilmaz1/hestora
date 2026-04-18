@@ -13,6 +13,7 @@ class AuthPageShell extends StatelessWidget {
     this.headline,
     this.subline,
     this.appBarSubtitle,
+    this.brandHeader,
   });
 
   final String appBarTitle;
@@ -21,6 +22,8 @@ class AuthPageShell extends StatelessWidget {
   final String? headline;
   final String? subline;
   final String? appBarSubtitle;
+  /// Örn. mail giriş sayfasında marka logosu.
+  final Widget? brandHeader;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +83,11 @@ class AuthPageShell extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             children: [
+              if (brandHeader != null) ...[
+                const SizedBox(height: 4),
+                Center(child: brandHeader!),
+                const SizedBox(height: 16),
+              ],
               if (headline != null) ...[
                 const SizedBox(height: 8),
                 Text(

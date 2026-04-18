@@ -9,6 +9,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/home_shell_theme.dart';
 import '../../../core/widgets/app_async_value.dart';
+import '../../../core/widgets/async_detail_frame.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../data/customer_activity_logger.dart';
 import '../data/customer_activity_repository.dart';
@@ -121,9 +122,17 @@ class _CustomerDetailPageState extends ConsumerState<CustomerDetailPage> {
       backgroundColor: _kCustomerDetailScaffold,
       body: AppAsyncValueWidget<Customer?>(
         value: async,
+        loading: (context) => const AsyncDetailFrame(
+          child: Center(child: CircularProgressIndicator.adaptive()),
+        ),
+        error: (context, e, _) => AsyncDetailFrame(
+          child: Center(child: Text('$e', textAlign: TextAlign.center)),
+        ),
         data: (context, c) {
           if (c == null) {
-            return Center(child: Text(l10n.emptyCustomersTitle));
+            return AsyncDetailFrame(
+              child: Center(child: Text(l10n.emptyCustomersTitle)),
+            );
           }
           final initials = _initials(c.name);
           final badge = switch (c.listingIntent) {

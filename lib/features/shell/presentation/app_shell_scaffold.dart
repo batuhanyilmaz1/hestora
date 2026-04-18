@@ -5,6 +5,7 @@ import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/home_shell_theme.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../../customers/presentation/customer_creation_options_sheet.dart';
+import '../../properties/presentation/property_creation_options_sheet.dart';
 
 class AppShellScaffold extends StatelessWidget {
   const AppShellScaffold({super.key, required this.shell});
@@ -63,7 +64,11 @@ class AppShellScaffold extends StatelessWidget {
                 title: Text(l10n.quickAddProperty, style: const TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.of(ctx).pop();
-                  context.push('/properties/new');
+                  Future<void>.delayed(Duration.zero, () {
+                    if (context.mounted) {
+                      showPropertyCreationOptionsSheet(context);
+                    }
+                  });
                 },
               ),
               ListTile(
@@ -72,14 +77,6 @@ class AppShellScaffold extends StatelessWidget {
                 onTap: () {
                   Navigator.of(ctx).pop();
                   context.push('/tasks');
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.link_outlined, color: HomeShellTheme.textLightBlue),
-                title: Text(l10n.listingImportTitle, style: const TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.of(ctx).pop();
-                  context.push('/properties/import');
                 },
               ),
             ],

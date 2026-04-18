@@ -14,3 +14,11 @@ final authSessionProvider = StreamProvider<User?>((ref) {
     (event) => event.session?.user,
   );
 });
+
+/// Current Supabase auth user id, or null when logged out / not yet resolved.
+///
+/// User-scoped [FutureProvider]s should [watch] this so cached data refetches
+/// after login, logout, or account switch (defense in depth with cache invalidation).
+final currentAuthUserIdProvider = Provider<String?>((ref) {
+  return ref.watch(authSessionProvider.select((asyncUser) => asyncUser.valueOrNull?.id));
+});

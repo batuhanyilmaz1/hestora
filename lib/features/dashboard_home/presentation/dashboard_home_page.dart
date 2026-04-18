@@ -11,9 +11,31 @@ import '../../../core/widgets/hestora_gradient_filled_button.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../../customers/data/customer_repository.dart';
 import '../../customers/presentation/customer_creation_options_sheet.dart';
+import '../../properties/presentation/property_creation_options_sheet.dart';
+import '../../tasks/data/task_repository.dart';
+import '../../tasks/domain/hestora_task.dart';
 
 class DashboardHomePage extends ConsumerWidget {
   const DashboardHomePage({super.key});
+
+  static bool _sameCalendarDay(DateTime a, DateTime b) {
+    return a.year == b.year && a.month == b.month && a.day == b.day;
+  }
+
+  static int _openTaskSortScore(HestoraTask t, DateTime now) {
+    final startOfToday = DateTime(now.year, now.month, now.day);
+    final d = t.dueAt;
+    if (d == null) {
+      return 2;
+    }
+    if (d.isBefore(startOfToday)) {
+      return 0;
+    }
+    if (_sameCalendarDay(d, now)) {
+      return 1;
+    }
+    return 3;
+  }
 
   static List<TextSpan> _tipSpans(String tip, Locale locale, TextStyle base, TextStyle highlight) {
     final mark = switch (locale.languageCode) {
@@ -38,7 +60,9 @@ class DashboardHomePage extends ConsumerWidget {
     final env = ref.watch(appEnvironmentProvider);
     final demo = !SupabaseBootstrap.isClientReady(env);
     final customersAsync = ref.watch(customersListProvider);
+    final tasksAsync = ref.watch(tasksListProvider);
     final locale = Localizations.localeOf(context);
+    final now = DateTime.now();
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -46,6 +70,20 @@ class DashboardHomePage extends ConsumerWidget {
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.md),
           children: [
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: SizedBox(
+                height: 48,
+                child: Image.asset(
+                  'assets/logo/LOGO-1.png',
+                  fit: BoxFit.contain,
+                  alignment: AlignmentDirectional.centerStart,
+                  filterQuality: FilterQuality.high,
+                  gaplessPlayback: true,
+                ),
+              ),
+            ),
+            const AppGap(height: AppSpacing.md),
             if (demo)
               Padding(
                 padding: const EdgeInsets.only(bottom: AppSpacing.md),
@@ -92,7 +130,7 @@ class DashboardHomePage extends ConsumerWidget {
               onPrimary: () => showCustomerCreationOptionsSheet(context),
               secondaryLeftLabel: l10n.ctaAddListing,
               secondaryRightLabel: l10n.ctaReminder,
-              onSecondaryLeft: () => context.push('/properties/new'),
+              onSecondaryLeft: () => showPropertyCreationOptionsSheet(context),
               onSecondaryRight: () => context.push('/tasks'),
             ),
             const AppGap(height: AppSpacing.md),
@@ -115,6 +153,70 @@ class DashboardHomePage extends ConsumerWidget {
             ),
             const AppGap(height: AppSpacing.lg),
             Text(
+              l10n.dashboardTasksToday,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                  ),
+            ),
+            const AppGap(height: AppSpacing.sm),
+            tasksAsync.when(
+              data: (tasks) {
+                final open = tasks.where(hestoraTaskIsOpen).toList()
+                  ..sort((a, b) => _openTaskSortScore(a, now).compareTo(_openTaskSortScore(b, now)));
+                final shown = open.take(10).toList();
+                if (shown.isEmpty) {
+                  return Text(
+                    l10n.dashboardTasksEmptyOpen,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(color: const Color(0xFF94A3B8)),
+                  );
+                }
+                return Column(
+                  children: [
+                    for (final t in shown) _DashboardTaskRow(task: t),
+                    TextButton(
+                      onPressed: () => context.push('/tasks'),
+                      child: Text(l10n.dashboardViewAllTasks),
+                    ),
+                  ],
+                );
+              },
+              loading: () => const Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: LinearProgressIndicator(minHeight: 3),
+              ),
+              error: (_, __) => Text(
+                l10n.authErrorGeneric,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: const Color(0xFF94A3B8)),
+              ),
+            ),
+            const AppGap(height: AppSpacing.lg),
+            Text(
+              l10n.dashboardTasksCompleted,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                  ),
+            ),
+            const AppGap(height: AppSpacing.sm),
+            tasksAsync.when(
+              data: (tasks) {
+                final done = tasks.where(hestoraTaskIsDone).take(8).toList();
+                if (done.isEmpty) {
+                  return Text(
+                    l10n.dashboardTasksEmptyDone,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(color: const Color(0xFF94A3B8)),
+                  );
+                }
+                return Column(
+                  children: [for (final t in done) _DashboardTaskRow(task: t, dim: true)],
+                );
+              },
+              loading: () => const SizedBox.shrink(),
+              error: (_, __) => const SizedBox.shrink(),
+            ),
+            const AppGap(height: AppSpacing.lg),
+            Text(
               customersAsync.maybeWhen(
                 data: (list) => l10n.customersSubtitle(list.length),
                 orElse: () => l10n.customersSubtitle(0),
@@ -124,6 +226,66 @@ class DashboardHomePage extends ConsumerWidget {
                   ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DashboardTaskRow extends StatelessWidget {
+  const _DashboardTaskRow({required this.task, this.dim = false});
+
+  final HestoraTask task;
+  final bool dim;
+
+  @override
+  Widget build(BuildContext context) {
+    final subtitle = task.dueAt != null ? MaterialLocalizations.of(context).formatShortDate(task.dueAt!) : '';
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.xs),
+      child: Material(
+        color: HomeShellTheme.card.withValues(alpha: dim ? 0.55 : 0.92),
+        borderRadius: BorderRadius.circular(14),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(14),
+          onTap: () => context.push('/tasks/${task.id}'),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm + 2),
+            child: Row(
+              children: [
+                Icon(
+                  dim ? Icons.check_circle_outline : Icons.radio_button_unchecked,
+                  size: 22,
+                  color: dim ? const Color(0xFF34D399) : HomeShellTheme.textLightBlue.withValues(alpha: 0.9),
+                ),
+                const SizedBox(width: AppSpacing.sm),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        task.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
+                      ),
+                      if (subtitle.isNotEmpty)
+                        Text(
+                          subtitle,
+                          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                color: HomeShellTheme.textLightBlue.withValues(alpha: 0.85),
+                              ),
+                        ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right, color: HomeShellTheme.textLightBlue.withValues(alpha: 0.65)),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -154,16 +316,16 @@ class _HeroCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppSpacing.lg),
+      padding: const EdgeInsets.fromLTRB(AppSpacing.lg, AppSpacing.lg + 2, AppSpacing.lg, AppSpacing.lg),
       decoration: BoxDecoration(
         color: HomeShellTheme.card,
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: HomeShellTheme.borderBlue.withValues(alpha: 0.35)),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: HomeShellTheme.borderBlue.withValues(alpha: 0.42)),
         boxShadow: [
           BoxShadow(
-            color: HomeShellTheme.primaryBlue.withValues(alpha: 0.18),
-            blurRadius: 28,
-            offset: const Offset(0, 14),
+            color: HomeShellTheme.primaryBlue.withValues(alpha: 0.2),
+            blurRadius: 24,
+            offset: const Offset(0, 12),
           ),
         ],
       ),
@@ -172,21 +334,28 @@ class _HeroCard extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 52,
-              height: 52,
+              width: 64,
+              height: 64,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                color: const Color(0xFF0F172A),
-                border: Border.all(color: HomeShellTheme.borderBlue.withValues(alpha: 0.35)),
+                shape: BoxShape.circle,
+                border: Border.all(color: HomeShellTheme.borderBlue.withValues(alpha: 0.55), width: 2),
                 boxShadow: [
                   BoxShadow(
-                    color: HomeShellTheme.primaryBlue.withValues(alpha: 0.45),
-                    blurRadius: 16,
+                    color: HomeShellTheme.primaryBlue.withValues(alpha: 0.35),
+                    blurRadius: 18,
                     spreadRadius: 0,
                   ),
                 ],
               ),
-              child: Center(
+              alignment: Alignment.center,
+              child: Container(
+                width: 54,
+                height: 54,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xFF0A1220),
+                ),
+                alignment: Alignment.center,
                 child: Icon(
                   Icons.apartment_outlined,
                   size: 28,
@@ -202,7 +371,8 @@ class _HeroCard extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
-                  fontSize: 18,
+                  fontSize: 17,
+                  height: 1.25,
                 ),
           ),
           const AppGap(height: AppSpacing.sm),
@@ -232,7 +402,7 @@ class _HeroCard extends StatelessWidget {
                     side: BorderSide(color: HomeShellTheme.borderBlue.withValues(alpha: 0.65)),
                     backgroundColor: HomeShellTheme.secondaryButtonFill,
                     padding: const EdgeInsets.symmetric(vertical: 14),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                   ),
                   icon: const Icon(Icons.add_home_work_outlined, size: 20),
                   label: Text(secondaryLeftLabel, style: const TextStyle(fontWeight: FontWeight.w600)),
@@ -247,7 +417,7 @@ class _HeroCard extends StatelessWidget {
                     side: BorderSide(color: HomeShellTheme.borderBlue.withValues(alpha: 0.65)),
                     backgroundColor: HomeShellTheme.secondaryButtonFill,
                     padding: const EdgeInsets.symmetric(vertical: 14),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                   ),
                   icon: const Icon(Icons.schedule_outlined, size: 20),
                   label: Text(secondaryRightLabel, style: const TextStyle(fontWeight: FontWeight.w600)),
@@ -272,8 +442,8 @@ class _TipRow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm + 2),
       decoration: BoxDecoration(
         color: HomeShellTheme.tipBarFill,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: HomeShellTheme.borderBlue.withValues(alpha: 0.22)),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: HomeShellTheme.borderBlue.withValues(alpha: 0.28)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -4,6 +4,7 @@ import 'package:mime/mime.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
+import '../../../app/providers/auth_session_provider.dart';
 import '../../../core/config/supabase_bootstrap.dart';
 import '../../../core/storage/supabase_storage_paths.dart';
 
@@ -36,6 +37,7 @@ abstract class ProfileRepository {
   Future<String> uploadAvatarAndSaveUrl(XFile file);
   Future<void> updateDisplayName(String displayName);
   Future<void> updateEmail(String email);
+  Future<void> updatePhone(String phone);
 }
 
 class StubProfileRepository implements ProfileRepository {
@@ -57,6 +59,10 @@ class StubProfileRepository implements ProfileRepository {
 
   @override
   Future<void> updateEmail(String email) async =>
+      throw UnsupportedError('Supabase not configured');
+
+  @override
+  Future<void> updatePhone(String phone) async =>
       throw UnsupportedError('Supabase not configured');
 }
 
@@ -124,6 +130,16 @@ class SupabaseProfileRepository implements ProfileRepository {
     }
     await _client.auth.updateUser(UserAttributes(email: v));
   }
+
+  @override
+  Future<void> updatePhone(String phone) async {
+    final uid = _client.auth.currentUser?.id;
+    if (uid == null) {
+      throw StateError('Not signed in');
+    }
+    final v = phone.trim();
+    await _client.from('profiles').update({'phone': v.isEmpty ? null : v}).eq('id', uid);
+  }
 }
 
 final profileRepositoryProvider = Provider<ProfileRepository>((ref) {
@@ -135,8 +151,9 @@ final profileRepositoryProvider = Provider<ProfileRepository>((ref) {
 });
 
 final profileRowProvider = FutureProvider<ProfileRow?>((ref) async {
+  final uid = ref.watch(currentAuthUserIdProvider);
   final repo = ref.watch(profileRepositoryProvider);
-  if (!repo.supportsRemote) {
+  if (!repo.supportsRemote || uid == null) {
     return null;
   }
   return repo.fetchCurrent();

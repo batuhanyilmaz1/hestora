@@ -26,6 +26,7 @@ class AccountProfileEditorPage extends ConsumerStatefulWidget {
 class _AccountProfileEditorPageState extends ConsumerState<AccountProfileEditorPage> {
   final _name = TextEditingController();
   final _email = TextEditingController();
+  final _phone = TextEditingController();
   final _emailFocus = FocusNode();
   final _formKey = GlobalKey<FormState>();
   bool _busy = false;
@@ -54,6 +55,7 @@ class _AccountProfileEditorPageState extends ConsumerState<AccountProfileEditorP
       setState(() {
         _name.text = _displayNameFrom(u, profile);
         _email.text = u.email ?? '';
+        _phone.text = profile?.phone?.trim() ?? '';
         _seeded = true;
       });
       if (widget.focusEmailOnOpen && mounted) {
@@ -91,6 +93,7 @@ class _AccountProfileEditorPageState extends ConsumerState<AccountProfileEditorP
   void dispose() {
     _name.dispose();
     _email.dispose();
+    _phone.dispose();
     _emailFocus.dispose();
     super.dispose();
   }
@@ -153,6 +156,7 @@ class _AccountProfileEditorPageState extends ConsumerState<AccountProfileEditorP
     setState(() => _busy = true);
     try {
       await repo.updateDisplayName(_name.text);
+      await repo.updatePhone(_phone.text);
       final currentEmail = ref.read(authSessionProvider).valueOrNull?.email?.trim() ?? '';
       final nextEmail = _email.text.trim();
       if (nextEmail.isNotEmpty && nextEmail != currentEmail) {
@@ -244,7 +248,7 @@ class _AccountProfileEditorPageState extends ConsumerState<AccountProfileEditorP
                     labelText: l10n.emailLabel,
                     keyboardType: TextInputType.emailAddress,
                     autofillHints: const [AutofillHints.email],
-                    textInputAction: TextInputAction.done,
+                    textInputAction: TextInputAction.next,
                     validator: (v) {
                       if (v == null || v.trim().isEmpty) {
                         return l10n.validationRequired;
@@ -256,15 +260,38 @@ class _AccountProfileEditorPageState extends ConsumerState<AccountProfileEditorP
                     },
                   ),
                 ),
+                const SizedBox(height: AppSpacing.sm),
+                _EditorGlassSection(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      AppTextField(
+                        controller: _phone,
+                        labelText: l10n.fieldPhone,
+                        keyboardType: TextInputType.phone,
+                        autofillHints: const [AutofillHints.telephoneNumber],
+                        textInputAction: TextInputAction.done,
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        l10n.accountProfilePhoneHint,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: AppColors.textSecondary.withValues(alpha: 0.9),
+                              height: 1.35,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
                 const SizedBox(height: AppSpacing.lg),
                 Material(
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: _busy ? null : () => _save(l10n),
-                    borderRadius: BorderRadius.circular(AppRadii.lg),
+                    borderRadius: BorderRadius.circular(AppRadii.md),
                     child: Ink(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(AppRadii.lg),
+                        borderRadius: BorderRadius.circular(AppRadii.md),
                         color: AppColors.primary.withValues(alpha: 0.92),
                         border: Border.all(color: Colors.white.withValues(alpha: 0.12)),
                         boxShadow: [
@@ -315,7 +342,7 @@ class _EditorGlassSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.md),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppRadii.lg),
+        borderRadius: BorderRadius.circular(AppRadii.md),
         color: AppColors.surface.withValues(alpha: 0.55),
         border: Border.all(color: Colors.white.withValues(alpha: 0.07)),
         boxShadow: [

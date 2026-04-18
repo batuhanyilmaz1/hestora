@@ -2,50 +2,54 @@ import 'dart:async';
 
 import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../core/config/auth_redirect.dart';
+import '../core/auth/auth_initial_session.dart';
+import '../l10n/generated/app_localizations.dart';
+import 'router/app_router.dart';
 
-/// E-postadaki şifre sıfırlama / magic link URI'sini yakalayıp oturumu kurar.
-/// [AuthRecoveryWrapper] ile birlikte recovery ekranına yönlendirme yapılır.
-class AuthDeepLinkHandler extends StatefulWidget {
+/// Yakalanan auth URI → oturum + doğru sayfaya yönlendirme (çalışırken gelen linkler).
+class AuthDeepLinkHandler extends ConsumerStatefulWidget {
   const AuthDeepLinkHandler({super.key, required this.child});
 
   final Widget child;
 
   @override
-  State<AuthDeepLinkHandler> createState() => _AuthDeepLinkHandlerState();
+  ConsumerState<AuthDeepLinkHandler> createState() => _AuthDeepLinkHandlerState();
 }
 
-class _AuthDeepLinkHandlerState extends State<AuthDeepLinkHandler> {
+class _AuthDeepLinkHandlerState extends ConsumerState<AuthDeepLinkHandler> {
   final _appLinks = AppLinks();
   StreamSubscription<Uri>? _sub;
 
-  static bool _isAuthRedirect(Uri u) {
-    final expected = Uri.parse(kAuthDeepLinkRedirect);
-    return u.scheme == expected.scheme && u.host == expected.host;
-  }
-
-  Future<void> _consumeAuthUri(Uri? uri) async {
-    if (uri == null || !_isAuthRedirect(uri)) {
+  Future<void> _handleUri(Uri? uri) async {
+    if (uri == null) {
       return;
     }
     try {
-      await Supabase.instance.client.auth.getSessionFromUrl(uri);
+      final route = await AuthInitialSession.consumeAuthUriAndResolveRoute(uri);
+      if (!mounted || route == null) {
+        return;
+      }
+      ref.read(goRouterProvider).go(route);
     } catch (_) {
-      // Supabase yok veya URI auth formatında değil.
+      if (!mounted) {
+        return;
+      }
+      final messenger = ScaffoldMessenger.maybeOf(context);
+      String message = 'Invalid sign-in link';
+      try {
+        message = AppLocalizations.of(context)!.authLinkInvalid;
+      } catch (_) {}
+      messenger?.showSnackBar(SnackBar(content: Text(message)));
+      ref.read(goRouterProvider).go('/login');
     }
   }
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      try {
-        await _consumeAuthUri(await _appLinks.getInitialLink());
-      } catch (_) {}
-    });
-    _sub = _appLinks.uriLinkStream.listen(_consumeAuthUri, onError: (_) {});
+    _sub = _appLinks.uriLinkStream.listen(_handleUri, onError: (_) {});
   }
 
   @override

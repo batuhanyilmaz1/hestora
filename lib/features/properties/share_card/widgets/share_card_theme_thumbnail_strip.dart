@@ -58,13 +58,13 @@ class ShareCardThemeThumbnailStrip extends StatelessWidget {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () => onSelect(t),
-                    borderRadius: BorderRadius.circular(AppRadii.md),
+                    borderRadius: BorderRadius.circular(AppRadii.xs),
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 180),
                       width: _thumbW + 6,
                       padding: const EdgeInsets.all(3),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(AppRadii.md),
+                        borderRadius: BorderRadius.circular(AppRadii.xs),
                         border: Border.all(
                           color: isSel ? AppColors.primary : AppColors.border,
                           width: isSel ? 2.5 : 1,
@@ -72,7 +72,7 @@ class ShareCardThemeThumbnailStrip extends StatelessWidget {
                         color: Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(AppRadii.sm),
+                        borderRadius: BorderRadius.circular(AppRadii.xs),
                         child: SizedBox(
                           width: _thumbW,
                           height: th,

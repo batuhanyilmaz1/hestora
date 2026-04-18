@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
+import '../../../app/providers/auth_session_provider.dart';
 import '../../../core/config/supabase_bootstrap.dart';
 import '../domain/customer.dart';
 
@@ -214,11 +215,13 @@ final customerRepositoryProvider = Provider<CustomerRepository>((ref) {
 });
 
 final customersListProvider = FutureProvider<List<Customer>>((ref) async {
+  ref.watch(currentAuthUserIdProvider);
   final repo = ref.watch(customerRepositoryProvider);
   return repo.list();
 });
 
 final customerDetailProvider = FutureProvider.family<Customer?, String>((ref, id) async {
+  ref.watch(currentAuthUserIdProvider);
   final repo = ref.watch(customerRepositoryProvider);
   return repo.getById(id);
 });

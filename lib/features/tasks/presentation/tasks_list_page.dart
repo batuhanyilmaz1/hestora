@@ -128,7 +128,7 @@ class TasksListPage extends ConsumerWidget {
 
                     return Material(
                       color: AppColors.surfaceElevated,
-                      borderRadius: BorderRadius.circular(AppRadii.md),
+                      borderRadius: BorderRadius.circular(AppRadii.sm),
                       child: ListTile(
                         title: Text(task.title),
                         subtitle: Text('$due\n${links.join(' • ')}'),
@@ -140,7 +140,7 @@ class TasksListPage extends ConsumerWidget {
                               label: Text(_taskStatusLabel(l10n, task.status)),
                               visualDensity: VisualDensity.compact,
                             ),
-                            if (task.status == 'open')
+                            if (hestoraTaskIsOpen(task))
                               IconButton(
                                 tooltip: l10n.taskMarkDone,
                                 icon: const Icon(Icons.check_circle_outline_rounded),

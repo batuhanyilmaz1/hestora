@@ -11,6 +11,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_radii.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_async_value.dart';
+import '../../../core/widgets/async_detail_frame.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../../customers/data/customer_activity_logger.dart';
 import '../../customers/data/customer_activity_repository.dart';
@@ -158,9 +159,17 @@ class _PropertyDetailPageState extends ConsumerState<PropertyDetailPage>
       backgroundColor: _kPropertyDetailScaffold,
       body: AppAsyncValueWidget<Property?>(
         value: async,
+        loading: (context) => const AsyncDetailFrame(
+          child: Center(child: CircularProgressIndicator.adaptive()),
+        ),
+        error: (context, e, _) => AsyncDetailFrame(
+          child: Center(child: Text('$e', textAlign: TextAlign.center)),
+        ),
         data: (context, p) {
           if (p == null) {
-            return Center(child: Text(l10n.emptyPropertiesTitle));
+            return AsyncDetailFrame(
+              child: Center(child: Text(l10n.emptyPropertiesTitle)),
+            );
           }
           return Column(
             children: [
@@ -520,7 +529,7 @@ class _InfoTabContent extends ConsumerWidget {
             padding: const EdgeInsets.all(AppSpacing.md),
             decoration: BoxDecoration(
               color: AppColors.surfaceElevated,
-              borderRadius: BorderRadius.circular(AppRadii.md),
+              borderRadius: BorderRadius.circular(AppRadii.sm),
               border: Border.all(color: AppColors.border),
             ),
             child: Text(
@@ -607,7 +616,7 @@ class _InfoTabContent extends ConsumerWidget {
         padding: const EdgeInsets.all(AppSpacing.sm),
         decoration: BoxDecoration(
           color: AppColors.surfaceElevated,
-          borderRadius: BorderRadius.circular(AppRadii.md),
+          borderRadius: BorderRadius.circular(AppRadii.sm),
           border: Border.all(color: AppColors.border),
         ),
         child: Column(

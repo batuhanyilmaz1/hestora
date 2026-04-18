@@ -11,10 +11,12 @@ import '../../../core/config/supabase_bootstrap.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_radii.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/widgets/hestora_figma_ui.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../../customers/data/customer_repository.dart';
 import '../../properties/data/property_repository.dart';
 import '../../tasks/data/task_repository.dart';
+import '../../tasks/domain/hestora_task.dart';
 import '../data/profile_repository.dart';
 
 class ProfilePage extends ConsumerWidget {
@@ -45,9 +47,7 @@ class ProfilePage extends ConsumerWidget {
       orElse: () => 0,
     );
     final openTasks = tasksAsync.maybeWhen(
-      data: (l) => l
-          .where((t) => t.status == 'open' && !t.archived)
-          .length,
+      data: (l) => l.where(hestoraTaskIsOpen).length,
       orElse: () => 0,
     );
 
@@ -62,10 +62,10 @@ class ProfilePage extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        centerTitle: true,
+        centerTitle: false,
         title: Text(
           l10n.profileTitle,
-          style: const TextStyle(fontWeight: FontWeight.w600),
+          style: const TextStyle(fontWeight: FontWeight.w800),
         ),
         leading: context.canPop()
             ? IconButton(
@@ -74,36 +74,54 @@ class ProfilePage extends ConsumerWidget {
               )
             : null,
         actions: [
-          PopupMenuButton<String>(
+          IconButton(
+            tooltip: l10n.profileMenuNotifications,
+            icon: const Icon(Icons.notifications_none_rounded),
+            onPressed: () => context.push('/profile/notifications'),
+          ),
+          IconButton(
             tooltip: l10n.profileMoreMenu,
             icon: const Icon(Icons.more_vert_rounded),
-            color: AppColors.surfaceElevated,
-            onSelected: (value) {
-              switch (value) {
-                case 'tasks':
-                  context.push('/tasks');
-                case 'import':
-                  context.push('/properties/import');
-              }
+            onPressed: () {
+              showModalBottomSheet<void>(
+                context: context,
+                backgroundColor: HestoraFigma.sheetBg,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(HestoraFigma.sheetTopRadius)),
+                ),
+                builder: (ctx) => SafeArea(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ListTile(
+                        leading: const Icon(Icons.task_alt_outlined, color: Colors.white70),
+                        title: Text(l10n.navTasks, style: const TextStyle(color: Colors.white)),
+                        onTap: () {
+                          Navigator.pop(ctx);
+                          context.push('/tasks');
+                        },
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.shield_outlined, color: Colors.white70),
+                        title: Text(l10n.kvkkTitle, style: const TextStyle(color: Colors.white)),
+                        onTap: () {
+                          Navigator.pop(ctx);
+                          context.push('/profile/kvkk');
+                        },
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.help_outline, color: Colors.white70),
+                        title: Text(l10n.faqTitle, style: const TextStyle(color: Colors.white)),
+                        onTap: () {
+                          Navigator.pop(ctx);
+                          context.push('/profile/faq');
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              );
             },
-            itemBuilder: (ctx) => [
-              PopupMenuItem(
-                value: 'tasks',
-                child: ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.task_alt_outlined, color: AppColors.primary),
-                  title: Text(l10n.navTasks),
-                ),
-              ),
-              PopupMenuItem(
-                value: 'import',
-                child: ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.link_outlined, color: AppColors.accentTeal),
-                  title: Text(l10n.listingImportTitle),
-                ),
-              ),
-            ],
           ),
         ],
       ),
@@ -120,6 +138,7 @@ class ProfilePage extends ConsumerWidget {
             onAvatarTap: clientReady && user != null
                 ? () => _pickProfilePhoto(context, ref, l10n)
                 : null,
+            onEditProfile: () => context.push('/profile/account/profile'),
           ),
           const SizedBox(height: AppSpacing.md),
           _QuickStatsRow(
@@ -132,15 +151,8 @@ class ProfilePage extends ConsumerWidget {
           _GlassMenuTile(
             icon: Icons.manage_accounts_outlined,
             iconColor: AppColors.primary,
-            title: l10n.accountSettingsTitle,
+            title: l10n.accountInfoTitle,
             onTap: () => context.push('/profile/account'),
-          ),
-          const SizedBox(height: AppSpacing.sm),
-          _GlassMenuTile(
-            icon: Icons.language_rounded,
-            iconColor: const Color(0xFF38BDF8),
-            title: l10n.localeRegionTitle,
-            onTap: () => context.push('/profile/locale-region'),
           ),
           const SizedBox(height: AppSpacing.sm),
           _GlassMenuTile(
@@ -170,6 +182,14 @@ class ProfilePage extends ConsumerWidget {
             title: l10n.signOut,
             isDestructive: true,
             onTap: () => _confirmSignOut(context, ref, l10n, clientReady),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          _GlassMenuTile(
+            icon: Icons.delete_forever_outlined,
+            iconColor: const Color(0xFFF87171),
+            title: l10n.deleteAccountTitle,
+            isDestructive: true,
+            onTap: () => context.push('/profile/delete-account'),
           ),
           const SizedBox(height: AppSpacing.xl),
           Center(
@@ -220,22 +240,37 @@ class ProfilePage extends ConsumerWidget {
     AppLocalizations l10n,
     bool clientReady,
   ) async {
-    final ok = await showDialog<bool>(
+    final ok = await showModalBottomSheet<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: AppColors.surfaceElevated,
-        title: Text(l10n.signOut),
-        content: Text(l10n.signOutConfirm),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: Text(l10n.cancel),
+      backgroundColor: HestoraFigma.sheetBg,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(HestoraFigma.sheetTopRadius)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(l10n.signOutSheetTitle, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 18)),
+              const SizedBox(height: 8),
+              Text(l10n.signOutSheetBody, style: const TextStyle(color: HestoraFigma.mutedText, height: 1.4)),
+              const SizedBox(height: AppSpacing.lg),
+              FilledButton(
+                onPressed: () => Navigator.pop(ctx, true),
+                style: FilledButton.styleFrom(backgroundColor: const Color(0xFF2563EB), padding: const EdgeInsets.symmetric(vertical: 14)),
+                child: Text(l10n.signOut),
+              ),
+              const SizedBox(height: AppSpacing.sm),
+              OutlinedButton(
+                onPressed: () => Navigator.pop(ctx, false),
+                style: OutlinedButton.styleFrom(foregroundColor: Colors.white70, padding: const EdgeInsets.symmetric(vertical: 14)),
+                child: Text(l10n.cancel),
+              ),
+            ],
           ),
-          FilledButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            child: Text(l10n.signOut),
-          ),
-        ],
+        ),
       ),
     );
     if (ok != true || !context.mounted) {
@@ -266,6 +301,7 @@ class _ProfileHeroCard extends StatelessWidget {
     required this.totalListings,
     required this.totalCustomers,
     this.onAvatarTap,
+    this.onEditProfile,
   });
 
   final AppLocalizations l10n;
@@ -275,6 +311,7 @@ class _ProfileHeroCard extends StatelessWidget {
   final int totalListings;
   final int totalCustomers;
   final VoidCallback? onAvatarTap;
+  final VoidCallback? onEditProfile;
 
   String get _displayName {
     final u = user;
@@ -398,12 +435,24 @@ class _ProfileHeroCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  _displayName,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.textPrimary,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        _displayName,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.textPrimary,
+                            ),
                       ),
+                    ),
+                    if (onEditProfile != null)
+                      IconButton.filledTonal(
+                        style: IconButton.styleFrom(backgroundColor: AppColors.surfaceMuted),
+                        onPressed: onEditProfile,
+                        icon: const Icon(Icons.edit_outlined, size: 20),
+                      ),
+                  ],
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -457,7 +506,7 @@ class _QuickStatsRow extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: AppSpacing.md, horizontal: AppSpacing.sm),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppRadii.lg),
+        borderRadius: BorderRadius.circular(AppRadii.md),
         color: AppColors.surface.withValues(alpha: 0.65),
         border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
       ),
@@ -563,10 +612,10 @@ class _GlassMenuTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(AppRadii.lg),
+        borderRadius: BorderRadius.circular(AppRadii.md),
         child: Ink(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(AppRadii.lg),
+            borderRadius: BorderRadius.circular(AppRadii.md),
             color: AppColors.surface.withValues(alpha: 0.55),
             border: Border.all(color: borderColor),
             boxShadow: [

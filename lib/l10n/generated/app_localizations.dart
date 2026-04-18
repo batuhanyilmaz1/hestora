@@ -103,7 +103,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Hestora CRM'**
+  /// **'Hestora'**
   String get appTitle;
 
   /// No description provided for @homeTitle.
@@ -481,7 +481,7 @@ abstract class AppLocalizations {
   /// No description provided for @propertiesSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'{count} customers saved'**
+  /// **'{count} listings saved'**
   String propertiesSubtitle(int count);
 
   /// No description provided for @searchCustomersHint.
@@ -673,7 +673,7 @@ abstract class AppLocalizations {
   /// No description provided for @accountProfileEditorTitle.
   ///
   /// In en, this message translates to:
-  /// **'Profile & email'**
+  /// **'Profile, phone & email'**
   String get accountProfileEditorTitle;
 
   /// No description provided for @accountHubProfileTitle.
@@ -685,8 +685,20 @@ abstract class AppLocalizations {
   /// No description provided for @accountHubProfileSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Name, photo and email address'**
+  /// **'Name, photo, phone and email address'**
   String get accountHubProfileSubtitle;
+
+  /// No description provided for @accountProfilePhoneHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional. Shown on your brand card and share cards.'**
+  String get accountProfilePhoneHint;
+
+  /// No description provided for @brandCardAddPhoneAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Add phone from profile'**
+  String get brandCardAddPhoneAction;
 
   /// No description provided for @accountHubChangePasswordTitle.
   ///
@@ -745,7 +757,7 @@ abstract class AppLocalizations {
   /// No description provided for @profileAppVersion.
   ///
   /// In en, this message translates to:
-  /// **'Hestora CRM v1.0.0'**
+  /// **'Hestora v1.0.0'**
   String get profileAppVersion;
 
   /// No description provided for @profileAccountSheetTitle.
@@ -781,7 +793,7 @@ abstract class AppLocalizations {
   /// No description provided for @loginTitle.
   ///
   /// In en, this message translates to:
-  /// **'Sign in'**
+  /// **'Email sign-in'**
   String get loginTitle;
 
   /// No description provided for @registerTitle.
@@ -855,6 +867,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something went wrong. Check your details and try again.'**
   String get authErrorGeneric;
+
+  /// No description provided for @authEmailNotVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your email before signing in. Check your inbox for the verification link.'**
+  String get authEmailNotVerified;
+
+  /// No description provided for @authLinkInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'This sign-in link is invalid or expired. Try signing in from the app.'**
+  String get authLinkInvalid;
+
+  /// No description provided for @postVerifySessionMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'We could not restore your session from this link. Please open the app and sign in, then verify your email again if needed.'**
+  String get postVerifySessionMissing;
 
   /// No description provided for @validationRequired.
   ///
@@ -1375,7 +1405,7 @@ abstract class AppLocalizations {
   /// No description provided for @loginWelcomeSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Log in to your account'**
+  /// **'Sign in with your email and password'**
   String get loginWelcomeSubtitle;
 
   /// No description provided for @registerHeadline.
@@ -1597,7 +1627,7 @@ abstract class AppLocalizations {
   /// No description provided for @profileNotificationsSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Choose what you want to be notified about.'**
+  /// **'Customize notifications'**
   String get profileNotificationsSubtitle;
 
   /// No description provided for @profileNotifyMatches.
@@ -1636,16 +1666,106 @@ abstract class AppLocalizations {
   /// **'New features and tips (rarely).'**
   String get profileNotifyMarketingSubtitle;
 
+  /// No description provided for @profileNotifyMasterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn notifications on / off'**
+  String get profileNotifyMasterTitle;
+
+  /// No description provided for @profileNotifyMasterOn.
+  ///
+  /// In en, this message translates to:
+  /// **'All notifications on'**
+  String get profileNotifyMasterOn;
+
+  /// No description provided for @profileNotifyMasterOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications off'**
+  String get profileNotifyMasterOff;
+
+  /// No description provided for @profileNotifyTypesSection.
+  ///
+  /// In en, this message translates to:
+  /// **'NOTIFICATION TYPES'**
+  String get profileNotifyTypesSection;
+
+  /// No description provided for @profileNotifyTaskTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Task notifications'**
+  String get profileNotifyTaskTitle;
+
+  /// No description provided for @profileNotifyTaskSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New tasks and assignments'**
+  String get profileNotifyTaskSubtitle;
+
+  /// No description provided for @profileNotifyReminderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get profileNotifyReminderTitle;
+
+  /// No description provided for @profileNotifyReminderSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Due reminders'**
+  String get profileNotifyReminderSubtitle;
+
+  /// No description provided for @profileNotifyCustomerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Customer activity'**
+  String get profileNotifyCustomerTitle;
+
+  /// No description provided for @profileNotifyCustomerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New customers and updates'**
+  String get profileNotifyCustomerSubtitle;
+
+  /// No description provided for @profileNotifySystemTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'System notifications'**
+  String get profileNotifySystemTitle;
+
+  /// No description provided for @profileNotifySystemSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'App updates'**
+  String get profileNotifySystemSubtitle;
+
+  /// No description provided for @profileNotifyCampaignTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Campaigns & announcements'**
+  String get profileNotifyCampaignTitle;
+
+  /// No description provided for @profileNotifyCampaignSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Special offers and news'**
+  String get profileNotifyCampaignSubtitle;
+
+  /// No description provided for @profileNotifyDeviceNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification settings depend on device permissions. You can also manage them in system settings.'**
+  String get profileNotifyDeviceNote;
+
   /// No description provided for @profileAnalyticsTitle.
   ///
   /// In en, this message translates to:
-  /// **'Analytics and reports'**
+  /// **'Analytics & Reports'**
   String get profileAnalyticsTitle;
 
   /// No description provided for @profileAnalyticsSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Summary metrics — detailed reports coming soon.'**
+  /// **'Performance summary'**
   String get profileAnalyticsSubtitle;
 
   /// No description provided for @profileAnalyticsCustomers.
@@ -1672,17 +1792,251 @@ abstract class AppLocalizations {
   /// **'Tracking link clicks'**
   String get profileAnalyticsShareClicks;
 
+  /// No description provided for @profileAnalyticsPeriodWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get profileAnalyticsPeriodWeek;
+
+  /// No description provided for @profileAnalyticsPeriodMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get profileAnalyticsPeriodMonth;
+
+  /// No description provided for @profileAnalyticsPeriodYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly'**
+  String get profileAnalyticsPeriodYear;
+
+  /// No description provided for @profileAnalyticsActiveListings.
+  ///
+  /// In en, this message translates to:
+  /// **'Active listings'**
+  String get profileAnalyticsActiveListings;
+
+  /// No description provided for @profileAnalyticsCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get profileAnalyticsCompleted;
+
+  /// No description provided for @profileAnalyticsRevenue.
+  ///
+  /// In en, this message translates to:
+  /// **'Revenue'**
+  String get profileAnalyticsRevenue;
+
+  /// No description provided for @profileAnalyticsActivityChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity chart'**
+  String get profileAnalyticsActivityChart;
+
+  /// No description provided for @profileAnalyticsPerfSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Performance summary'**
+  String get profileAnalyticsPerfSummary;
+
+  /// No description provided for @profileAnalyticsConversion.
+  ///
+  /// In en, this message translates to:
+  /// **'Conversion rate'**
+  String get profileAnalyticsConversion;
+
+  /// No description provided for @profileAnalyticsAvgClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg. closing time'**
+  String get profileAnalyticsAvgClose;
+
+  /// No description provided for @profileAnalyticsMostActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Most active action'**
+  String get profileAnalyticsMostActive;
+
+  /// No description provided for @profileAnalyticsMostActiveListingShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Listing share'**
+  String get profileAnalyticsMostActiveListingShare;
+
+  /// No description provided for @profileAnalyticsMostActiveSalesClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Sales closing'**
+  String get profileAnalyticsMostActiveSalesClose;
+
+  /// No description provided for @profileAnalyticsExportReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export report'**
+  String get profileAnalyticsExportReport;
+
+  /// No description provided for @profileAnalyticsExportSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Export is coming soon.'**
+  String get profileAnalyticsExportSoon;
+
+  /// No description provided for @profileAnalyticsDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days'**
+  String profileAnalyticsDays(int count);
+
   /// No description provided for @profileSupportTitle.
   ///
   /// In en, this message translates to:
-  /// **'Support and help'**
+  /// **'Support / Help'**
   String get profileSupportTitle;
 
   /// No description provided for @profileSupportSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Contact and frequently asked questions.'**
+  /// **'How can we help?'**
   String get profileSupportSubtitle;
+
+  /// No description provided for @supportTileKvkkTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'KVKK & Privacy'**
+  String get supportTileKvkkTitle;
+
+  /// No description provided for @supportTileKvkkSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Data protection policy'**
+  String get supportTileKvkkSubtitle;
+
+  /// No description provided for @supportTileFaqTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get supportTileFaqTitle;
+
+  /// No description provided for @supportTileFaqSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently asked questions'**
+  String get supportTileFaqSubtitle;
+
+  /// No description provided for @supportTileContactTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact us'**
+  String get supportTileContactTitle;
+
+  /// No description provided for @supportTileContactSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'24/7 support line'**
+  String get supportTileContactSubtitle;
+
+  /// No description provided for @supportRightsFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'Hestora v1.0.0 • All rights reserved'**
+  String get supportRightsFooter;
+
+  /// No description provided for @contactUsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact us'**
+  String get contactUsTitle;
+
+  /// No description provided for @contactUsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'24/7 support line'**
+  String get contactUsSubtitle;
+
+  /// No description provided for @contactChannelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact channels'**
+  String get contactChannelsTitle;
+
+  /// No description provided for @contactEmailSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Email support'**
+  String get contactEmailSupport;
+
+  /// No description provided for @contactWhatsapp.
+  ///
+  /// In en, this message translates to:
+  /// **'WhatsApp'**
+  String get contactWhatsapp;
+
+  /// No description provided for @contactPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get contactPhone;
+
+  /// No description provided for @contactSupportEmailValue.
+  ///
+  /// In en, this message translates to:
+  /// **'destek@hestora.com'**
+  String get contactSupportEmailValue;
+
+  /// No description provided for @contactSupportPhoneValue.
+  ///
+  /// In en, this message translates to:
+  /// **'+90 850 123 45 67'**
+  String get contactSupportPhoneValue;
+
+  /// No description provided for @contactHoursTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Working hours'**
+  String get contactHoursTitle;
+
+  /// No description provided for @contactHoursSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Our support team is available during the following hours'**
+  String get contactHoursSubtitle;
+
+  /// No description provided for @contactHoursWeekday.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday – Friday'**
+  String get contactHoursWeekday;
+
+  /// No description provided for @contactHoursWeekdayValue.
+  ///
+  /// In en, this message translates to:
+  /// **'09:00 – 18:00'**
+  String get contactHoursWeekdayValue;
+
+  /// No description provided for @contactHoursSaturday.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get contactHoursSaturday;
+
+  /// No description provided for @contactHoursSaturdayValue.
+  ///
+  /// In en, this message translates to:
+  /// **'10:00 – 15:00'**
+  String get contactHoursSaturdayValue;
+
+  /// No description provided for @contactHoursSunday.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get contactHoursSunday;
+
+  /// No description provided for @contactHoursClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get contactHoursClosed;
 
   /// No description provided for @profileSupportFaqHeading.
   ///
@@ -1957,8 +2311,14 @@ abstract class AppLocalizations {
   /// No description provided for @localeRegionTitle.
   ///
   /// In en, this message translates to:
-  /// **'Language & region'**
+  /// **'Language & region settings'**
   String get localeRegionTitle;
+
+  /// No description provided for @localeRegionScreenSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your preferences'**
+  String get localeRegionScreenSubtitle;
 
   /// No description provided for @localeRegionSavedTitle.
   ///
@@ -1996,11 +2356,59 @@ abstract class AppLocalizations {
   /// **'TRY — Turkish Lira'**
   String get currencyTry;
 
+  /// No description provided for @currencyOptionUsd.
+  ///
+  /// In en, this message translates to:
+  /// **'USD — US Dollar'**
+  String get currencyOptionUsd;
+
+  /// No description provided for @currencyOptionAed.
+  ///
+  /// In en, this message translates to:
+  /// **'AED — UAE Dirham'**
+  String get currencyOptionAed;
+
+  /// No description provided for @currencyOptionEur.
+  ///
+  /// In en, this message translates to:
+  /// **'EUR — Euro'**
+  String get currencyOptionEur;
+
+  /// No description provided for @currencyOptionGbp.
+  ///
+  /// In en, this message translates to:
+  /// **'GBP — British Pound'**
+  String get currencyOptionGbp;
+
   /// No description provided for @regionTurkey.
   ///
   /// In en, this message translates to:
   /// **'Turkey'**
   String get regionTurkey;
+
+  /// No description provided for @regionCountryAE.
+  ///
+  /// In en, this message translates to:
+  /// **'United Arab Emirates'**
+  String get regionCountryAE;
+
+  /// No description provided for @regionCountryUS.
+  ///
+  /// In en, this message translates to:
+  /// **'United States'**
+  String get regionCountryUS;
+
+  /// No description provided for @regionCountryGB.
+  ///
+  /// In en, this message translates to:
+  /// **'United Kingdom'**
+  String get regionCountryGB;
+
+  /// No description provided for @regionCountryDE.
+  ///
+  /// In en, this message translates to:
+  /// **'Germany'**
+  String get regionCountryDE;
 
   /// No description provided for @regionSettingHint.
   ///
@@ -2469,6 +2877,948 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue with manual form'**
   String get listingImportContinueManual;
+
+  /// No description provided for @initialSetupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose language and region'**
+  String get initialSetupTitle;
+
+  /// No description provided for @initialSetupSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You can change these later in profile settings.'**
+  String get initialSetupSubtitle;
+
+  /// No description provided for @initialSetupContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get initialSetupContinue;
+
+  /// No description provided for @postVerifyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Email verified'**
+  String get postVerifyTitle;
+
+  /// No description provided for @postVerifyHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account is ready'**
+  String get postVerifyHeadline;
+
+  /// No description provided for @postVerifyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Next, complete your plan selection when billing is enabled. For now you can continue to the app.'**
+  String get postVerifyBody;
+
+  /// No description provided for @postVerifyContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue to app'**
+  String get postVerifyContinue;
+
+  /// No description provided for @propertyCreateMethodTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add listing'**
+  String get propertyCreateMethodTitle;
+
+  /// No description provided for @propertyCreateOptionManual.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual'**
+  String get propertyCreateOptionManual;
+
+  /// No description provided for @propertyCreateOptionManualBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill in listing details in the form.'**
+  String get propertyCreateOptionManualBody;
+
+  /// No description provided for @propertyCreateOptionLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Via link'**
+  String get propertyCreateOptionLink;
+
+  /// No description provided for @propertyCreateOptionLinkBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste a public listing URL to pre-fill fields.'**
+  String get propertyCreateOptionLinkBody;
+
+  /// No description provided for @dashboardTasksToday.
+  ///
+  /// In en, this message translates to:
+  /// **'To do (open tasks)'**
+  String get dashboardTasksToday;
+
+  /// No description provided for @dashboardTasksCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently completed'**
+  String get dashboardTasksCompleted;
+
+  /// No description provided for @dashboardTasksEmptyOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'No open tasks yet. Add one from Tasks or the + menu.'**
+  String get dashboardTasksEmptyOpen;
+
+  /// No description provided for @dashboardTasksEmptyDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed tasks will appear here.'**
+  String get dashboardTasksEmptyDone;
+
+  /// No description provided for @dashboardViewAllTasks.
+  ///
+  /// In en, this message translates to:
+  /// **'View all tasks'**
+  String get dashboardViewAllTasks;
+
+  /// No description provided for @authKvkkRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please accept the disclosure to continue.'**
+  String get authKvkkRequired;
+
+  /// No description provided for @shareCardExportNotReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview is still loading. Try again in a moment.'**
+  String get shareCardExportNotReady;
+
+  /// No description provided for @shareCardExportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not export the image. Please try again.'**
+  String get shareCardExportFailed;
+
+  /// No description provided for @customerRoleBuyer.
+  ///
+  /// In en, this message translates to:
+  /// **'Buyer'**
+  String get customerRoleBuyer;
+
+  /// No description provided for @customerRoleTenant.
+  ///
+  /// In en, this message translates to:
+  /// **'Tenant'**
+  String get customerRoleTenant;
+
+  /// No description provided for @customerRoleSeller.
+  ///
+  /// In en, this message translates to:
+  /// **'Seller'**
+  String get customerRoleSeller;
+
+  /// No description provided for @customerRoleLandlord.
+  ///
+  /// In en, this message translates to:
+  /// **'Landlord'**
+  String get customerRoleLandlord;
+
+  /// No description provided for @taskSheetPickCustomerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select customer'**
+  String get taskSheetPickCustomerTitle;
+
+  /// No description provided for @taskSheetPickCustomerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Link the reminder to a customer'**
+  String get taskSheetPickCustomerSubtitle;
+
+  /// No description provided for @taskSheetPickPropertyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select property'**
+  String get taskSheetPickPropertyTitle;
+
+  /// No description provided for @taskSheetPickPropertySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Link the reminder to a property'**
+  String get taskSheetPickPropertySubtitle;
+
+  /// No description provided for @taskRemindTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add reminder'**
+  String get taskRemindTitle;
+
+  /// No description provided for @taskRemindSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a new task'**
+  String get taskRemindSubtitle;
+
+  /// No description provided for @taskTodayCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Today: {count} tasks'**
+  String taskTodayCount(int count);
+
+  /// No description provided for @taskBadgeRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Required'**
+  String get taskBadgeRequired;
+
+  /// No description provided for @taskBadgeOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get taskBadgeOptional;
+
+  /// No description provided for @taskNotifySectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification'**
+  String get taskNotifySectionTitle;
+
+  /// No description provided for @taskNotifyOnTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications on'**
+  String get taskNotifyOnTitle;
+
+  /// No description provided for @taskNotifyOnSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind when it\'s time'**
+  String get taskNotifyOnSubtitle;
+
+  /// No description provided for @taskLinkSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Link'**
+  String get taskLinkSectionTitle;
+
+  /// No description provided for @taskLinkCustomerRow.
+  ///
+  /// In en, this message translates to:
+  /// **'Link to customer'**
+  String get taskLinkCustomerRow;
+
+  /// No description provided for @taskLinkPropertyRow.
+  ///
+  /// In en, this message translates to:
+  /// **'Link to property'**
+  String get taskLinkPropertyRow;
+
+  /// No description provided for @taskPickCustomerHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Select customer'**
+  String get taskPickCustomerHint;
+
+  /// No description provided for @taskPickPropertyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Select property'**
+  String get taskPickPropertyHint;
+
+  /// No description provided for @taskDateShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get taskDateShort;
+
+  /// No description provided for @taskTimeShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get taskTimeShort;
+
+  /// No description provided for @provincePickTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select province'**
+  String get provincePickTitle;
+
+  /// No description provided for @listingLayoutPickTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select listing type'**
+  String get listingLayoutPickTitle;
+
+  /// No description provided for @propertyFormQuickPickSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Province & listing type'**
+  String get propertyFormQuickPickSection;
+
+  /// No description provided for @propertyFormPickEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Select'**
+  String get propertyFormPickEmpty;
+
+  /// No description provided for @propertyFormLinkSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Listing link'**
+  String get propertyFormLinkSection;
+
+  /// No description provided for @propertyFormApplyPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply to form'**
+  String get propertyFormApplyPreview;
+
+  /// No description provided for @propertyFormApplyDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Title and description updated.'**
+  String get propertyFormApplyDone;
+
+  /// No description provided for @accountInfoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Account information'**
+  String get accountInfoTitle;
+
+  /// No description provided for @accountInfoSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage profile and brand card'**
+  String get accountInfoSubtitle;
+
+  /// No description provided for @accountTabPersonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal'**
+  String get accountTabPersonal;
+
+  /// No description provided for @accountTabBrand.
+  ///
+  /// In en, this message translates to:
+  /// **'Brand card'**
+  String get accountTabBrand;
+
+  /// No description provided for @brandCardPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Card preview'**
+  String get brandCardPreview;
+
+  /// No description provided for @brandPickTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose template'**
+  String get brandPickTemplate;
+
+  /// No description provided for @brandSloganLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Slogan / tagline'**
+  String get brandSloganLabel;
+
+  /// No description provided for @brandWebsiteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get brandWebsiteLabel;
+
+  /// No description provided for @signOutSheetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out?'**
+  String get signOutSheetTitle;
+
+  /// No description provided for @signOutSheetBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You can sign back in anytime.'**
+  String get signOutSheetBody;
+
+  /// No description provided for @deleteAccountTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get deleteAccountTitle;
+
+  /// No description provided for @deleteAccountDanger.
+  ///
+  /// In en, this message translates to:
+  /// **'Danger zone'**
+  String get deleteAccountDanger;
+
+  /// No description provided for @deleteAccountQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account?'**
+  String get deleteAccountQuestion;
+
+  /// No description provided for @deleteAccountWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'This cannot be undone. Customers, listings and reminders will be removed.'**
+  String get deleteAccountWarning;
+
+  /// No description provided for @deleteAccountCta.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to delete my account'**
+  String get deleteAccountCta;
+
+  /// No description provided for @kvkkTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & KVKK'**
+  String get kvkkTitle;
+
+  /// No description provided for @kvkkSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How can we help?'**
+  String get kvkkSubtitle;
+
+  /// No description provided for @kvkkSafeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data is safe'**
+  String get kvkkSafeTitle;
+
+  /// No description provided for @kvkkSafeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Hestora is committed to protecting your personal data.'**
+  String get kvkkSafeBody;
+
+  /// No description provided for @faqTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get faqTitle;
+
+  /// No description provided for @faqSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently asked questions'**
+  String get faqSubtitle;
+
+  /// No description provided for @packagePickTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose plan'**
+  String get packagePickTitle;
+
+  /// No description provided for @packagePickSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the plan that fits you'**
+  String get packagePickSubtitle;
+
+  /// No description provided for @packageHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Premium'**
+  String get packageHeadline;
+
+  /// No description provided for @packageSubline.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel anytime'**
+  String get packageSubline;
+
+  /// No description provided for @paymentSummaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment summary'**
+  String get paymentSummaryTitle;
+
+  /// No description provided for @paymentSummarySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure payment'**
+  String get paymentSummarySubtitle;
+
+  /// No description provided for @profileCreateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create profile'**
+  String get profileCreateTitle;
+
+  /// No description provided for @profileCreateSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Final step'**
+  String get profileCreateSubtitle;
+
+  /// No description provided for @profileCreateHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete your profile'**
+  String get profileCreateHeadline;
+
+  /// No description provided for @profileCreateSubline.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your details to get started'**
+  String get profileCreateSubline;
+
+  /// No description provided for @profileCreateCompleteCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete and start'**
+  String get profileCreateCompleteCta;
+
+  /// No description provided for @profileCreateComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'This guided profile screen will collect firm details and photos in a future update. You can continue to the app now.'**
+  String get profileCreateComingSoon;
+
+  /// No description provided for @kvkkSection1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Data controller'**
+  String get kvkkSection1Title;
+
+  /// No description provided for @kvkkSection1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Hestora acts as data controller under applicable privacy laws. Your data is processed to provide the service.'**
+  String get kvkkSection1Body;
+
+  /// No description provided for @kvkkSection2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'2. Personal data processed'**
+  String get kvkkSection2Title;
+
+  /// No description provided for @kvkkSection2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Identity, contact, usage and content data you add in the app.'**
+  String get kvkkSection2Body;
+
+  /// No description provided for @kvkkSection3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'3. Purposes'**
+  String get kvkkSection3Title;
+
+  /// No description provided for @kvkkSection3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Account management, security, analytics and customer support.'**
+  String get kvkkSection3Body;
+
+  /// No description provided for @kvkkSection4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'4. Security'**
+  String get kvkkSection4Title;
+
+  /// No description provided for @kvkkSection4Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical and organisational measures are applied to protect your data.'**
+  String get kvkkSection4Body;
+
+  /// No description provided for @kvkkSection5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'5. Your rights'**
+  String get kvkkSection5Title;
+
+  /// No description provided for @kvkkSection5Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Access, rectification, erasure and portability where applicable.'**
+  String get kvkkSection5Body;
+
+  /// No description provided for @kvkkSection6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'6. Cookies & tracking'**
+  String get kvkkSection6Title;
+
+  /// No description provided for @kvkkSection6Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Essential cookies for authentication; optional analytics if enabled.'**
+  String get kvkkSection6Body;
+
+  /// No description provided for @kvkkFooterContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions: support@hestora.com'**
+  String get kvkkFooterContact;
+
+  /// No description provided for @faqQ1.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I export my data?'**
+  String get faqQ1;
+
+  /// No description provided for @faqA1.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile → Account → Export (coming soon).'**
+  String get faqA1;
+
+  /// No description provided for @faqQ2.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I change my plan?'**
+  String get faqQ2;
+
+  /// No description provided for @faqA2.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Package selection from billing when available.'**
+  String get faqA2;
+
+  /// No description provided for @faqQ3.
+  ///
+  /// In en, this message translates to:
+  /// **'I forgot my password'**
+  String get faqQ3;
+
+  /// No description provided for @faqA3.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Forgot password on the login screen.'**
+  String get faqA3;
+
+  /// No description provided for @faqQ4.
+  ///
+  /// In en, this message translates to:
+  /// **'How does matching work?'**
+  String get faqQ4;
+
+  /// No description provided for @faqA4.
+  ///
+  /// In en, this message translates to:
+  /// **'Matches use customer preferences and listing fields.'**
+  String get faqA4;
+
+  /// No description provided for @faqQ5.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I delete my account?'**
+  String get faqQ5;
+
+  /// No description provided for @faqA5.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile → Delete account (destructive).'**
+  String get faqA5;
+
+  /// No description provided for @faqQ6.
+  ///
+  /// In en, this message translates to:
+  /// **'Why am I not receiving notifications?'**
+  String get faqQ6;
+
+  /// No description provided for @faqA6.
+  ///
+  /// In en, this message translates to:
+  /// **'Check device settings and in-app notification toggles.'**
+  String get faqA6;
+
+  /// No description provided for @deleteAccountListTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Will be removed:'**
+  String get deleteAccountListTitle;
+
+  /// No description provided for @deleteAccountList1.
+  ///
+  /// In en, this message translates to:
+  /// **'All customer records'**
+  String get deleteAccountList1;
+
+  /// No description provided for @deleteAccountList2.
+  ///
+  /// In en, this message translates to:
+  /// **'All listing data'**
+  String get deleteAccountList2;
+
+  /// No description provided for @deleteAccountList3.
+  ///
+  /// In en, this message translates to:
+  /// **'All reminders and tasks'**
+  String get deleteAccountList3;
+
+  /// No description provided for @deleteAccountList4.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile and brand card info'**
+  String get deleteAccountList4;
+
+  /// No description provided for @deleteAccountList5.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription history'**
+  String get deleteAccountList5;
+
+  /// No description provided for @deleteAccountComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Account deletion API is not wired yet.'**
+  String get deleteAccountComingSoon;
+
+  /// No description provided for @packageTrialBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Free'**
+  String get packageTrialBadge;
+
+  /// No description provided for @packageTrialTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'1 week trial'**
+  String get packageTrialTitle;
+
+  /// No description provided for @packageTrialPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'₺0 / mo'**
+  String get packageTrialPrice;
+
+  /// No description provided for @packageTrialDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Try all features free'**
+  String get packageTrialDesc;
+
+  /// No description provided for @packageMonthlyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly plan'**
+  String get packageMonthlyTitle;
+
+  /// No description provided for @packageMonthlyPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'₺299 / mo'**
+  String get packageMonthlyPrice;
+
+  /// No description provided for @packageMonthlyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Flexible monthly billing'**
+  String get packageMonthlyDesc;
+
+  /// No description provided for @packageYearlyBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Best value'**
+  String get packageYearlyBadge;
+
+  /// No description provided for @packageYearlyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly plan'**
+  String get packageYearlyTitle;
+
+  /// No description provided for @packageYearlyPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'₺199 / mo'**
+  String get packageYearlyPrice;
+
+  /// No description provided for @packageYearlyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Save 33% with annual billing'**
+  String get packageYearlyDesc;
+
+  /// No description provided for @packageCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get packageCta;
+
+  /// No description provided for @paymentPlanName.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly plan'**
+  String get paymentPlanName;
+
+  /// No description provided for @paymentPlanSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Hestora Premium'**
+  String get paymentPlanSub;
+
+  /// No description provided for @paymentBestValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Best value'**
+  String get paymentBestValue;
+
+  /// No description provided for @paymentLineYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly subscription'**
+  String get paymentLineYear;
+
+  /// No description provided for @paymentLineYearValue.
+  ///
+  /// In en, this message translates to:
+  /// **'₺2,388'**
+  String get paymentLineYearValue;
+
+  /// No description provided for @paymentLineDiscount.
+  ///
+  /// In en, this message translates to:
+  /// **'Discount (33%)'**
+  String get paymentLineDiscount;
+
+  /// No description provided for @paymentLineDiscountValue.
+  ///
+  /// In en, this message translates to:
+  /// **'-₺788'**
+  String get paymentLineDiscountValue;
+
+  /// No description provided for @paymentTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get paymentTotal;
+
+  /// No description provided for @paymentTotalValue.
+  ///
+  /// In en, this message translates to:
+  /// **'₺1,600'**
+  String get paymentTotalValue;
+
+  /// No description provided for @paymentVatNote.
+  ///
+  /// In en, this message translates to:
+  /// **'VAT included • Billed yearly'**
+  String get paymentVatNote;
+
+  /// No description provided for @paymentIncludedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Included'**
+  String get paymentIncludedTitle;
+
+  /// No description provided for @paymentFeat1.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited customers'**
+  String get paymentFeat1;
+
+  /// No description provided for @paymentFeat2.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited listings'**
+  String get paymentFeat2;
+
+  /// No description provided for @paymentFeat3.
+  ///
+  /// In en, this message translates to:
+  /// **'AI-assisted extraction'**
+  String get paymentFeat3;
+
+  /// No description provided for @paymentFeat4.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart reminders'**
+  String get paymentFeat4;
+
+  /// No description provided for @paymentFeat5.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced analytics'**
+  String get paymentFeat5;
+
+  /// No description provided for @paymentFeat6.
+  ///
+  /// In en, this message translates to:
+  /// **'Priority support'**
+  String get paymentFeat6;
+
+  /// No description provided for @paymentGuarantee.
+  ///
+  /// In en, this message translates to:
+  /// **'30-day money-back when billing is enabled.'**
+  String get paymentGuarantee;
+
+  /// No description provided for @paymentProcessingCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue to app'**
+  String get paymentProcessingCta;
+
+  /// No description provided for @brandTemplateDarkBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark blue'**
+  String get brandTemplateDarkBlue;
+
+  /// No description provided for @brandTemplateNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Night'**
+  String get brandTemplateNight;
+
+  /// No description provided for @brandTemplateEmerald.
+  ///
+  /// In en, this message translates to:
+  /// **'Emerald'**
+  String get brandTemplateEmerald;
+
+  /// No description provided for @brandTemplateGold.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold'**
+  String get brandTemplateGold;
+
+  /// No description provided for @brandPreviewName.
+  ///
+  /// In en, this message translates to:
+  /// **'Ahmet Yılmaz'**
+  String get brandPreviewName;
+
+  /// No description provided for @brandPreviewRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Real estate consultant'**
+  String get brandPreviewRole;
+
+  /// No description provided for @brandPreviewSloganPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Your trusted consultant'**
+  String get brandPreviewSloganPlaceholder;
+
+  /// No description provided for @brandShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get brandShare;
+
+  /// No description provided for @brandShareSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Brand card sharing is coming soon.'**
+  String get brandShareSoon;
+
+  /// No description provided for @brandCardWatermark.
+  ///
+  /// In en, this message translates to:
+  /// **'HESTORA CRM'**
+  String get brandCardWatermark;
+
+  /// No description provided for @brandCardQr.
+  ///
+  /// In en, this message translates to:
+  /// **'QR code'**
+  String get brandCardQr;
 }
 
 class _AppLocalizationsDelegate

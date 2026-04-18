@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
+import '../../../app/providers/auth_session_provider.dart';
 import '../../../core/config/supabase_bootstrap.dart';
 import '../../../core/storage/supabase_storage_paths.dart';
 import '../domain/property.dart';
@@ -275,11 +276,13 @@ final propertyRepositoryProvider = Provider<PropertyRepository>((ref) {
 });
 
 final propertiesListProvider = FutureProvider<List<Property>>((ref) async {
+  ref.watch(currentAuthUserIdProvider);
   final repo = ref.watch(propertyRepositoryProvider);
   return repo.list();
 });
 
 final propertyDetailProvider = FutureProvider.family<Property?, String>((ref, id) async {
+  ref.watch(currentAuthUserIdProvider);
   final repo = ref.watch(propertyRepositoryProvider);
   return repo.getById(id);
 });

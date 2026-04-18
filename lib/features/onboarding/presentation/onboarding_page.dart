@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
 import '../../../core/config/supabase_bootstrap.dart';
+import '../../../core/auth/auth_initial_session.dart';
 import '../../../core/onboarding/onboarding_content.dart';
 import '../../../core/onboarding/onboarding_prefs.dart';
 import '../../../core/theme/app_colors.dart';
@@ -39,10 +40,15 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     if (!mounted) {
       return;
     }
+    final deferred = AuthInitialSession.takePostOnboardingRoute();
+    if (deferred != null) {
+      context.go(deferred);
+      return;
+    }
     final env = ref.read(appEnvironmentProvider);
     final clientReady = SupabaseBootstrap.isClientReady(env);
     if (clientReady && Supabase.instance.client.auth.currentUser == null) {
-      context.go('/login');
+      context.go('/register');
     } else {
       context.go('/home');
     }
@@ -63,7 +69,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     return switch (i) {
       0 => Icons.groups_2_outlined,
       1 => Icons.maps_home_work_outlined,
-      _ => Icons.task_alt_outlined,
+      2 => Icons.task_alt_outlined,
+      3 => Icons.handshake_outlined,
+      4 => Icons.share_outlined,
+      _ => Icons.directions_run_outlined,
     };
   }
 

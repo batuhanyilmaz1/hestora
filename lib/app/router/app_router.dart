@@ -5,6 +5,7 @@ import '../../features/ai_customer/presentation/ai_customer_import_page.dart';
 import '../../features/auth/presentation/forgot_password_page.dart';
 import '../../features/auth/presentation/login_page.dart';
 import '../../features/auth/presentation/password_updated_page.dart';
+import '../../features/auth/presentation/post_verify_checkout_page.dart';
 import '../../features/auth/presentation/register_page.dart';
 import '../../features/auth/presentation/update_password_page.dart';
 import '../../features/customers/domain/customer_form_prefill.dart';
@@ -19,13 +20,15 @@ import '../../features/profile/presentation/account_profile_editor_page.dart';
 import '../../features/profile/presentation/account_settings_page.dart';
 import '../../features/profile/presentation/profile_page.dart';
 import '../../features/profile/presentation/locale_region_settings_page.dart';
+import '../../features/profile/presentation/figma_extra_pages.dart';
+import '../../features/profile/presentation/profile_contact_page.dart';
 import '../../features/profile/presentation/profile_support_page.dart';
-import '../../features/properties/presentation/listing_import_page.dart';
 import '../../features/properties/domain/property_form_prefill.dart';
 import '../../features/properties/presentation/properties_list_page.dart';
 import '../../features/properties/presentation/property_detail_page.dart';
 import '../../features/properties/presentation/property_form_page.dart';
 import '../../features/properties/presentation/property_share_card_page.dart';
+import '../../features/setup/presentation/initial_locale_setup_page.dart';
 import '../../features/shell/presentation/app_shell_scaffold.dart';
 import '../../features/splash/presentation/splash_page.dart';
 import '../../features/tasks/presentation/task_form_page.dart';
@@ -40,6 +43,27 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         name: 'splash',
         pageBuilder: (context, state) => const NoTransitionPage<void>(
           child: SplashPage(),
+        ),
+      ),
+      GoRoute(
+        path: '/setup/locale',
+        name: 'initialLocaleSetup',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(
+          child: InitialLocaleSetupPage(),
+        ),
+      ),
+      GoRoute(
+        path: '/post-login/locale',
+        name: 'postLoginLocaleSetup',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(
+          child: InitialLocaleSetupPage(postLoginFlow: true),
+        ),
+      ),
+      GoRoute(
+        path: '/post-verify',
+        name: 'postVerifyCheckout',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(
+          child: PostVerifyCheckoutPage(),
         ),
       ),
       GoRoute(
@@ -137,6 +161,13 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         ),
       ),
       GoRoute(
+        path: '/profile/contact',
+        name: 'profileContact',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(
+          child: ProfileContactPage(),
+        ),
+      ),
+      GoRoute(
         path: '/profile/locale-region',
         name: 'profileLocaleRegion',
         pageBuilder: (context, state) => const NoTransitionPage<void>(
@@ -159,6 +190,36 @@ final goRouterProvider = Provider<GoRouter>((ref) {
             child: AccountProfileEditorPage(focusEmailOnOpen: focusEmail),
           );
         },
+      ),
+      GoRoute(
+        path: '/profile/kvkk',
+        name: 'profileKvkk',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(child: KvkkPrivacyPage()),
+      ),
+      GoRoute(
+        path: '/profile/faq',
+        name: 'profileFaq',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(child: FaqPage()),
+      ),
+      GoRoute(
+        path: '/profile/delete-account',
+        name: 'profileDeleteAccount',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(child: DeleteAccountPage()),
+      ),
+      GoRoute(
+        path: '/profile/create',
+        name: 'profileCreate',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(child: ProfileCreatePage()),
+      ),
+      GoRoute(
+        path: '/billing/packages',
+        name: 'billingPackages',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(child: PackageSelectionPage()),
+      ),
+      GoRoute(
+        path: '/billing/summary',
+        name: 'billingSummary',
+        pageBuilder: (context, state) => const NoTransitionPage<void>(child: PaymentSummaryPage()),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
@@ -241,17 +302,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                       if (extra is PropertyFormPrefill) {
                         prefill = extra;
                       }
+                      final linkFirst = state.uri.queryParameters['entry'] == 'link';
                       return NoTransitionPage<void>(
-                        child: PropertyFormPage(prefill: prefill),
+                        child: PropertyFormPage(
+                          prefill: prefill,
+                          openLinkFlowFirst: linkFirst,
+                        ),
                       );
                     },
-                  ),
-                  GoRoute(
-                    path: 'import',
-                    name: 'propertyImport',
-                    pageBuilder: (context, state) => const NoTransitionPage<void>(
-                      child: ListingImportPage(),
-                    ),
                   ),
                   GoRoute(
                     path: ':propertyId/share',

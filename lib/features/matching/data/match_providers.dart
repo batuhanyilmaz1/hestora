@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/providers/auth_session_provider.dart';
 import '../../customers/data/customer_repository.dart';
 import '../../customers/domain/customer.dart';
 import '../../properties/data/property_repository.dart';
@@ -26,6 +27,7 @@ final customerMatchesProvider =
 
 final propertyMatchesProvider =
     FutureProvider.family<List<ScoredCustomer>, String>((ref, propertyId) async {
+  ref.watch(currentAuthUserIdProvider);
   final customersRepo = ref.watch(customerRepositoryProvider);
   final propsRepo = ref.watch(propertyRepositoryProvider);
   final p = await propsRepo.getById(propertyId);
@@ -43,6 +45,7 @@ final propertyMatchesProvider =
 
 /// Güçlü eşleşme (≥ [MatchEngine.strongMatchThreshold]) sayısı, tüm müşteri–ilan çiftleri.
 final customersTotalStrongMatchesProvider = FutureProvider<int>((ref) async {
+  ref.watch(currentAuthUserIdProvider);
   final customers = await ref.read(customerRepositoryProvider).list();
   final props = await ref.read(propertyRepositoryProvider).list();
   var n = 0;

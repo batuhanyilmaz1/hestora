@@ -181,7 +181,17 @@ class _AiCustomerImportPageState extends ConsumerState<AiCustomerImportPage> {
     final hasKey = env.hasOpenAiCredentials;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.aiImportTitle)),
+      appBar: AppBar(
+        title: Text(l10n.aiImportTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            }
+          },
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         children: [

@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Hestora CRM';
+  String get appTitle => 'Hestora';
 
   @override
   String get homeTitle => 'Home';
@@ -207,7 +207,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String propertiesSubtitle(int count) {
-    return '$count customers saved';
+    return '$count listings saved';
   }
 
   @override
@@ -308,13 +308,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get accountSettingsTitle => 'Account settings';
 
   @override
-  String get accountProfileEditorTitle => 'Profile & email';
+  String get accountProfileEditorTitle => 'Profile, phone & email';
 
   @override
   String get accountHubProfileTitle => 'Profile & email';
 
   @override
-  String get accountHubProfileSubtitle => 'Name, photo and email address';
+  String get accountHubProfileSubtitle =>
+      'Name, photo, phone and email address';
+
+  @override
+  String get accountProfilePhoneHint =>
+      'Optional. Shown on your brand card and share cards.';
+
+  @override
+  String get brandCardAddPhoneAction => 'Add phone from profile';
 
   @override
   String get accountHubChangePasswordTitle => 'Change password';
@@ -345,7 +353,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileMenuSupport => 'Support / help';
 
   @override
-  String get profileAppVersion => 'Hestora CRM v1.0.0';
+  String get profileAppVersion => 'Hestora v1.0.0';
 
   @override
   String get profileAccountSheetTitle => 'Account';
@@ -363,7 +371,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
-  String get loginTitle => 'Sign in';
+  String get loginTitle => 'Email sign-in';
 
   @override
   String get registerTitle => 'Create account';
@@ -401,6 +409,18 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get authErrorGeneric =>
       'Something went wrong. Check your details and try again.';
+
+  @override
+  String get authEmailNotVerified =>
+      'Please confirm your email before signing in. Check your inbox for the verification link.';
+
+  @override
+  String get authLinkInvalid =>
+      'This sign-in link is invalid or expired. Try signing in from the app.';
+
+  @override
+  String get postVerifySessionMissing =>
+      'We could not restore your session from this link. Please open the app and sign in, then verify your email again if needed.';
 
   @override
   String get validationRequired => 'This field is required';
@@ -679,7 +699,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginWelcomeTitle => 'Welcome back';
 
   @override
-  String get loginWelcomeSubtitle => 'Log in to your account';
+  String get loginWelcomeSubtitle => 'Sign in with your email and password';
 
   @override
   String get registerHeadline => 'Create account';
@@ -793,8 +813,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileNotificationsTitle => 'Notification settings';
 
   @override
-  String get profileNotificationsSubtitle =>
-      'Choose what you want to be notified about.';
+  String get profileNotificationsSubtitle => 'Customize notifications';
 
   @override
   String get profileNotifyMatches => 'Match suggestions';
@@ -817,11 +836,56 @@ class AppLocalizationsEn extends AppLocalizations {
       'New features and tips (rarely).';
 
   @override
-  String get profileAnalyticsTitle => 'Analytics and reports';
+  String get profileNotifyMasterTitle => 'Turn notifications on / off';
 
   @override
-  String get profileAnalyticsSubtitle =>
-      'Summary metrics — detailed reports coming soon.';
+  String get profileNotifyMasterOn => 'All notifications on';
+
+  @override
+  String get profileNotifyMasterOff => 'Notifications off';
+
+  @override
+  String get profileNotifyTypesSection => 'NOTIFICATION TYPES';
+
+  @override
+  String get profileNotifyTaskTitle => 'Task notifications';
+
+  @override
+  String get profileNotifyTaskSubtitle => 'New tasks and assignments';
+
+  @override
+  String get profileNotifyReminderTitle => 'Reminders';
+
+  @override
+  String get profileNotifyReminderSubtitle => 'Due reminders';
+
+  @override
+  String get profileNotifyCustomerTitle => 'Customer activity';
+
+  @override
+  String get profileNotifyCustomerSubtitle => 'New customers and updates';
+
+  @override
+  String get profileNotifySystemTitle => 'System notifications';
+
+  @override
+  String get profileNotifySystemSubtitle => 'App updates';
+
+  @override
+  String get profileNotifyCampaignTitle => 'Campaigns & announcements';
+
+  @override
+  String get profileNotifyCampaignSubtitle => 'Special offers and news';
+
+  @override
+  String get profileNotifyDeviceNote =>
+      'Notification settings depend on device permissions. You can also manage them in system settings.';
+
+  @override
+  String get profileAnalyticsTitle => 'Analytics & Reports';
+
+  @override
+  String get profileAnalyticsSubtitle => 'Performance summary';
 
   @override
   String get profileAnalyticsCustomers => 'Customers';
@@ -836,11 +900,130 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileAnalyticsShareClicks => 'Tracking link clicks';
 
   @override
-  String get profileSupportTitle => 'Support and help';
+  String get profileAnalyticsPeriodWeek => 'Weekly';
 
   @override
-  String get profileSupportSubtitle =>
-      'Contact and frequently asked questions.';
+  String get profileAnalyticsPeriodMonth => 'Monthly';
+
+  @override
+  String get profileAnalyticsPeriodYear => 'Yearly';
+
+  @override
+  String get profileAnalyticsActiveListings => 'Active listings';
+
+  @override
+  String get profileAnalyticsCompleted => 'Completed';
+
+  @override
+  String get profileAnalyticsRevenue => 'Revenue';
+
+  @override
+  String get profileAnalyticsActivityChart => 'Activity chart';
+
+  @override
+  String get profileAnalyticsPerfSummary => 'Performance summary';
+
+  @override
+  String get profileAnalyticsConversion => 'Conversion rate';
+
+  @override
+  String get profileAnalyticsAvgClose => 'Avg. closing time';
+
+  @override
+  String get profileAnalyticsMostActive => 'Most active action';
+
+  @override
+  String get profileAnalyticsMostActiveListingShare => 'Listing share';
+
+  @override
+  String get profileAnalyticsMostActiveSalesClose => 'Sales closing';
+
+  @override
+  String get profileAnalyticsExportReport => 'Export report';
+
+  @override
+  String get profileAnalyticsExportSoon => 'Export is coming soon.';
+
+  @override
+  String profileAnalyticsDays(int count) {
+    return '$count days';
+  }
+
+  @override
+  String get profileSupportTitle => 'Support / Help';
+
+  @override
+  String get profileSupportSubtitle => 'How can we help?';
+
+  @override
+  String get supportTileKvkkTitle => 'KVKK & Privacy';
+
+  @override
+  String get supportTileKvkkSubtitle => 'Data protection policy';
+
+  @override
+  String get supportTileFaqTitle => 'FAQ';
+
+  @override
+  String get supportTileFaqSubtitle => 'Frequently asked questions';
+
+  @override
+  String get supportTileContactTitle => 'Contact us';
+
+  @override
+  String get supportTileContactSubtitle => '24/7 support line';
+
+  @override
+  String get supportRightsFooter => 'Hestora v1.0.0 • All rights reserved';
+
+  @override
+  String get contactUsTitle => 'Contact us';
+
+  @override
+  String get contactUsSubtitle => '24/7 support line';
+
+  @override
+  String get contactChannelsTitle => 'Contact channels';
+
+  @override
+  String get contactEmailSupport => 'Email support';
+
+  @override
+  String get contactWhatsapp => 'WhatsApp';
+
+  @override
+  String get contactPhone => 'Phone';
+
+  @override
+  String get contactSupportEmailValue => 'destek@hestora.com';
+
+  @override
+  String get contactSupportPhoneValue => '+90 850 123 45 67';
+
+  @override
+  String get contactHoursTitle => 'Working hours';
+
+  @override
+  String get contactHoursSubtitle =>
+      'Our support team is available during the following hours';
+
+  @override
+  String get contactHoursWeekday => 'Monday – Friday';
+
+  @override
+  String get contactHoursWeekdayValue => '09:00 – 18:00';
+
+  @override
+  String get contactHoursSaturday => 'Saturday';
+
+  @override
+  String get contactHoursSaturdayValue => '10:00 – 15:00';
+
+  @override
+  String get contactHoursSunday => 'Sunday';
+
+  @override
+  String get contactHoursClosed => 'Closed';
 
   @override
   String get profileSupportFaqHeading => 'FAQ';
@@ -982,7 +1165,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get customerMessage => 'Message';
 
   @override
-  String get localeRegionTitle => 'Language & region';
+  String get localeRegionTitle => 'Language & region settings';
+
+  @override
+  String get localeRegionScreenSubtitle => 'Set your preferences';
 
   @override
   String get localeRegionSavedTitle => 'Saved';
@@ -1005,7 +1191,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get currencyTry => 'TRY — Turkish Lira';
 
   @override
+  String get currencyOptionUsd => 'USD — US Dollar';
+
+  @override
+  String get currencyOptionAed => 'AED — UAE Dirham';
+
+  @override
+  String get currencyOptionEur => 'EUR — Euro';
+
+  @override
+  String get currencyOptionGbp => 'GBP — British Pound';
+
+  @override
   String get regionTurkey => 'Turkey';
+
+  @override
+  String get regionCountryAE => 'United Arab Emirates';
+
+  @override
+  String get regionCountryUS => 'United States';
+
+  @override
+  String get regionCountryGB => 'United Kingdom';
+
+  @override
+  String get regionCountryDE => 'Germany';
 
   @override
   String get regionSettingHint => 'Region setting';
@@ -1270,4 +1480,495 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get listingImportContinueManual => 'Continue with manual form';
+
+  @override
+  String get initialSetupTitle => 'Choose language and region';
+
+  @override
+  String get initialSetupSubtitle =>
+      'You can change these later in profile settings.';
+
+  @override
+  String get initialSetupContinue => 'Continue';
+
+  @override
+  String get postVerifyTitle => 'Email verified';
+
+  @override
+  String get postVerifyHeadline => 'Your account is ready';
+
+  @override
+  String get postVerifyBody =>
+      'Next, complete your plan selection when billing is enabled. For now you can continue to the app.';
+
+  @override
+  String get postVerifyContinue => 'Continue to app';
+
+  @override
+  String get propertyCreateMethodTitle => 'Add listing';
+
+  @override
+  String get propertyCreateOptionManual => 'Manual';
+
+  @override
+  String get propertyCreateOptionManualBody =>
+      'Fill in listing details in the form.';
+
+  @override
+  String get propertyCreateOptionLink => 'Via link';
+
+  @override
+  String get propertyCreateOptionLinkBody =>
+      'Paste a public listing URL to pre-fill fields.';
+
+  @override
+  String get dashboardTasksToday => 'To do (open tasks)';
+
+  @override
+  String get dashboardTasksCompleted => 'Recently completed';
+
+  @override
+  String get dashboardTasksEmptyOpen =>
+      'No open tasks yet. Add one from Tasks or the + menu.';
+
+  @override
+  String get dashboardTasksEmptyDone => 'Completed tasks will appear here.';
+
+  @override
+  String get dashboardViewAllTasks => 'View all tasks';
+
+  @override
+  String get authKvkkRequired => 'Please accept the disclosure to continue.';
+
+  @override
+  String get shareCardExportNotReady =>
+      'Preview is still loading. Try again in a moment.';
+
+  @override
+  String get shareCardExportFailed =>
+      'Could not export the image. Please try again.';
+
+  @override
+  String get customerRoleBuyer => 'Buyer';
+
+  @override
+  String get customerRoleTenant => 'Tenant';
+
+  @override
+  String get customerRoleSeller => 'Seller';
+
+  @override
+  String get customerRoleLandlord => 'Landlord';
+
+  @override
+  String get taskSheetPickCustomerTitle => 'Select customer';
+
+  @override
+  String get taskSheetPickCustomerSubtitle => 'Link the reminder to a customer';
+
+  @override
+  String get taskSheetPickPropertyTitle => 'Select property';
+
+  @override
+  String get taskSheetPickPropertySubtitle => 'Link the reminder to a property';
+
+  @override
+  String get taskRemindTitle => 'Add reminder';
+
+  @override
+  String get taskRemindSubtitle => 'Create a new task';
+
+  @override
+  String taskTodayCount(int count) {
+    return 'Today: $count tasks';
+  }
+
+  @override
+  String get taskBadgeRequired => 'Required';
+
+  @override
+  String get taskBadgeOptional => 'Optional';
+
+  @override
+  String get taskNotifySectionTitle => 'Notification';
+
+  @override
+  String get taskNotifyOnTitle => 'Notifications on';
+
+  @override
+  String get taskNotifyOnSubtitle => 'Remind when it\'s time';
+
+  @override
+  String get taskLinkSectionTitle => 'Link';
+
+  @override
+  String get taskLinkCustomerRow => 'Link to customer';
+
+  @override
+  String get taskLinkPropertyRow => 'Link to property';
+
+  @override
+  String get taskPickCustomerHint => 'Select customer';
+
+  @override
+  String get taskPickPropertyHint => 'Select property';
+
+  @override
+  String get taskDateShort => 'Date';
+
+  @override
+  String get taskTimeShort => 'Time';
+
+  @override
+  String get provincePickTitle => 'Select province';
+
+  @override
+  String get listingLayoutPickTitle => 'Select listing type';
+
+  @override
+  String get propertyFormQuickPickSection => 'Province & listing type';
+
+  @override
+  String get propertyFormPickEmpty => 'Select';
+
+  @override
+  String get propertyFormLinkSection => 'Listing link';
+
+  @override
+  String get propertyFormApplyPreview => 'Apply to form';
+
+  @override
+  String get propertyFormApplyDone => 'Title and description updated.';
+
+  @override
+  String get accountInfoTitle => 'Account information';
+
+  @override
+  String get accountInfoSubtitle => 'Manage profile and brand card';
+
+  @override
+  String get accountTabPersonal => 'Personal';
+
+  @override
+  String get accountTabBrand => 'Brand card';
+
+  @override
+  String get brandCardPreview => 'Card preview';
+
+  @override
+  String get brandPickTemplate => 'Choose template';
+
+  @override
+  String get brandSloganLabel => 'Slogan / tagline';
+
+  @override
+  String get brandWebsiteLabel => 'Website';
+
+  @override
+  String get signOutSheetTitle => 'Sign out?';
+
+  @override
+  String get signOutSheetBody => 'You can sign back in anytime.';
+
+  @override
+  String get deleteAccountTitle => 'Delete account';
+
+  @override
+  String get deleteAccountDanger => 'Danger zone';
+
+  @override
+  String get deleteAccountQuestion =>
+      'Are you sure you want to delete your account?';
+
+  @override
+  String get deleteAccountWarning =>
+      'This cannot be undone. Customers, listings and reminders will be removed.';
+
+  @override
+  String get deleteAccountCta => 'I want to delete my account';
+
+  @override
+  String get kvkkTitle => 'Privacy & KVKK';
+
+  @override
+  String get kvkkSubtitle => 'How can we help?';
+
+  @override
+  String get kvkkSafeTitle => 'Your data is safe';
+
+  @override
+  String get kvkkSafeBody =>
+      'Hestora is committed to protecting your personal data.';
+
+  @override
+  String get faqTitle => 'FAQ';
+
+  @override
+  String get faqSubtitle => 'Frequently asked questions';
+
+  @override
+  String get packagePickTitle => 'Choose plan';
+
+  @override
+  String get packagePickSubtitle => 'Pick the plan that fits you';
+
+  @override
+  String get packageHeadline => 'Go Premium';
+
+  @override
+  String get packageSubline => 'Cancel anytime';
+
+  @override
+  String get paymentSummaryTitle => 'Payment summary';
+
+  @override
+  String get paymentSummarySubtitle => 'Secure payment';
+
+  @override
+  String get profileCreateTitle => 'Create profile';
+
+  @override
+  String get profileCreateSubtitle => 'Final step';
+
+  @override
+  String get profileCreateHeadline => 'Complete your profile';
+
+  @override
+  String get profileCreateSubline => 'Enter your details to get started';
+
+  @override
+  String get profileCreateCompleteCta => 'Complete and start';
+
+  @override
+  String get profileCreateComingSoon =>
+      'This guided profile screen will collect firm details and photos in a future update. You can continue to the app now.';
+
+  @override
+  String get kvkkSection1Title => '1. Data controller';
+
+  @override
+  String get kvkkSection1Body =>
+      'Hestora acts as data controller under applicable privacy laws. Your data is processed to provide the service.';
+
+  @override
+  String get kvkkSection2Title => '2. Personal data processed';
+
+  @override
+  String get kvkkSection2Body =>
+      'Identity, contact, usage and content data you add in the app.';
+
+  @override
+  String get kvkkSection3Title => '3. Purposes';
+
+  @override
+  String get kvkkSection3Body =>
+      'Account management, security, analytics and customer support.';
+
+  @override
+  String get kvkkSection4Title => '4. Security';
+
+  @override
+  String get kvkkSection4Body =>
+      'Technical and organisational measures are applied to protect your data.';
+
+  @override
+  String get kvkkSection5Title => '5. Your rights';
+
+  @override
+  String get kvkkSection5Body =>
+      'Access, rectification, erasure and portability where applicable.';
+
+  @override
+  String get kvkkSection6Title => '6. Cookies & tracking';
+
+  @override
+  String get kvkkSection6Body =>
+      'Essential cookies for authentication; optional analytics if enabled.';
+
+  @override
+  String get kvkkFooterContact => 'Questions: support@hestora.com';
+
+  @override
+  String get faqQ1 => 'How do I export my data?';
+
+  @override
+  String get faqA1 => 'Profile → Account → Export (coming soon).';
+
+  @override
+  String get faqQ2 => 'How do I change my plan?';
+
+  @override
+  String get faqA2 => 'Open Package selection from billing when available.';
+
+  @override
+  String get faqQ3 => 'I forgot my password';
+
+  @override
+  String get faqA3 => 'Use Forgot password on the login screen.';
+
+  @override
+  String get faqQ4 => 'How does matching work?';
+
+  @override
+  String get faqA4 => 'Matches use customer preferences and listing fields.';
+
+  @override
+  String get faqQ5 => 'How do I delete my account?';
+
+  @override
+  String get faqA5 => 'Profile → Delete account (destructive).';
+
+  @override
+  String get faqQ6 => 'Why am I not receiving notifications?';
+
+  @override
+  String get faqA6 => 'Check device settings and in-app notification toggles.';
+
+  @override
+  String get deleteAccountListTitle => 'Will be removed:';
+
+  @override
+  String get deleteAccountList1 => 'All customer records';
+
+  @override
+  String get deleteAccountList2 => 'All listing data';
+
+  @override
+  String get deleteAccountList3 => 'All reminders and tasks';
+
+  @override
+  String get deleteAccountList4 => 'Profile and brand card info';
+
+  @override
+  String get deleteAccountList5 => 'Subscription history';
+
+  @override
+  String get deleteAccountComingSoon =>
+      'Account deletion API is not wired yet.';
+
+  @override
+  String get packageTrialBadge => 'Free';
+
+  @override
+  String get packageTrialTitle => '1 week trial';
+
+  @override
+  String get packageTrialPrice => '₺0 / mo';
+
+  @override
+  String get packageTrialDesc => 'Try all features free';
+
+  @override
+  String get packageMonthlyTitle => 'Monthly plan';
+
+  @override
+  String get packageMonthlyPrice => '₺299 / mo';
+
+  @override
+  String get packageMonthlyDesc => 'Flexible monthly billing';
+
+  @override
+  String get packageYearlyBadge => 'Best value';
+
+  @override
+  String get packageYearlyTitle => 'Yearly plan';
+
+  @override
+  String get packageYearlyPrice => '₺199 / mo';
+
+  @override
+  String get packageYearlyDesc => 'Save 33% with annual billing';
+
+  @override
+  String get packageCta => 'Continue';
+
+  @override
+  String get paymentPlanName => 'Yearly plan';
+
+  @override
+  String get paymentPlanSub => 'Hestora Premium';
+
+  @override
+  String get paymentBestValue => 'Best value';
+
+  @override
+  String get paymentLineYear => 'Yearly subscription';
+
+  @override
+  String get paymentLineYearValue => '₺2,388';
+
+  @override
+  String get paymentLineDiscount => 'Discount (33%)';
+
+  @override
+  String get paymentLineDiscountValue => '-₺788';
+
+  @override
+  String get paymentTotal => 'Total';
+
+  @override
+  String get paymentTotalValue => '₺1,600';
+
+  @override
+  String get paymentVatNote => 'VAT included • Billed yearly';
+
+  @override
+  String get paymentIncludedTitle => 'Included';
+
+  @override
+  String get paymentFeat1 => 'Unlimited customers';
+
+  @override
+  String get paymentFeat2 => 'Unlimited listings';
+
+  @override
+  String get paymentFeat3 => 'AI-assisted extraction';
+
+  @override
+  String get paymentFeat4 => 'Smart reminders';
+
+  @override
+  String get paymentFeat5 => 'Advanced analytics';
+
+  @override
+  String get paymentFeat6 => 'Priority support';
+
+  @override
+  String get paymentGuarantee => '30-day money-back when billing is enabled.';
+
+  @override
+  String get paymentProcessingCta => 'Continue to app';
+
+  @override
+  String get brandTemplateDarkBlue => 'Dark blue';
+
+  @override
+  String get brandTemplateNight => 'Night';
+
+  @override
+  String get brandTemplateEmerald => 'Emerald';
+
+  @override
+  String get brandTemplateGold => 'Gold';
+
+  @override
+  String get brandPreviewName => 'Ahmet Yılmaz';
+
+  @override
+  String get brandPreviewRole => 'Real estate consultant';
+
+  @override
+  String get brandPreviewSloganPlaceholder => 'Your trusted consultant';
+
+  @override
+  String get brandShare => 'Share';
+
+  @override
+  String get brandShareSoon => 'Brand card sharing is coming soon.';
+
+  @override
+  String get brandCardWatermark => 'HESTORA CRM';
+
+  @override
+  String get brandCardQr => 'QR code';
 }

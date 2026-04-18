@@ -6,7 +6,10 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
 import '../../../app/providers/invalidate_user_scoped_caches.dart';
+import '../../../core/config/auth_redirect.dart';
 import '../../../core/config/supabase_bootstrap.dart';
+import '../../../core/onboarding/first_run_register_gate_prefs.dart';
+import '../../../core/onboarding/post_login_flow_prefs.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import 'widgets/auth_caps_field.dart';
 import 'widgets/auth_form_card.dart';
@@ -24,12 +27,14 @@ class RegisterPage extends ConsumerStatefulWidget {
 
 class _RegisterPageState extends ConsumerState<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
+  final _consentKey = GlobalKey();
   final _name = TextEditingController();
   final _email = TextEditingController();
   final _password = TextEditingController();
   final _confirm = TextEditingController();
   bool _busy = false;
   bool _kvkk = false;
+  bool _kvkkShowError = false;
 
   @override
   void dispose() {
@@ -63,15 +68,20 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   }
 
   Future<void> _submit() async {
-    if (!_kvkk) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.validationRequired)),
-      );
-      return;
-    }
     if (!_formKey.currentState!.validate()) {
       return;
     }
+    if (!_kvkk) {
+      setState(() => _kvkkShowError = true);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        final ctx = _consentKey.currentContext;
+        if (ctx != null && mounted) {
+          Scrollable.ensureVisible(ctx, alignment: 0.25, duration: const Duration(milliseconds: 320));
+        }
+      });
+      return;
+    }
+    setState(() => _kvkkShowError = false);
     final env = ref.read(appEnvironmentProvider);
     if (!SupabaseBootstrap.isClientReady(env)) {
       if (!mounted) {
@@ -88,7 +98,10 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
         email: _email.text.trim(),
         password: _password.text,
         data: {'full_name': _name.text.trim()},
+        emailRedirectTo: kAuthDeepLinkRedirect,
       );
+      await PostLoginFlowPrefs.startPostLoginForNewAccount();
+      await FirstRunRegisterGatePrefs.setPassed();
       invalidateUserScopedCaches(ref);
       if (!mounted) {
         return;
@@ -96,7 +109,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(AppLocalizations.of(context)!.registerSuccess)),
       );
-      context.go('/login');
+      context.go('/setup/locale');
     } on AuthException catch (e) {
       if (!mounted) {
         return;
@@ -190,51 +203,86 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     },
                   ),
                   const SizedBox(height: 12),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: 28,
-                        height: 28,
-                        child: Checkbox(
-                          value: _kvkk,
-                          activeColor: const Color(0xFF2563EB),
-                          side: const BorderSide(color: AuthUi.subline),
-                          onChanged: (v) => setState(() => _kvkk = v ?? false),
+                  KeyedSubtree(
+                    key: _consentKey,
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 220),
+                      curve: Curves.easeOutCubic,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: _kvkkShowError ? const Color(0xFFEF4444) : const Color(0xFF334155),
+                          width: _kvkkShowError ? 1.6 : 1,
                         ),
+                        color: _kvkkShowError ? const Color(0x18EF4444) : const Color(0x0AFFFFFF),
                       ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              l10n.authKvkk,
-                              style: const TextStyle(
-                                color: Color(0xFFCBD5E1),
-                                fontSize: 13,
-                                height: 1.35,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 28,
+                            height: 28,
+                            child: Checkbox(
+                              value: _kvkk,
+                              activeColor: const Color(0xFF2563EB),
+                              side: BorderSide(
+                                color: _kvkkShowError ? const Color(0xFFEF4444) : AuthUi.subline,
+                                width: _kvkkShowError ? 2 : 1,
                               ),
+                              onChanged: (v) => setState(() {
+                                _kvkk = v ?? false;
+                                if (_kvkk) {
+                                  _kvkkShowError = false;
+                                }
+                              }),
                             ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                minimumSize: Size.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              ),
-                              onPressed: () => _showKvkk(l10n),
-                              child: Text(
-                                l10n.authKvkkLink,
-                                style: const TextStyle(
-                                  color: Color(0xFF60A5FA),
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 13,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  l10n.authKvkk,
+                                  style: TextStyle(
+                                    color: _kvkkShowError ? const Color(0xFFFECACA) : const Color(0xFFCBD5E1),
+                                    fontSize: 13,
+                                    height: 1.35,
+                                  ),
                                 ),
-                              ),
+                                TextButton(
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                    minimumSize: Size.zero,
+                                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                  ),
+                                  onPressed: () => _showKvkk(l10n),
+                                  child: Text(
+                                    l10n.authKvkkLink,
+                                    style: const TextStyle(
+                                      color: Color(0xFF60A5FA),
+                                      decoration: TextDecoration.underline,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                                if (_kvkkShowError) ...[
+                                  const SizedBox(height: 6),
+                                  Text(
+                                    l10n.authKvkkRequired,
+                                    style: const TextStyle(
+                                      color: Color(0xFFF87171),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
@@ -257,7 +305,12 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       fontWeight: FontWeight.w700,
                     ),
                     recognizer: TapGestureRecognizer()
-                      ..onTap = () => context.go('/login'),
+                      ..onTap = () async {
+                        await FirstRunRegisterGatePrefs.setPassed();
+                        if (context.mounted) {
+                          context.go('/login');
+                        }
+                      },
                   ),
                 ],
               ),

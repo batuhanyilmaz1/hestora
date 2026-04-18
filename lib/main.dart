@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/hestora_app.dart';
 import 'app/providers/app_environment_provider.dart';
+import 'core/auth/auth_initial_session.dart';
 import 'core/config/app_environment.dart';
 import 'core/config/env_bootstrap.dart';
 import 'core/config/supabase_bootstrap.dart';
@@ -22,6 +23,11 @@ Future<void> main() async {
     await SupabaseBootstrap.initIfConfigured(env);
   } catch (e, st) {
     appLog('Supabase init failed', e, st);
+  }
+  try {
+    await AuthInitialSession.consumeLaunchUriIfAny();
+  } catch (e, st) {
+    appLog('auth initial uri consume failed', e, st);
   }
 
   runApp(

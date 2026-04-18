@@ -1,3 +1,11 @@
+/// Normalized task status checks (DB / UI may vary slightly).
+bool hestoraTaskIsDone(HestoraTask t) {
+  final s = t.status.toLowerCase().trim();
+  return s == 'done' || s == 'completed' || s == 'closed';
+}
+
+bool hestoraTaskIsOpen(HestoraTask t) => !t.archived && !hestoraTaskIsDone(t);
+
 class HestoraTask {
   const HestoraTask({
     required this.id,

@@ -11,7 +11,6 @@ import '../../../core/widgets/hestora_gradient_filled_button.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../data/property_repository.dart';
 import '../domain/property.dart';
-import '../../customers/data/customer_repository.dart';
 
 enum _PropFilter { all, sale, rent, active, inactive }
 
@@ -88,18 +87,12 @@ class _PropertiesListPageState extends ConsumerState<PropertiesListPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final propsAsync = ref.watch(propertiesListProvider);
-    final customersAsync = ref.watch(customersListProvider);
-    final count = customersAsync.maybeWhen(data: (c) => c.length, orElse: () => 0);
+    final count = propsAsync.maybeWhen(data: (p) => p.length, orElse: () => 0);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.propertiesTitle),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.link_outlined),
-            tooltip: l10n.listingImportTitle,
-            onPressed: () => context.push('/properties/import'),
-          ),
           IconButton(icon: const Icon(Icons.search), onPressed: () {}),
           IconButton(icon: const Icon(Icons.tune), onPressed: () {}),
         ],
@@ -156,7 +149,7 @@ class _PropertiesListPageState extends ConsumerState<PropertiesListPage> {
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(AppRadii.md),
+                              borderRadius: BorderRadius.circular(AppRadii.sm),
                               border: Border.all(color: AppColors.border),
                               boxShadow: [
                                 BoxShadow(
@@ -197,32 +190,158 @@ class _PropertiesListPageState extends ConsumerState<PropertiesListPage> {
                 return ListView.separated(
                   padding: const EdgeInsets.all(AppSpacing.md),
                   itemCount: filtered.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.xs),
+                  separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.md),
                   itemBuilder: (context, i) {
                     final p = filtered[i];
                     final price = p.price != null ? '${p.price} ${p.currency ?? ''}' : '—';
+                    final chip = p.listingType == 'rent' ? l10n.chipRent : l10n.chipSale;
                     return Material(
-                      color: AppColors.surfaceElevated,
-                      borderRadius: BorderRadius.circular(AppRadii.md),
-                      child: ListTile(
-                        leading: p.imageUrls.isNotEmpty
-                            ? ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.network(
-                                  p.imageUrls.first,
-                                  width: 56,
-                                  height: 56,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (_, __, ___) => const Icon(Icons.home_work_outlined),
-                                ),
-                              )
-                            : const Icon(Icons.home_work_outlined),
-                        title: Text(p.title),
-                        subtitle: Text(
-                          '${p.listingType == 'rent' ? l10n.chipRent : l10n.chipSale} · $price',
-                        ),
-                        trailing: const Icon(Icons.chevron_right),
+                      color: HomeShellTheme.card,
+                      elevation: 0,
+                      borderRadius: BorderRadius.circular(20),
+                      clipBehavior: Clip.antiAlias,
+                      shadowColor: Colors.black.withValues(alpha: 0.45),
+                      child: InkWell(
                         onTap: () => context.push('/properties/${p.id}'),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: HomeShellTheme.borderBlue.withValues(alpha: 0.28)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: HomeShellTheme.primaryBlue.withValues(alpha: 0.12),
+                                blurRadius: 20,
+                                offset: const Offset(0, 10),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  Positioned.fill(
+                                    child: p.imageUrls.isNotEmpty
+                                        ? Image.network(
+                                            p.imageUrls.first,
+                                            fit: BoxFit.cover,
+                                            filterQuality: FilterQuality.medium,
+                                            errorBuilder: (_, __, ___) => ColoredBox(
+                                              color: HomeShellTheme.secondaryButtonFill,
+                                              child: Icon(
+                                                Icons.home_work_outlined,
+                                                size: 48,
+                                                color: HomeShellTheme.textLightBlue.withValues(alpha: 0.75),
+                                              ),
+                                            ),
+                                          )
+                                        : ColoredBox(
+                                            color: HomeShellTheme.secondaryButtonFill,
+                                            child: Icon(
+                                              Icons.home_work_outlined,
+                                              size: 48,
+                                              color: HomeShellTheme.textLightBlue.withValues(alpha: 0.75),
+                                            ),
+                                          ),
+                                  ),
+                                  Positioned(
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    height: 72,
+                                    child: DecoratedBox(
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          begin: Alignment.bottomCenter,
+                                          end: Alignment.topCenter,
+                                          colors: [
+                                            Colors.black.withValues(alpha: 0.55),
+                                            Colors.transparent,
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(AppSpacing.md, AppSpacing.md, AppSpacing.md, 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                        decoration: BoxDecoration(
+                                          color: HomeShellTheme.primaryBlue.withValues(alpha: 0.22),
+                                          borderRadius: BorderRadius.circular(999),
+                                          border: Border.all(
+                                            color: HomeShellTheme.borderBlue.withValues(alpha: 0.45),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          chip,
+                                          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                                color: HomeShellTheme.textLightBlue,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      Text(
+                                        price.trim(),
+                                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w800,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: AppSpacing.sm),
+                                  Text(
+                                    p.title,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                          color: AppColors.textPrimary,
+                                          fontWeight: FontWeight.w700,
+                                          height: 1.2,
+                                        ),
+                                  ),
+                                  if ((p.location ?? '').trim().isNotEmpty) ...[
+                                    const SizedBox(height: 4),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.place_outlined,
+                                          size: 16,
+                                          color: AppColors.textSecondary.withValues(alpha: 0.9),
+                                        ),
+                                        const SizedBox(width: 4),
+                                        Expanded(
+                                          child: Text(
+                                            p.location!.trim(),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                                  color: AppColors.textSecondary,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        ),
                       ),
                     );
                   },

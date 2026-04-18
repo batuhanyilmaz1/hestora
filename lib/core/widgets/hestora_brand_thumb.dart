@@ -13,7 +13,7 @@ class HestoraBrandThumb extends StatelessWidget {
   Widget build(BuildContext context) {
     final w = height * 2.6;
     return ClipRRect(
-      borderRadius: BorderRadius.circular(AppRadii.sm),
+      borderRadius: BorderRadius.circular(AppRadii.xs),
       child: Container(
         width: w,
         height: height,
@@ -24,7 +24,7 @@ class HestoraBrandThumb extends StatelessWidget {
             end: Alignment.centerRight,
             colors: [Color(0xFF0F172A), Color(0xFF1E3A5F)],
           ),
-          borderRadius: BorderRadius.circular(AppRadii.sm),
+          borderRadius: BorderRadius.circular(AppRadii.xs),
           border: Border.all(color: const Color(0x3347B5FF)),
         ),
         alignment: Alignment.centerLeft,

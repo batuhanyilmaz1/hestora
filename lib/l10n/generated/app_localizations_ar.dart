@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appTitle => 'هيستورا CRM';
+  String get appTitle => 'هيستورا';
 
   @override
   String get homeTitle => 'الرئيسية';
@@ -207,7 +207,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String propertiesSubtitle(int count) {
-    return '$count عميل مسجل';
+    return '$count إعلان مسجل';
   }
 
   @override
@@ -309,13 +309,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get accountSettingsTitle => 'إعدادات الحساب';
 
   @override
-  String get accountProfileEditorTitle => 'الملف والبريد';
+  String get accountProfileEditorTitle => 'الملف والهاتف والبريد';
 
   @override
   String get accountHubProfileTitle => 'الملف والبريد';
 
   @override
-  String get accountHubProfileSubtitle => 'الاسم والصورة وعنوان البريد';
+  String get accountHubProfileSubtitle => 'الاسم والصورة والهاتف والبريد';
+
+  @override
+  String get accountProfilePhoneHint =>
+      'اختياري. يظهر في بطاقة العلامة وبطاقات المشاركة.';
+
+  @override
+  String get brandCardAddPhoneAction => 'أضف الهاتف من الملف';
 
   @override
   String get accountHubChangePasswordTitle => 'تغيير كلمة المرور';
@@ -346,7 +353,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileMenuSupport => 'الدعم / المساعدة';
 
   @override
-  String get profileAppVersion => 'Hestora CRM v1.0.0';
+  String get profileAppVersion => 'Hestora v1.0.0';
 
   @override
   String get profileAccountSheetTitle => 'الحساب';
@@ -364,7 +371,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cancel => 'إلغاء';
 
   @override
-  String get loginTitle => 'تسجيل الدخول';
+  String get loginTitle => 'تسجيل الدخول بالبريد';
 
   @override
   String get registerTitle => 'إنشاء حساب';
@@ -401,6 +408,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get authErrorGeneric => 'حدث خطأ. تحقق من البيانات وحاول مرة أخرى.';
+
+  @override
+  String get authEmailNotVerified =>
+      'يرجى تأكيد بريدك الإلكتروني قبل تسجيل الدخول. افتح الرابط في صندوق الوارد.';
+
+  @override
+  String get authLinkInvalid =>
+      'رابط تسجيل الدخول غير صالح أو منتهٍ. جرّب تسجيل الدخول من التطبيق.';
+
+  @override
+  String get postVerifySessionMissing =>
+      'تعذر استعادة الجلسة من هذا الرابط. افتح التطبيق وسجّل الدخول يدويًا.';
 
   @override
   String get validationRequired => 'هذا الحقل مطلوب';
@@ -679,7 +698,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loginWelcomeTitle => 'مرحبًا بعودتك';
 
   @override
-  String get loginWelcomeSubtitle => 'سجّل الدخول إلى حسابك';
+  String get loginWelcomeSubtitle => 'سجّل الدخول باستخدام بريدك وكلمة المرور';
 
   @override
   String get registerHeadline => 'إنشاء حساب';
@@ -792,7 +811,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileNotificationsTitle => 'إعدادات الإشعارات';
 
   @override
-  String get profileNotificationsSubtitle => 'اختر ما تريد أن يتم إشعارك به.';
+  String get profileNotificationsSubtitle => 'خصص الإشعارات';
 
   @override
   String get profileNotifyMatches => 'اقتراحات التطابق';
@@ -814,10 +833,56 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileNotifyMarketingSubtitle => 'ميزات جديدة ونصائح (نادرًا).';
 
   @override
+  String get profileNotifyMasterTitle => 'تشغيل / إيقاف الإشعارات';
+
+  @override
+  String get profileNotifyMasterOn => 'كل الإشعارات مفعّلة';
+
+  @override
+  String get profileNotifyMasterOff => 'الإشعارات متوقفة';
+
+  @override
+  String get profileNotifyTypesSection => 'أنواع الإشعارات';
+
+  @override
+  String get profileNotifyTaskTitle => 'إشعارات المهام';
+
+  @override
+  String get profileNotifyTaskSubtitle => 'مهام جديدة وتعيينات';
+
+  @override
+  String get profileNotifyReminderTitle => 'التذكيرات';
+
+  @override
+  String get profileNotifyReminderSubtitle => 'التذكيرات عند حلول وقتها';
+
+  @override
+  String get profileNotifyCustomerTitle => 'نشاط العملاء';
+
+  @override
+  String get profileNotifyCustomerSubtitle => 'عملاء جدد وتحديثات';
+
+  @override
+  String get profileNotifySystemTitle => 'إشعارات النظام';
+
+  @override
+  String get profileNotifySystemSubtitle => 'تحديثات التطبيق';
+
+  @override
+  String get profileNotifyCampaignTitle => 'الحملات والإعلانات';
+
+  @override
+  String get profileNotifyCampaignSubtitle => 'عروض خاصة وأخبار';
+
+  @override
+  String get profileNotifyDeviceNote =>
+      'تعتمد إعدادات الإشعارات على أذونات الجهاز. يمكنك إدارتها أيضًا من إعدادات النظام.';
+
+  @override
   String get profileAnalyticsTitle => 'التحليلات والتقارير';
 
   @override
-  String get profileAnalyticsSubtitle => 'مقاييس ملخصة — تقارير مفصلة قريبًا.';
+  String get profileAnalyticsSubtitle => 'ملخص الأداء';
 
   @override
   String get profileAnalyticsCustomers => 'العملاء';
@@ -832,10 +897,129 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileAnalyticsShareClicks => 'نقرات رابط التتبع';
 
   @override
-  String get profileSupportTitle => 'الدعم والمساعدة';
+  String get profileAnalyticsPeriodWeek => 'أسبوعي';
 
   @override
-  String get profileSupportSubtitle => 'التواصل والأسئلة الشائعة.';
+  String get profileAnalyticsPeriodMonth => 'شهري';
+
+  @override
+  String get profileAnalyticsPeriodYear => 'سنوي';
+
+  @override
+  String get profileAnalyticsActiveListings => 'إعلانات نشطة';
+
+  @override
+  String get profileAnalyticsCompleted => 'مكتمل';
+
+  @override
+  String get profileAnalyticsRevenue => 'الإيرادات';
+
+  @override
+  String get profileAnalyticsActivityChart => 'مخطط النشاط';
+
+  @override
+  String get profileAnalyticsPerfSummary => 'ملخص الأداء';
+
+  @override
+  String get profileAnalyticsConversion => 'معدل التحويل';
+
+  @override
+  String get profileAnalyticsAvgClose => 'متوسط وقت الإغلاق';
+
+  @override
+  String get profileAnalyticsMostActive => 'أكثر إجراء نشاطًا';
+
+  @override
+  String get profileAnalyticsMostActiveListingShare => 'مشاركة إعلان';
+
+  @override
+  String get profileAnalyticsMostActiveSalesClose => 'إغلاق بيع';
+
+  @override
+  String get profileAnalyticsExportReport => 'تصدير التقرير';
+
+  @override
+  String get profileAnalyticsExportSoon => 'التصدير قريبًا.';
+
+  @override
+  String profileAnalyticsDays(int count) {
+    return '$count يومًا';
+  }
+
+  @override
+  String get profileSupportTitle => 'الدعم / المساعدة';
+
+  @override
+  String get profileSupportSubtitle => 'كيف يمكننا المساعدة؟';
+
+  @override
+  String get supportTileKvkkTitle => 'KVKK والخصوصية';
+
+  @override
+  String get supportTileKvkkSubtitle => 'سياسة حماية البيانات';
+
+  @override
+  String get supportTileFaqTitle => 'الأسئلة الشائعة';
+
+  @override
+  String get supportTileFaqSubtitle => 'أسئلة يتكرر طرحها';
+
+  @override
+  String get supportTileContactTitle => 'تواصل معنا';
+
+  @override
+  String get supportTileContactSubtitle => 'خط دعم على مدار الساعة';
+
+  @override
+  String get supportRightsFooter => 'Hestora v1.0.0 • جميع الحقوق محفوظة';
+
+  @override
+  String get contactUsTitle => 'تواصل معنا';
+
+  @override
+  String get contactUsSubtitle => 'خط دعم على مدار الساعة';
+
+  @override
+  String get contactChannelsTitle => 'قنوات التواصل';
+
+  @override
+  String get contactEmailSupport => 'دعم البريد';
+
+  @override
+  String get contactWhatsapp => 'واتساب';
+
+  @override
+  String get contactPhone => 'الهاتف';
+
+  @override
+  String get contactSupportEmailValue => 'destek@hestora.com';
+
+  @override
+  String get contactSupportPhoneValue => '+90 850 123 45 67';
+
+  @override
+  String get contactHoursTitle => 'ساعات العمل';
+
+  @override
+  String get contactHoursSubtitle => 'فريق الدعم متاح خلال الأوقات التالية';
+
+  @override
+  String get contactHoursWeekday => 'الاثنين – الجمعة';
+
+  @override
+  String get contactHoursWeekdayValue => '09:00 – 18:00';
+
+  @override
+  String get contactHoursSaturday => 'السبت';
+
+  @override
+  String get contactHoursSaturdayValue => '10:00 – 15:00';
+
+  @override
+  String get contactHoursSunday => 'الأحد';
+
+  @override
+  String get contactHoursClosed => 'مغلق';
 
   @override
   String get profileSupportFaqHeading => 'الأسئلة الشائعة';
@@ -977,7 +1161,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get customerMessage => 'رسالة';
 
   @override
-  String get localeRegionTitle => 'اللغة والمنطقة';
+  String get localeRegionTitle => 'إعدادات اللغة والمنطقة';
+
+  @override
+  String get localeRegionScreenSubtitle => 'حدد تفضيلاتك';
 
   @override
   String get localeRegionSavedTitle => 'تم الحفظ';
@@ -1000,7 +1187,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String get currencyTry => 'TRY — ليرة تركية';
 
   @override
+  String get currencyOptionUsd => 'USD — الدولار الأمريكي';
+
+  @override
+  String get currencyOptionAed => 'AED — درهم إماراتي';
+
+  @override
+  String get currencyOptionEur => 'EUR — يورو';
+
+  @override
+  String get currencyOptionGbp => 'GBP — جنيه إسترليني';
+
+  @override
   String get regionTurkey => 'تركيا';
+
+  @override
+  String get regionCountryAE => 'الإمارات العربية المتحدة';
+
+  @override
+  String get regionCountryUS => 'الولايات المتحدة';
+
+  @override
+  String get regionCountryGB => 'المملكة المتحدة';
+
+  @override
+  String get regionCountryDE => 'ألمانيا';
 
   @override
   String get regionSettingHint => 'إعداد المنطقة';
@@ -1263,4 +1474,485 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get listingImportContinueManual => 'متابعة يدوية';
+
+  @override
+  String get initialSetupTitle => 'اختر اللغة والمنطقة';
+
+  @override
+  String get initialSetupSubtitle =>
+      'يمكنك تغيير ذلك لاحقًا من إعدادات الملف الشخصي.';
+
+  @override
+  String get initialSetupContinue => 'متابعة';
+
+  @override
+  String get postVerifyTitle => 'تم التحقق من البريد';
+
+  @override
+  String get postVerifyHeadline => 'حسابك جاهز';
+
+  @override
+  String get postVerifyBody =>
+      'بعد تفعيل الفوترة ستكمل اختيار الخطة. يمكنك الآن متابعة التطبيق.';
+
+  @override
+  String get postVerifyContinue => 'متابعة إلى التطبيق';
+
+  @override
+  String get propertyCreateMethodTitle => 'إضافة إعلان';
+
+  @override
+  String get propertyCreateOptionManual => 'يدوي';
+
+  @override
+  String get propertyCreateOptionManualBody =>
+      'أدخل تفاصيل الإعلان في النموذج.';
+
+  @override
+  String get propertyCreateOptionLink => 'برابط';
+
+  @override
+  String get propertyCreateOptionLinkBody =>
+      'الصق رابط إعلان عام لملء الحقول مسبقًا.';
+
+  @override
+  String get dashboardTasksToday => 'للتنفيذ (مهام مفتوحة)';
+
+  @override
+  String get dashboardTasksCompleted => 'مكتملة مؤخرًا';
+
+  @override
+  String get dashboardTasksEmptyOpen =>
+      'لا توجد مهام مفتوحة بعد. أضف مهمة من المهام أو قائمة +.';
+
+  @override
+  String get dashboardTasksEmptyDone => 'ستظهر المهام المكتملة هنا.';
+
+  @override
+  String get dashboardViewAllTasks => 'عرض كل المهام';
+
+  @override
+  String get authKvkkRequired => 'يرجى قبول الإفصاح للمتابعة.';
+
+  @override
+  String get shareCardExportNotReady =>
+      'المعاينة ما زالت تُحمّل. حاول مرة أخرى بعد لحظة.';
+
+  @override
+  String get shareCardExportFailed => 'تعذر تصدير الصورة. حاول مرة أخرى.';
+
+  @override
+  String get customerRoleBuyer => 'مشتري';
+
+  @override
+  String get customerRoleTenant => 'مستأجر';
+
+  @override
+  String get customerRoleSeller => 'بائع';
+
+  @override
+  String get customerRoleLandlord => 'مالك';
+
+  @override
+  String get taskSheetPickCustomerTitle => 'اختر عميلاً';
+
+  @override
+  String get taskSheetPickCustomerSubtitle => 'اربط التذكير بعميل';
+
+  @override
+  String get taskSheetPickPropertyTitle => 'اختر عقارًا';
+
+  @override
+  String get taskSheetPickPropertySubtitle => 'اربط التذكير بعقار';
+
+  @override
+  String get taskRemindTitle => 'إضافة تذكير';
+
+  @override
+  String get taskRemindSubtitle => 'إنشاء مهمة جديدة';
+
+  @override
+  String taskTodayCount(int count) {
+    return 'اليوم: $count مهام';
+  }
+
+  @override
+  String get taskBadgeRequired => 'مطلوب';
+
+  @override
+  String get taskBadgeOptional => 'اختياري';
+
+  @override
+  String get taskNotifySectionTitle => 'إشعار';
+
+  @override
+  String get taskNotifyOnTitle => 'الإشعارات مفعّلة';
+
+  @override
+  String get taskNotifyOnSubtitle => 'ذكّر عند الموعد';
+
+  @override
+  String get taskLinkSectionTitle => 'ربط';
+
+  @override
+  String get taskLinkCustomerRow => 'ربط بعميل';
+
+  @override
+  String get taskLinkPropertyRow => 'ربط بعقار';
+
+  @override
+  String get taskPickCustomerHint => 'اختر عميلاً';
+
+  @override
+  String get taskPickPropertyHint => 'اختر عقارًا';
+
+  @override
+  String get taskDateShort => 'التاريخ';
+
+  @override
+  String get taskTimeShort => 'الوقت';
+
+  @override
+  String get provincePickTitle => 'اختر المحافظة';
+
+  @override
+  String get listingLayoutPickTitle => 'اختر نوع الإعلان';
+
+  @override
+  String get propertyFormQuickPickSection => 'المحافظة ونوع الإعلان';
+
+  @override
+  String get propertyFormPickEmpty => 'اختر';
+
+  @override
+  String get propertyFormLinkSection => 'رابط الإعلان';
+
+  @override
+  String get propertyFormApplyPreview => 'تطبيق على النموذج';
+
+  @override
+  String get propertyFormApplyDone => 'تم تحديث العنوان والوصف.';
+
+  @override
+  String get accountInfoTitle => 'معلومات الحساب';
+
+  @override
+  String get accountInfoSubtitle => 'إدارة الملف وبطاقة العلامة';
+
+  @override
+  String get accountTabPersonal => 'البيانات الشخصية';
+
+  @override
+  String get accountTabBrand => 'بطاقة العلامة';
+
+  @override
+  String get brandCardPreview => 'معاينة البطاقة';
+
+  @override
+  String get brandPickTemplate => 'اختر القالب';
+
+  @override
+  String get brandSloganLabel => 'الشعار / الجملة';
+
+  @override
+  String get brandWebsiteLabel => 'الموقع';
+
+  @override
+  String get signOutSheetTitle => 'تسجيل الخروج؟';
+
+  @override
+  String get signOutSheetBody => 'يمكنك تسجيل الدخول لاحقًا.';
+
+  @override
+  String get deleteAccountTitle => 'حذف الحساب';
+
+  @override
+  String get deleteAccountDanger => 'منطقة خطرة';
+
+  @override
+  String get deleteAccountQuestion => 'هل أنت متأكد أنك تريد حذف حسابك؟';
+
+  @override
+  String get deleteAccountWarning =>
+      'لا يمكن التراجع. ستُحذف بيانات العملاء والعقارات والتذكيرات.';
+
+  @override
+  String get deleteAccountCta => 'أريد حذف حسابي';
+
+  @override
+  String get kvkkTitle => 'الخصوصية وKVKK';
+
+  @override
+  String get kvkkSubtitle => 'كيف يمكننا المساعدة؟';
+
+  @override
+  String get kvkkSafeTitle => 'بياناتك آمنة';
+
+  @override
+  String get kvkkSafeBody => 'تلتزم Hestora بحماية بياناتك الشخصية.';
+
+  @override
+  String get faqTitle => 'الأسئلة الشائعة';
+
+  @override
+  String get faqSubtitle => 'أسئلة متكررة';
+
+  @override
+  String get packagePickTitle => 'اختيار الباقة';
+
+  @override
+  String get packagePickSubtitle => 'اختر الخطة المناسبة';
+
+  @override
+  String get packageHeadline => 'الترقية إلى Premium';
+
+  @override
+  String get packageSubline => 'يمكنك الإلغاء في أي وقت';
+
+  @override
+  String get paymentSummaryTitle => 'ملخص الدفع';
+
+  @override
+  String get paymentSummarySubtitle => 'دفع آمن';
+
+  @override
+  String get profileCreateTitle => 'إنشاء ملف';
+
+  @override
+  String get profileCreateSubtitle => 'الخطوة الأخيرة';
+
+  @override
+  String get profileCreateHeadline => 'أكمل ملفك';
+
+  @override
+  String get profileCreateSubline => 'ابدأ بإدخال بياناتك';
+
+  @override
+  String get profileCreateCompleteCta => 'إكمال والبدء';
+
+  @override
+  String get profileCreateComingSoon =>
+      'سيتم جمع بيانات المكتب والصور لاحقًا. يمكنك المتابعة الآن.';
+
+  @override
+  String get kvkkSection1Title => '1. المتحكم بالبيانات';
+
+  @override
+  String get kvkkSection1Body => 'Hestora تعالج بياناتك لتقديم الخدمة.';
+
+  @override
+  String get kvkkSection2Title => '2. البيانات المعالجة';
+
+  @override
+  String get kvkkSection2Body => 'هوية، تواصل، استخدام ومحتوى تضيفه.';
+
+  @override
+  String get kvkkSection3Title => '3. الأغراض';
+
+  @override
+  String get kvkkSection3Body => 'إدارة الحساب، الأمان، التحليلات والدعم.';
+
+  @override
+  String get kvkkSection4Title => '4. الأمان';
+
+  @override
+  String get kvkkSection4Body => 'تدابير تقنية وتنظيمية لحماية بياناتك.';
+
+  @override
+  String get kvkkSection5Title => '5. حقوقك';
+
+  @override
+  String get kvkkSection5Body => 'الوصول، التصحيح، المحو والنقل حيثما ينطبق.';
+
+  @override
+  String get kvkkSection6Title => '6. ملفات تعريف الارتباط';
+
+  @override
+  String get kvkkSection6Body => 'أساسية للمصادقة؛ تحليلات اختيارية.';
+
+  @override
+  String get kvkkFooterContact => 'للأسئلة: support@hestora.com';
+
+  @override
+  String get faqQ1 => 'كيف أصدّر بياناتي؟';
+
+  @override
+  String get faqA1 => 'الملف > الحساب > تصدير (قريبًا).';
+
+  @override
+  String get faqQ2 => 'كيف أغيّر الباقة؟';
+
+  @override
+  String get faqA2 => 'من الفوترة عند التفعيل.';
+
+  @override
+  String get faqQ3 => 'نسيت كلمة المرور';
+
+  @override
+  String get faqA3 => 'استخدم نسيت كلمة المرور من تسجيل الدخول.';
+
+  @override
+  String get faqQ4 => 'كيف يعمل التطابق؟';
+
+  @override
+  String get faqA4 => 'حسب تفضيلات العميل وبيانات الإعلان.';
+
+  @override
+  String get faqQ5 => 'كيف أحذف حسابي؟';
+
+  @override
+  String get faqA5 => 'الملف > حذف الحساب.';
+
+  @override
+  String get faqQ6 => 'لماذا لا تصل الإشعارات؟';
+
+  @override
+  String get faqA6 => 'تحقق من إعدادات الجهاز والتطبيق.';
+
+  @override
+  String get deleteAccountListTitle => 'سيتم حذف:';
+
+  @override
+  String get deleteAccountList1 => 'جميع العملاء';
+
+  @override
+  String get deleteAccountList2 => 'جميع الإعلانات';
+
+  @override
+  String get deleteAccountList3 => 'التذكيرات والمهام';
+
+  @override
+  String get deleteAccountList4 => 'الملف وبطاقة العلامة';
+
+  @override
+  String get deleteAccountList5 => 'سجل الاشتراك';
+
+  @override
+  String get deleteAccountComingSoon => 'حذف الحساب غير متصل بعد.';
+
+  @override
+  String get packageTrialBadge => 'مجانًا';
+
+  @override
+  String get packageTrialTitle => 'تجربة أسبوع';
+
+  @override
+  String get packageTrialPrice => '₺0 / شهريًا';
+
+  @override
+  String get packageTrialDesc => 'جرّب كل الميزات';
+
+  @override
+  String get packageMonthlyTitle => 'شهري';
+
+  @override
+  String get packageMonthlyPrice => '₺299 / شهريًا';
+
+  @override
+  String get packageMonthlyDesc => 'فوترة شهرية مرنة';
+
+  @override
+  String get packageYearlyBadge => 'الأفضل';
+
+  @override
+  String get packageYearlyTitle => 'سنوي';
+
+  @override
+  String get packageYearlyPrice => '₺199 / شهريًا';
+
+  @override
+  String get packageYearlyDesc => 'وفر 33٪ سنويًا';
+
+  @override
+  String get packageCta => 'متابعة';
+
+  @override
+  String get paymentPlanName => 'خطة سنوية';
+
+  @override
+  String get paymentPlanSub => 'Hestora Premium';
+
+  @override
+  String get paymentBestValue => 'الأفضل';
+
+  @override
+  String get paymentLineYear => 'اشتراك سنوي';
+
+  @override
+  String get paymentLineYearValue => '₺2,388';
+
+  @override
+  String get paymentLineDiscount => 'خصم (33٪)';
+
+  @override
+  String get paymentLineDiscountValue => '-₺788';
+
+  @override
+  String get paymentTotal => 'الإجمالي';
+
+  @override
+  String get paymentTotalValue => '₺1,600';
+
+  @override
+  String get paymentVatNote => 'شامل الضريبة • فوترة سنوية';
+
+  @override
+  String get paymentIncludedTitle => 'يشمل';
+
+  @override
+  String get paymentFeat1 => 'عملاء غير محدودين';
+
+  @override
+  String get paymentFeat2 => 'إعلانات غير محدودة';
+
+  @override
+  String get paymentFeat3 => 'استخراج بالذكاء الاصطناعي';
+
+  @override
+  String get paymentFeat4 => 'تذكيرات ذكية';
+
+  @override
+  String get paymentFeat5 => 'تحليلات متقدمة';
+
+  @override
+  String get paymentFeat6 => 'دعم أولوية';
+
+  @override
+  String get paymentGuarantee => 'ضمان استرداد 30 يومًا عند تفعيل الفوترة.';
+
+  @override
+  String get paymentProcessingCta => 'متابعة إلى التطبيق';
+
+  @override
+  String get brandTemplateDarkBlue => 'أزرق داكن';
+
+  @override
+  String get brandTemplateNight => 'ليلي';
+
+  @override
+  String get brandTemplateEmerald => 'زمردي';
+
+  @override
+  String get brandTemplateGold => 'ذهبي';
+
+  @override
+  String get brandPreviewName => 'أحمد يلماز';
+
+  @override
+  String get brandPreviewRole => 'مستشار عقاري';
+
+  @override
+  String get brandPreviewSloganPlaceholder => 'مستشارك الموثوق';
+
+  @override
+  String get brandShare => 'مشاركة';
+
+  @override
+  String get brandShareSoon => 'مشاركة بطاقة العلامة قريبًا.';
+
+  @override
+  String get brandCardWatermark => 'HESTORA CRM';
+
+  @override
+  String get brandCardQr => 'رمز QR';
 }

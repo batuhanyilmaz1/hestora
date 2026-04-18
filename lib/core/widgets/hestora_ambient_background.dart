@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../theme/home_shell_theme.dart';
+import '../theme/app_colors.dart';
 
-/// Reference Emlaklar mockup: deep black base + soft blue radial glows.
+/// El kitapçığı: koyu zemin + üst sol / üst sağ / alt ambient mavi parlamalar.
 class HestoraAmbientBackground extends StatelessWidget {
   const HestoraAmbientBackground({super.key});
 
@@ -11,31 +11,15 @@ class HestoraAmbientBackground extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        const ColoredBox(color: HomeShellTheme.scaffold),
+        const ColoredBox(color: AppColors.background),
         Positioned.fill(
           child: DecoratedBox(
             decoration: BoxDecoration(
               gradient: RadialGradient(
-                center: const Alignment(0, 0.82),
-                radius: 1.05,
+                center: const Alignment(-0.85, -0.9),
+                radius: 1.0,
                 colors: [
-                  HomeShellTheme.primaryBlue.withValues(alpha: 0.26),
-                  HomeShellTheme.primaryBlueGlow.withValues(alpha: 0.08),
-                  Colors.transparent,
-                ],
-                stops: const [0.0, 0.45, 1.0],
-              ),
-            ),
-          ),
-        ),
-        Positioned.fill(
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: RadialGradient(
-                center: const Alignment(0, -0.28),
-                radius: 0.95,
-                colors: [
-                  HomeShellTheme.borderBlue.withValues(alpha: 0.14),
+                  AppColors.brandPrimary.withValues(alpha: 0.22),
                   Colors.transparent,
                 ],
                 stops: const [0.0, 1.0],
@@ -47,12 +31,29 @@ class HestoraAmbientBackground extends StatelessWidget {
           child: DecoratedBox(
             decoration: BoxDecoration(
               gradient: RadialGradient(
-                center: const Alignment(0.85, 0.35),
-                radius: 0.75,
+                center: const Alignment(0.9, -0.75),
+                radius: 0.95,
                 colors: [
-                  HomeShellTheme.primaryBlue.withValues(alpha: 0.06),
+                  AppColors.brandLight.withValues(alpha: 0.12),
                   Colors.transparent,
                 ],
+                stops: const [0.0, 1.0],
+              ),
+            ),
+          ),
+        ),
+        Positioned.fill(
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                center: const Alignment(0, 0.82),
+                radius: 1.05,
+                colors: [
+                  AppColors.brandPrimary.withValues(alpha: 0.2),
+                  AppColors.brandLight.withValues(alpha: 0.06),
+                  Colors.transparent,
+                ],
+                stops: const [0.0, 0.42, 1.0],
               ),
             ),
           ),

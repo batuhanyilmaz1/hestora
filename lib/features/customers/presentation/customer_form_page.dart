@@ -198,6 +198,14 @@ class _CustomerFormPageState extends ConsumerState<CustomerFormPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(isEdit ? l10n.editCustomerTitle : l10n.createCustomerTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            }
+          },
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.lg),

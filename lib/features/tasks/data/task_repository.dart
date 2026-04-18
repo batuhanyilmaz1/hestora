@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../app/providers/app_environment_provider.dart';
+import '../../../app/providers/auth_session_provider.dart';
 import '../../../core/config/supabase_bootstrap.dart';
 import '../domain/hestora_task.dart';
 
@@ -196,11 +197,13 @@ final taskRepositoryProvider = Provider<TaskRepository>((ref) {
 });
 
 final tasksListProvider = FutureProvider<List<HestoraTask>>((ref) async {
+  ref.watch(currentAuthUserIdProvider);
   final repo = ref.watch(taskRepositoryProvider);
   return repo.list();
 });
 
 final taskDetailProvider = FutureProvider.family<HestoraTask?, String>((ref, id) async {
+  ref.watch(currentAuthUserIdProvider);
   final repo = ref.watch(taskRepositoryProvider);
   return repo.getById(id);
 });

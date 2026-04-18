@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_radii.dart';
 import 'auth_ui_constants.dart';
 
-/// Üst etiket (küçük caps) + koyu iç gömme alan — mockup referansı.
+/// Üst etiket (küçük caps) + input alanı (el kitapçığı).
 class AuthCapsField extends StatelessWidget {
   const AuthCapsField({
     super.key,
@@ -32,6 +34,7 @@ class AuthCapsField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final r = BorderRadius.circular(AppRadii.input);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -52,30 +55,34 @@ class AuthCapsField extends StatelessWidget {
           autofillHints: autofillHints,
           validator: validator,
           inputFormatters: inputFormatters,
-          style: const TextStyle(color: Color(0xFFE2E8F0), fontSize: 15),
+          style: const TextStyle(color: AppColors.textPrimary, fontSize: 15, fontWeight: FontWeight.w500),
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.35)),
+            hintStyle: TextStyle(color: AppColors.textPrimary.withValues(alpha: 0.35)),
             filled: true,
             fillColor: AuthUi.inputFill,
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: r,
               borderSide: const BorderSide(color: AuthUi.inputBorder),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: r,
               borderSide: const BorderSide(color: AuthUi.inputBorder),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Color(0xFF3B82F6), width: 1.2),
+              borderRadius: r,
+              borderSide: const BorderSide(color: AppColors.borderFocus, width: 1.5),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Color(0xFFEF4444)),
+              borderRadius: r,
+              borderSide: const BorderSide(color: AppColors.error),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: r,
+              borderSide: const BorderSide(color: AppColors.error, width: 1.5),
             ),
           ),
         ),

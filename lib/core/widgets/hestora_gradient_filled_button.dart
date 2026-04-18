@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../theme/home_shell_theme.dart';
+import '../theme/app_colors.dart';
 
-/// Shiny blue primary CTA (reference handoff).
+/// Birincil CTA — dikey marka gradyanı (el kitapçığı PRIMARY buton).
 class HestoraGradientFilledButton extends StatelessWidget {
   const HestoraGradientFilledButton({
     super.key,
@@ -10,7 +10,7 @@ class HestoraGradientFilledButton extends StatelessWidget {
     required this.label,
     this.icon,
     this.padding = const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-    this.borderRadius = 16,
+    this.borderRadius = 22,
     this.expandWidth = true,
   });
 
@@ -22,13 +22,12 @@ class HestoraGradientFilledButton extends StatelessWidget {
   final bool expandWidth;
 
   static const List<Color> _gradientColors = [
-    Color(0xFF60A5FA),
-    Color(0xFF2563EB),
-    Color(0xFF1D4ED8),
-    Color(0xFF172554),
+    AppColors.brandLight,
+    AppColors.brandPrimary,
+    AppColors.brandDim,
   ];
 
-  static const List<double> _stops = [0.0, 0.28, 0.58, 1.0];
+  static const List<double> _stops = [0.0, 0.45, 1.0];
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +78,7 @@ class HestoraGradientFilledButton extends StatelessWidget {
     final gradientBox = DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.12), width: 1),
         gradient: const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -87,14 +87,14 @@ class HestoraGradientFilledButton extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: HomeShellTheme.primaryBlueGlow.withValues(alpha: 0.55),
-            blurRadius: 20,
+            color: AppColors.brandGlow.withValues(alpha: 0.9),
+            blurRadius: 22,
             spreadRadius: 0,
             offset: const Offset(0, 8),
           ),
           BoxShadow(
-            color: HomeShellTheme.primaryBlue.withValues(alpha: 0.35),
-            blurRadius: 8,
+            color: AppColors.brandPrimary.withValues(alpha: 0.35),
+            blurRadius: 10,
             offset: const Offset(0, 2),
           ),
         ],
@@ -103,7 +103,7 @@ class HestoraGradientFilledButton extends StatelessWidget {
     );
 
     final wrapped = Opacity(
-      opacity: enabled ? 1 : 0.5,
+      opacity: enabled ? 1 : 0.45,
       child: gradientBox,
     );
 

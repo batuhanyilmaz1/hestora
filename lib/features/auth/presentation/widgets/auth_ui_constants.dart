@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 
-/// Auth flow (giriş / kayıt) — referans mockup renkleri.
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_radii.dart';
+
+/// Auth akışı — [AppColors] el kitapçığı ile hizalı.
 abstract final class AuthUi {
-  static const Color scaffold = Color(0xFF050A18);
-  static const Color labelCaps = Color(0xFF7DD3FC);
-  static const Color subline = Color(0xFF93C5FD);
-  static const Color inputFill = Color(0xFF0F172A);
-  static const Color inputBorder = Color(0xFF1E3A5F);
-  static const Color cardTint = Color(0xFF0B1224);
+  static const Color scaffold = AppColors.background;
+  static const Color labelCaps = AppColors.textSecondary;
+  static const Color subline = AppColors.brandLight;
+  static const Color inputFill = AppColors.inputFill;
+  static const Color inputBorder = AppColors.border;
+  static const Color cardTint = AppColors.bgSurface;
 
   static const LinearGradient primaryButtonGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [
-      Color(0xFF2563EB),
-      Color(0xFF1D4ED8),
-      Color(0xFF1E3A8A),
+      AppColors.brandLight,
+      AppColors.brandPrimary,
+      AppColors.brandDim,
     ],
   );
 
   static BoxDecoration scaffoldDecoration() {
-    return const BoxDecoration(
+    return BoxDecoration(
       gradient: RadialGradient(
-        center: Alignment(0.0, -0.45),
+        center: const Alignment(0.0, -0.45),
         radius: 1.15,
         colors: [
-          Color(0xFF0F172A),
+          AppColors.bgSurface,
           scaffold,
         ],
       ),
@@ -34,13 +37,13 @@ abstract final class AuthUi {
 
   static BoxDecoration formCardDecoration() {
     return BoxDecoration(
-      borderRadius: BorderRadius.circular(20),
-      color: cardTint.withValues(alpha: 0.92),
-      border: Border.all(color: Colors.white.withValues(alpha: 0.07)),
+      borderRadius: BorderRadius.circular(AppRadii.xl),
+      color: cardTint.withValues(alpha: 0.94),
+      border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
       boxShadow: [
         BoxShadow(
-          color: const Color(0xFF2563EB).withValues(alpha: 0.12),
-          blurRadius: 32,
+          color: AppColors.brandGlow.withValues(alpha: 0.5),
+          blurRadius: 28,
           offset: const Offset(0, 12),
         ),
       ],

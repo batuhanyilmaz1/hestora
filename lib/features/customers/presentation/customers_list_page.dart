@@ -362,7 +362,7 @@ class _CustomersListPageState extends ConsumerState<CustomersListPage> {
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(AppRadii.md),
+                              borderRadius: BorderRadius.circular(AppRadii.sm),
                               border: Border.all(color: HomeShellTheme.borderBlue.withValues(alpha: 0.65)),
                               boxShadow: [
                                 BoxShadow(
@@ -444,7 +444,7 @@ class _CustomersListPageState extends ConsumerState<CustomersListPage> {
                                 : null;
                     return Material(
                       color: AppColors.surfaceElevated,
-                      borderRadius: BorderRadius.circular(AppRadii.md),
+                      borderRadius: BorderRadius.circular(AppRadii.sm),
                       child: ListTile(
                         title: Text(c.name),
                         subtitle: subtitle,

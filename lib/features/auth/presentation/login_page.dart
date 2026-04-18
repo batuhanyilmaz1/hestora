@@ -7,6 +7,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../app/providers/app_environment_provider.dart';
 import '../../../app/providers/invalidate_user_scoped_caches.dart';
 import '../../../core/config/supabase_bootstrap.dart';
+import '../../../core/onboarding/initial_setup_prefs.dart';
+import '../../../core/onboarding/post_login_flow_prefs.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import 'widgets/auth_caps_field.dart';
 import 'widgets/auth_form_card.dart';
@@ -60,12 +62,22 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       if (!mounted) {
         return;
       }
-      context.go('/home');
+      await _goAfterSuccessfulLogin();
     } on AuthException catch (e) {
       if (!mounted) {
         return;
       }
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message)));
+      final msg = e.message.toLowerCase();
+      final l10n = AppLocalizations.of(context)!;
+      if (msg.contains('email not confirmed') ||
+          msg.contains('not confirmed') ||
+          msg.contains('email_not_confirmed')) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.authEmailNotVerified)),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message)));
+      }
     } catch (_) {
       if (!mounted) {
         return;
@@ -80,6 +92,35 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     }
   }
 
+  Future<void> _goAfterSuccessfulLogin() async {
+    if (!mounted) {
+      return;
+    }
+    if (await PostLoginFlowPrefs.isSetupRequired()) {
+      if (!await PostLoginFlowPrefs.isRegionalDone()) {
+        if (mounted) {
+          context.go('/post-login/locale');
+        }
+        return;
+      }
+      if (!await PostLoginFlowPrefs.isBillingDone()) {
+        if (mounted) {
+          context.go('/billing/packages');
+        }
+        return;
+      }
+    }
+    if (!await InitialSetupPrefs.isComplete()) {
+      if (mounted) {
+        context.go('/setup/locale');
+      }
+      return;
+    }
+    if (mounted) {
+      context.go('/home');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -87,6 +128,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     return AuthPageShell(
       appBarTitle: l10n.loginTitle,
       showBack: context.canPop(),
+      brandHeader: Center(
+        child: Image.asset(
+          'assets/logo/LOGO-1.png',
+          height: 56,
+          fit: BoxFit.contain,
+          filterQuality: FilterQuality.high,
+          gaplessPlayback: true,
+        ),
+      ),
       headline: l10n.loginWelcomeTitle,
       subline: l10n.loginWelcomeSubtitle,
       body: Form(
